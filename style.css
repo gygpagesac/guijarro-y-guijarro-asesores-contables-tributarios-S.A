@@ -2578,3 +2578,42 @@ body {
     object-fit: contain;
   }
 }
+
+@media (max-width: 768px) {
+
+  body {
+    text-align: center;
+  }
+
+  .mobile-center,
+  .container,
+  .section,
+  .card,
+  .info-card {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  /* Textos */
+  h1, h2, h3, h4, p, span {
+    text-align: center;
+  }
+
+  /* Imágenes */
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Botones */
+  button,
+  .btn,
+  a.btn {
+    margin: 10px auto;
+    display: inline-block;
+  }
+}
+
