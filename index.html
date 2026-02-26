@@ -4,32 +4,39 @@
   <meta charset="UTF-8">
   <title>G & G Asesores Tributarios</title>
 
-  <link rel="icon" href="IMAGENES/favicon.png" type="image/png">
-
-  <meta name="description" content="Asesoría contable y tributaria para personas naturales y empresas en El Coca y Lago Agrio. Atención profesional y personalizada.">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GYG Bot</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chat.css">
+  
 </head>
 
+
 <body>
+
 <!-- ===== HEADER ===== -->
 <header class="header-new">
   <div class="header-new-container">
 
     <div class="logo-new">
-      <img src="IMAGENES/logo.png" alt="Logo G&G">
-      <span>G & G ASESORES CONTABLES TRIBUTARIOS S.A</span>
+      <img src="../IMAGENES/logo.png" alt="Logo G&G">
+      <span>GUIJARRO & GUIJARRO ASESORES CONTABLES TRIBUTARIOS S.A</span>
     </div>
 
     <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
@@ -38,7 +45,7 @@
       <a href="index.html">Inicio</a>
 
       <div class="dropdown-new">
-        <a href="servicios.html" class="dropbtn-new" id="services-toggle">Servicios</a>
+        <a href="servicios.html" class="dropbtn-new">Servicios</a>
         <div class="dropdown-content-new">
           <a href="personas-naturales.html">Personas Naturales</a>
           <a href="personas-juridicas.html">Empresas</a>
@@ -47,15 +54,17 @@
           <a href="otros anexos.html">Otros Anexos</a>
         </div>
       </div>
+
       <a href="firmas-electronicas.html">Firmas Electrónicas</a>
       <a href="contacto.html">Contacto</a>
     </nav>
+
   </div>
 </header>
 
 <!-- ===== BANNER ===== -->
 <section class="banner">
-  <img src="IMAGENES/banner (peticion de la economista).jpg" alt="Banner G & G Asesores Tributarios">
+  <img src="../IMAGENES/banner.jpg" alt="Banner G & G Asesores Tributarios">
 </section>
 
 <!-- ===== INTRODUCCIÓN SERVICIOS ===== -->
@@ -422,7 +431,6 @@
   </div>
 </section>
 
-
 <section class="location-section">
   <div class="location-container">
 
@@ -449,20 +457,40 @@
     </a>
     <!-- MAPA -->
     <div class="location-map">
-
       <iframe
-        width="100%"
-        height="400"
-        style="border:0;"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
         loading="lazy"
-        allowfullscreen=""
         referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5640259090364!2d-76.8916587!3d0.0846226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20%26%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses!2sec!4v1707000000000">
+        allowfullscreen>
       </iframe>
     </div>
-
   </div>
+
+<!-- Botón flotante -->
+<button id="fab" onclick="toggleChat()" title="Chatear con GYG">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+  <div class="badge">1</div>
+</button>
+
+<!-- Ventana de chat -->
+<div id="chat-window">
+  <div class="chat-header">
+    <div class="avatar">GYG</div>
+    <div class="info">
+      <div class="name">Bot GYG</div>
+      <div class="status">🟢 En línea</div>
+    </div>
+    <button class="close-btn" onclick="toggleChat()" title="Cerrar">
+      <svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <div class="chat-body" id="chat-body"></div>
+</div>
 </section>
+
+
 
 <footer class="footer">
   <div class="footer-container">
@@ -502,10 +530,12 @@
   </div>
 </footer>
 <!-- JS -->
+ <script src="bot.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
+
+
 
 
 
