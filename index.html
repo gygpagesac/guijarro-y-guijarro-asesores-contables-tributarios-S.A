@@ -2,29 +2,20 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>G & G Asesores Tributarios</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G & G Asesores Tributarios</title>
 
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chat.css">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GYG Bot</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="chat.css">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 
@@ -35,7 +26,7 @@
   <div class="header-new-container">
 
     <div class="logo-new">
-      <img src="../IMAGENES/logo.png" alt="Logo G&G">
+      <img src="IMAGENES/logo.png" alt="Logo G&G">
       <span>GUIJARRO & GUIJARRO ASESORES CONTABLES TRIBUTARIOS S.A</span>
     </div>
 
@@ -50,8 +41,8 @@
           <a href="personas-naturales.html">Personas Naturales</a>
           <a href="personas-juridicas.html">Empresas</a>
           <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
-          <a href="anexos tributarios.html">Anexos</a>
-          <a href="otros anexos.html">Otros Anexos</a>
+          <a href="anexos-tributarios.html">Anexos</a>
+          <a href="otros-anexos.html">Otros Anexos</a>
         </div>
       </div>
 
@@ -64,7 +55,7 @@
 
 <!-- ===== BANNER ===== -->
 <section class="banner">
-  <img src="../IMAGENES/banner.jpg" alt="Banner G & G Asesores Tributarios">
+  <img src="IMAGENES/banner.jpg" alt="Banner G & G Asesores Tributarios">
 </section>
 
 <!-- ===== INTRODUCCIÓN SERVICIOS ===== -->
@@ -123,29 +114,31 @@
 
   <div class="container">
 
+    <div class="card">
+      <div class="image-wrapper">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <h3>Personas Naturales</h3>
+      <p>
+        Elaboramos y presentamos tus declaraciones de impuesto a la renta,
+        IVA y obligaciones tributarias de forma clara y segura.
+      </p>
+      <a href="personas-naturales.html" class="btn">Conoce más</a>
+    </div>
 
     <div class="card">
-  <div class="image-wrapper">
-    <i class="fa-solid fa-user"></i>
+      <div class="image-wrapper">
+        <i class="fa-solid fa-building"></i>
+      </div>
+      <h3>Personas Jurídicas</h3>
+      <p>
+        Asesoría integral en declaraciones tributarias empresariales,
+        garantizando cumplimiento fiscal y orden contable.
+      </p>
+      <a href="empresas.html" class="btn">Conoce más</a>
+    </div>
+
   </div>
-  <h3>Personas Naturales</h3>
-  <p>
-    Elaboramos y presentamos tus declaraciones de impuesto a la renta,
-    IVA y obligaciones tributarias de forma clara y segura.
-  </p>
-  <a href="personas-naturales.html" class="btn">Conoce más</a>
-</div>
-<div class="card">
-  <div class="image-wrapper">
-    <i class="fa-solid fa-building"></i>
-  </div>
-  <h3>Personas Jurídicas</h3>
-  <p>
-    Asesoría integral en declaraciones tributarias empresariales,
-    garantizando cumplimiento fiscal y orden contable.
-  </p>
-  <a href="empresas.html" class="btn">Conoce más</a>
-</div>
 </section>
 
 <!-- SECCIÓN SERVICIOS LABORALES Y ASESORÍA LEGAL -->
@@ -367,7 +360,7 @@
 
     <p>
       ¿Necesitas orientación contable, tributaria o laboral y no sabes por dónde empezar?
-      En <strong>Guijarro & Guijarro Asesores Tributarios</strong>  te escuchamos, analizamos tu situación y te guiamos paso a paso.
+      En <strong>Guijarro & Guijarro Asesores Tributarios</strong> te escuchamos, analizamos tu situación y te guiamos paso a paso.
       Agenda una visita y recibe una asesoría clara, personalizada y adaptada a tus necesidades.
     </p>
 
@@ -438,7 +431,7 @@
     <div class="location-info">
       <h2>Nuestra Ubicación</h2>
       <p>
-        Estamos ubicados en <strong>Calle Eloy Alfaro S/N y Progreso</strong> , en Lago Agrio, un punto de
+        Estamos ubicados en <strong>Calle Eloy Alfaro S/N y Progreso</strong>, en Lago Agrio, un punto de
         fácil acceso para quienes buscan asesoría contable y tributaria confiable.
         Visítanos para recibir atención personalizada, resolver tus dudas y obtener el
         apoyo profesional que tu gestión necesita. <strong>¡Estaremos encantados de ayudarte!</strong>
@@ -450,11 +443,7 @@
         Ver ubicación en Google Maps
       </a>
     </div>
-    
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
-      <i class="fab fa-whatsapp"></i>
-    </a>
+
     <!-- MAPA -->
     <div class="location-map">
       <iframe
@@ -465,8 +454,14 @@
       </iframe>
     </div>
   </div>
+</section>
 
-<!-- Botón flotante -->
+<!-- Botón flotante WhatsApp -->
+<a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Botón flotante Chat -->
 <button id="fab" onclick="toggleChat()" title="Chatear con GYG">
   <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
   <div class="badge">1</div>
@@ -488,9 +483,6 @@
   </div>
   <div class="chat-body" id="chat-body"></div>
 </div>
-</section>
-
-
 
 <footer class="footer">
   <div class="footer-container">
@@ -529,8 +521,9 @@
     © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
   </div>
 </footer>
+
 <!-- JS -->
- <script src="bot.js"></script>
+<script src="bot.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
