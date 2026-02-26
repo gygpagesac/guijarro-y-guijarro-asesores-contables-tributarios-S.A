@@ -21,13 +21,13 @@
 
   <script>
     window.addEventListener("load", async () => {
-      await Clerk.load();
+      // Crear una instancia de Clerk
+      const clerk = await Clerk.load({ 
+        frontendApi: "tu_frontend_api_key" // la misma que en el data-clerk-publishable-key
+      });
 
-      if (!Clerk.user) {
-        Clerk.mountSignIn(document.getElementById("login"));
-      } else {
-        window.location.href = "dashboard.html";
-      }
+      // Montar el login en el div
+      clerk.mountSignIn(document.getElementById("login"));
     });
   </script>
 
