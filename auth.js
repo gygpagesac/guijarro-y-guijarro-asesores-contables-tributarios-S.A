@@ -14,7 +14,7 @@ function mostrarPopup() {
 window.cerrarPopup = function () {
   document.getElementById("popup-overlay").style.display = "none";
   // Vuelve a aparecer en 15 minutos
-  setTimeout(mostrarPopup, 15 * 60 * 1000);
+  setTimeout(mostrarPopup, 5000);
 };
 
 // ── Verificar si ya está logueado ──
