@@ -25,7 +25,7 @@ if (session) {
   console.log("Usuario logueado:", session.user.email);
 } else {
   // No está logueado, mostrar popup después de 15 minutos
-  setTimeout(mostrarPopup, 15 * 60 * 1000);
+  setTimeout(mostrarPopup, 5000);
 }
 
 // ── Botón Login ──
