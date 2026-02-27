@@ -41,6 +41,7 @@ document.getElementById("popup-btnRegister").addEventListener("click", async () 
     document.getElementById("popup-mensaje").style.color = "red";
     document.getElementById("popup-mensaje").textContent = "Error: " + error.message;
   } else {
+    console.log("Llamando a Edge Function con correo:", email);
     await fetch("https://pcjqvqscarltpztdrrfp.supabase.co/functions/v1/agregar-contacto-brevo", {
       method: "POST",
       headers: {
