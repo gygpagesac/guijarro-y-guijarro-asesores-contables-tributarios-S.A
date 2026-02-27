@@ -23,7 +23,25 @@
 
   <link rel="icon" type="image/png" href="IMAGENES/logo.png">
 </head>
+  
 <body>
+  <!-- POPUP LOGIN -->
+  <div id="popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:white; padding:2.5rem; border-radius:12px; width:100%; max-width:360px; position:relative; margin:1rem;">
+      <!-- Botón cerrar -->   
+      <button onclick="cerrarPopup()" style="position:absolute; top:12px; right:14px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:#888;">✕</button> 
+      <div style="text-align:center; margin-bottom:1.2rem;">  
+        <img src="IMAGENES/logo.png" style="width:45px; margin-bottom:8px;">   
+        <h3 style="font-family:Montserrat,sans-serif; font-size:1.1rem; color:#1c1c1c;">Únete a G & G Asesores</h3>    
+        <p style="font-size:0.85rem; color:#666; margin-top:5px;">Regístrate para recibir novedades y contenido exclusivo</p>  
+      </div>
+      <input type="email" id="popup-email" placeholder="Correo electrónico" style="width:100%; padding:11px 14px; margin:6px 0; border:1px solid #ddd; border-radius:6px; font-size:0.95rem; box-sizing:border-box;">
+      <input type="password" id="popup-password" placeholder="Contraseña" style="width:100%; padding:11px 14px; margin:6px 0; border:1px solid #ddd; border-radius:6px; font-size:0.95rem; box-sizing:border-box;"> 
+      <button id="popup-btnLogin" style="width:100%; padding:11px; margin:6px 0; background:#3ecf8e; color:white; border:none; border-radius:6px; font-size:0.95rem; font-weight:600; cursor:pointer;">Entrar</button>  
+      <button id="popup-btnRegister" style="width:100%; padding:11px; margin:6px 0; background:#1c1c1c; color:white; border:none; border-radius:6px; font-size:0.95rem; font-weight:600; cursor:pointer;">Registrarse</button> 
+      <p id="popup-mensaje" style="font-size:0.85rem; text-align:center; margin-top:8px;"></p>
+    </div>
+  </div>
 <!-- ===== HEADER ===== -->
 <header class="header-new">
   <div class="header-new-container">
@@ -559,6 +577,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
