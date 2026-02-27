@@ -2659,3 +2659,23 @@ body {
   #chat-window { left: 8px; right: 8px; width: auto; bottom: 90px; }
   #fab { left: 16px; bottom: 16px; }
 }
+
+.menu-new {
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  align-items: center;       /* centra verticalmente */
+  gap: 25px;                 /* espacio entre items */
+  flex-wrap: nowrap;         /* evita que bajen a otra línea */
+}
+
+.menu-new a,
+.dropdown-new {
+  white-space: nowrap;       /* evita que el texto se parta */
+}
+
+.dropdown-new {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
