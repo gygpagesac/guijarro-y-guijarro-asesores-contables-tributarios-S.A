@@ -51,6 +51,20 @@ document.getElementById("popup-btnRegister").addEventListener("click", async () 
     document.getElementById("popup-mensaje").style.color = "red";
     document.getElementById("popup-mensaje").textContent = "Error: " + error.message;
   } else {
+    // Guardar correo en Brevo automáticamente
+   await fetch("https://supabase.com/dashboard/project/pcjqvqscarltpztdrrfp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": "TU_API_KEY_DE_BREVO"
+      },
+      body: JSON.stringify({
+        email: email,
+        listIds: [2],
+        updateEnabled: true
+      })
+    });
+
     document.getElementById("popup-mensaje").style.color = "green";
     document.getElementById("popup-mensaje").textContent = "¡Cuenta creada! Ya puedes iniciar sesión.";
   }
