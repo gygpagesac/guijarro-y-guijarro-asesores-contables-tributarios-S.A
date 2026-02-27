@@ -10,14 +10,14 @@ function mostrarPopup() {
 
 window.cerrarPopup = function () {
   document.getElementById("popup-overlay").style.display = "none";
-  setTimeout(mostrarPopup, 5000);
+  setTimeout(mostrarPopup, 5 * 60 * 1000);
 };
 
 const { data: { session } } = await supabase.auth.getSession();
 if (session) {
   console.log("Usuario logueado:", session.user.email);
 } else {
-  setTimeout(mostrarPopup, 5000);
+  setTimeout(mostrarPopup, 5 * 60 * 1000);
 }
 
 document.getElementById("popup-btnLogin").addEventListener("click", async () => {
