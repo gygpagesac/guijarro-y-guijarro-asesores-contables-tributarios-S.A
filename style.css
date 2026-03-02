@@ -2679,3 +2679,116 @@ body {
   align-items: center;
 }
 
+.sercop-section {
+  background: linear-gradient(180deg, #0d6efd, #0b5ed7);
+  padding: 60px 8%;
+  color: #fff;
+}
+
+.sercop-hero {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.sercop-text {
+  flex: 1;
+}
+
+.sercop-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.sercop-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.sercop-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+}
+
+/* Contenido blanco */
+.sercop-content,
+.sercop-services {
+  padding: 60px 8%;
+  background: #fff;
+}
+
+.sercop-content h3,
+.sercop-services h3 {
+  text-align: center;
+  font-size: 26px;
+  color: #0d6efd;
+  margin-bottom: 30px;
+}
+
+.sercop-list {
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.sercop-list li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Cards */
+.sercop-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+  gap: 25px;
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .sercop-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Móviles */
+@media (max-width: 576px) {
+  .sercop-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card h4 {
+  color: #0d6efd;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Botón */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 18px;
+  background: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: #218838;
+}
+
