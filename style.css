@@ -2792,3 +2792,95 @@ body {
   background: #218838;
 }
 
+
+.uafe-section {
+  background: linear-gradient(180deg, #0d6efd);
+  padding: 60px 8%;
+  color: #fff;
+}
+
+.uafe-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.uafe-text p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.uafe-content,
+.uafe-users,
+.uafe-services {
+  padding: 60px 8%;
+  background: #fff;
+}
+
+.uafe-content h3,
+.uafe-users h3,
+.uafe-services h3 {
+  text-align: center;
+  font-size: 26px;
+  color: #0d6efd;
+  margin-bottom: 30px;
+}
+
+.uafe-list {
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.uafe-list li {
+  margin-bottom: 10px;
+}
+
+.uafe-note {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.uafe-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .uafe-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .uafe-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.uafe-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.uafe-text {
+  flex: 1;
+  max-width: 60%;
+}
+
+.uafe-image {
+  flex: 1;
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.uafe-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+}
+
