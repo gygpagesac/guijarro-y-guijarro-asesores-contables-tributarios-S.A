@@ -43,8 +43,8 @@ document.getElementById("popup-btnLogin").addEventListener("click", async () => 
     document.getElementById("popup-mensaje").style.color = "red";
     document.getElementById("popup-mensaje").textContent = "Correo o contraseña incorrectos";
   } else {
-    document.getElementById("popup-overlay").style.display = "none";
-    document.getElementById("popup-mensaje").textContent = "";
+    window.location.reload();
+  }
   }
 });
 
