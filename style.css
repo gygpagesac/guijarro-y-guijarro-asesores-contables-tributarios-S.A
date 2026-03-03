@@ -2884,3 +2884,145 @@ body {
   border-radius: 12px;
 }
 
+/* HERO */
+.cap-hero {
+  background: linear-gradient(180deg, #0d6efd, #0b5ed7);
+  color: white;
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.cap-hero h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cap-highlight {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+/* INFO */
+.cap-info {
+  padding: 60px 10%;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.cap-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+/* HERO */
+.cap-hero {
+  background: linear-gradient(180deg, #0d6efd, #0b5ed7);
+  color: white;
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.cap-hero h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cap-highlight {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+/* INFO */
+.cap-info {
+  padding: 60px 10%;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.cap-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* CARRUSEL */
+.cap-gallery {
+  padding: 60px 10%;
+  text-align: center;
+}
+
+.carousel {
+  overflow: hidden;
+  position: relative;
+  margin-top: 40px;
+}
+
+.carousel-track {
+  display: flex;
+  animation: scroll 40s linear infinite;
+}
+
+.carousel-track img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* CTA */
+.cap-cta {
+  background: #198754;
+  color: white;
+  padding: 70px 10%;
+  text-align: center;
+}
+
+.btn-agendar {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: white;
+  color: #198754;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .cap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .cap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
