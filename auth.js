@@ -10,7 +10,7 @@ function mostrarPopup() {
 
 window.cerrarPopup = function () {
   document.getElementById("popup-overlay").style.display = "none";
-  setTimeout(mostrarPopup, 5 * 60 * 1000);
+  setTimeout(mostrarPopup, 5000);
 };
 
 const { data: { session } } = await supabase.auth.getSession();
@@ -32,7 +32,7 @@ if (session) {
   });
   document.body.appendChild(btnCerrar);
 } else {
-  setTimeout(mostrarPopup, 5 * 60 * 1000);
+  setTimeout(mostrarPopup, 5000);
 }
 
 document.getElementById("popup-btnLogin").addEventListener("click", async () => {
