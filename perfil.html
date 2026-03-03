@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Perfil | G & G Asesores Tributarios</title>
+  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: #f0f0f0; }
+    .perfil-container { max-width: 700px; margin: 40px auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
+    .perfil-header { background: #1c1c1c; color: white; padding: 2rem; display: flex; align-items: center; gap: 1.5rem; }
+    .perfil-avatar { width: 70px; height: 70px; background: #3ecf8e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; }
+    .perfil-header h2 { font-size: 1.2rem; }
+    .perfil-header p { font-size: 0.85rem; color: #aaa; margin-top: 4px; }
+    .perfil-body { padding: 2rem; }
+    .perfil-body h3 { font-size: 1rem; color: #1c1c1c; margin: 1.5rem 0 1rem; border-bottom: 2px solid #3ecf8e; padding-bottom: 6px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group.full { grid-column: 1 / -1; }
+    label { font-size: 0.82rem; color: #666; font-weight: 600; }
+    input, select, textarea { padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; font-family: inherit; width: 100%; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #3ecf8e; }
+    textarea { resize: vertical; min-height: 80px; }
+    .btn-guardar { width: 100%; padding: 12px; background: #3ecf8e; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 1.5rem; }
+    .btn-guardar:hover { background: #2db87a; }
+    .btn-cerrar { width: 100%; padding: 12px; background: #1c1c1c; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 0.5rem; }
+    .btn-cerrar:hover { background: #333; }
+    #mensaje { text-align: center; margin-top: 10px; font-size: 0.9rem; }
+    @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="perfil-container">
+  <div class="perfil-header">
+    <div class="perfil-avatar"><i class="fa-solid fa-user"></i></div>
+    <div>
+      <h2 id="header-nombre">Mi Perfil</h2>
+      <p id="header-correo"></p>
+    </div>
+  </div>
+
+  <div class="perfil-body">
+
+    <h3>Datos Personales</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nombres</label>
+        <input type="text" id="nombres" placeholder="Tus nombres" />
+      </div>
+      <div class="form-group">
+        <label>Apellidos</label>
+        <input type="text" id="apellidos" placeholder="Tus apellidos" />
+      </div>
+      <div class="form-group">
+        <label>RUC / Cédula</label>
+        <input type="text" id="ruc" placeholder="Número de RUC o cédula" />
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="text" id="telefono" placeholder="Tu teléfono" />
+      </div>
+      <div class="form-group">
+        <label>Ciudad</label>
+        <input type="text" id="ciudad" placeholder="Tu ciudad" />
+      </div>
+    </div>
+
+    <h3>Información Tributaria</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Tipo de Persona</label>
+        <select id="tipo_persona">
+          <option value="">Selecciona...</option>
+          <option value="natural">Persona Natural</option>
+          <option value="juridica">Persona Jurídica</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Régimen Tributario</label>
+        <select id="regimen">
+          <option value="">Selecciona...</option>
+          <option value="rimpe_emprendedor">RIMPE Emprendedor</option>
+          <option value="rimpe_negocio">RIMPE Negocio Popular</option>
+          <option value="general">Régimen General</option>
+          <option value="no_obligado">No obligado a llevar contabilidad</option>
+          <option value="obligado">Obligado a llevar contabilidad</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Servicios Requeridos</h3>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Tipo de Servicio</label>
+        <select id="servicio_solicitado">
+          <option value="">Selecciona...</option>
+          <option value="contable">Servicios Contables</option>
+          <option value="tributario">Servicios Tributarios</option>
+          <option value="laboral">Servicios Laborales</option>
+          <option value="legal">Asesoría Legal</option>
+          <option value="nafe">NAFE</option>
+          <option value="sercop">SERCOP</option>
+          <option value="facturacion">Facturación Electrónica</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tipo de Proceso</label>
+        <select id="tipo_proceso">
+          <option value="">Selecciona...</option>
+          <option value="declaracion">Declaración de Impuestos</option>
+          <option value="contabilidad">Contabilidad Mensual</option>
+          <option value="nomina">Nómina y Roles de Pago</option>
+          <option value="constitucion">Constitución de Empresa</option>
+          <option value="anexos">Anexos Tributarios</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Detalle adicional</label>
+        <textarea id="detalle" placeholder="Describe brevemente lo que necesitas..."></textarea>
+      </div>
+    </div>
+
+    <button class="btn-guardar" id="btnGuardar">Guardar Perfil</button>
+    <button class="btn-cerrar" id="btnCerrar">Cerrar Sesión</button>
+    <p id="mensaje"></p>
+
+  </div>
+</div>
+
+<script type="module" src="perfil.js"></script>
+</body>
+</html>
