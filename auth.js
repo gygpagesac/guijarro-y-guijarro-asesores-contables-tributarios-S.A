@@ -15,7 +15,22 @@ window.cerrarPopup = function () {
 
 const { data: { session } } = await supabase.auth.getSession();
 if (session) {
-  console.log("Usuario logueado:", session.user.email);
+  // Botón Mi Perfil
+  const btnPerfil = document.createElement("a");
+  btnPerfil.href = "perfil.html";
+  btnPerfil.textContent = "👤 Mi Perfil";
+  btnPerfil.style.cssText = "position:fixed; top:15px; right:160px; background:#3ecf8e; color:white; padding:8px 16px; border-radius:20px; text-decoration:none; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600; z-index:9999; box-shadow:0 2px 8px rgba(0,0,0,0.2);";
+  document.body.appendChild(btnPerfil);
+
+  // Botón Cerrar Sesión
+  const btnCerrar = document.createElement("button");
+  btnCerrar.textContent = "🚪 Cerrar Sesión";
+  btnCerrar.style.cssText = "position:fixed; top:15px; right:15px; background:#1c1c1c; color:white; padding:8px 16px; border-radius:20px; border:none; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600; z-index:9999; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.2);";
+  btnCerrar.addEventListener("click", async () => {
+    await supabase.auth.signOut();
+    window.location.reload();
+  });
+  document.body.appendChild(btnCerrar);
 } else {
   setTimeout(mostrarPopup, 5 * 60 * 1000);
 }
