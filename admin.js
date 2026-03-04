@@ -7,7 +7,13 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 const ADMINS = ["guijarroyguijarrotk@gmail.com", "gygasesores1@gmail.com"];
 
 const { data: { session } } = await supabase.auth.getSession();
-if (!session || !ADMINS.includes(session.user.email)) {
+
+if (!session) {
+  window.location.href = "index.html";
+}
+
+if (!ADMINS.includes(session.user.email)) {
+  alert("No tienes permisos para acceder a esta página.");
   window.location.href = "index.html";
 }
 
@@ -19,21 +25,21 @@ document.getElementById("btnLogout").addEventListener("click", async () => {
 });
 
 async function cargarSolicitudes() {
+  console.log("Cargando solicitudes...");
+
   const { data: solicitudes, error } = await supabase
     .from("solicitudes")
     .select("*")
     .order("created_at", { ascending: false });
 
-  if (error || !solicitudes) {
-    console.log("Error cargando solicitudes:", error);
-    return;
-  }
+  console.log("Solicitudes:", solicitudes, "Error:", error);
+
+  if (error || !solicitudes) return;
 
   const { data: perfiles } = await supabase.from("perfiles").select("*");
   const { data: correos } = await supabase.from("usuarios_correos").select("*");
   const { data: totalUsuarios } = await supabase.from("perfiles").select("id");
 
-  console.log("Solicitudes:", solicitudes.length);
   console.log("Perfiles:", perfiles);
   console.log("Correos:", correos);
 
@@ -125,11 +131,11 @@ window.descargarPDF = async (id) => {
 
   const datosPerfil = [
     ["Nombre:", `${perfil?.nombres || ""} ${perfil?.apellidos || ""}`.trim()],
-    ["RUC / Cédula:", perfil?.ruc || "-"],
-    ["Teléfono:", perfil?.telefono || "-"],
+    ["RUC / Cedula:", perfil?.ruc || "-"],
+    ["Telefono:", perfil?.telefono || "-"],
     ["Ciudad:", perfil?.ciudad || "-"],
     ["Tipo de Persona:", perfil?.tipo_persona || "-"],
-    ["Régimen:", perfil?.regimen || "-"],
+    ["Regimen:", perfil?.regimen || "-"],
   ];
 
   for (const [label, valor] of datosPerfil) {
@@ -153,12 +159,12 @@ window.descargarPDF = async (id) => {
   doc.setFontSize(10);
 
   const datosSolicitud = [
-    ["Tipo de Declaración:", s.tipo_declaracion || "-"],
-    ["Período Fiscal:", s.periodo_fiscal || "-"],
-    ["Fecha Límite:", s.fecha_limite || "-"],
+    ["Tipo de Declaracion:", s.tipo_declaracion || "-"],
+    ["Periodo Fiscal:", s.periodo_fiscal || "-"],
+    ["Fecha Limite:", s.fecha_limite || "-"],
     ["Documentos:", s.documentos || "-"],
     ["Estado:", s.estado || "-"],
-    ["N° de Personas:", String(s.num_personas || 1)],
+    ["N de Personas:", String(s.num_personas || 1)],
   ];
 
   for (const [label, valor] of datosSolicitud) {
@@ -188,7 +194,7 @@ window.descargarPDF = async (id) => {
     doc.setTextColor(14, 61, 146);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(11);
-    doc.text("PERSONAS / TRÁMITES", margen + 2, y + 1);
+    doc.text("PERSONAS / TRAMITES", margen + 2, y + 1);
     y += 12;
 
     doc.setTextColor(0, 0, 0);
@@ -259,4 +265,5 @@ window.enviarMensaje = async () => {
   }
 };
 
+console.log("Sesion activa:", session.user.email);
 cargarSolicitudes();
