@@ -1373,10 +1373,10 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 /* LOGO */
@@ -1385,7 +1385,8 @@
   align-items: center;
   color: #fff;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 15px;
+  white-space: nowrap;
 }
 
 .logo-new img {
@@ -3024,5 +3025,6 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 
 
