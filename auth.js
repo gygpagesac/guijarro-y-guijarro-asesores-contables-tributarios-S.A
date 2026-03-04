@@ -14,17 +14,16 @@ window.cerrarPopup = function () {
 };
 
 const { data: { session } } = await supabase.auth.getSession();
+
 if (session) {
-  // Botón Mi Perfil
   const btnPerfil = document.createElement("a");
   btnPerfil.href = "perfil.html";
   btnPerfil.textContent = "👤 Mi Perfil";
   btnPerfil.style.cssText = "position:fixed; top:15px; right:160px; background:#3ecf8e; color:white; padding:8px 16px; border-radius:20px; text-decoration:none; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600; z-index:9999; box-shadow:0 2px 8px rgba(0,0,0,0.2);";
   document.body.appendChild(btnPerfil);
 
-  // Botón Cerrar Sesión
   const btnCerrar = document.createElement("button");
-  btnCerrar.textContent = "🚪 Cerrar Sesión";
+  btnCerrar.textContent = "Cerrar Sesion";
   btnCerrar.style.cssText = "position:fixed; top:15px; right:15px; background:#1c1c1c; color:white; padding:8px 16px; border-radius:20px; border:none; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600; z-index:9999; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.2);";
   btnCerrar.addEventListener("click", async () => {
     await supabase.auth.signOut();
@@ -45,7 +44,6 @@ document.getElementById("popup-btnLogin").addEventListener("click", async () => 
   } else {
     window.location.reload();
   }
-  }
 });
 
 document.getElementById("popup-btnRegister").addEventListener("click", async () => {
@@ -56,7 +54,6 @@ document.getElementById("popup-btnRegister").addEventListener("click", async () 
     document.getElementById("popup-mensaje").style.color = "red";
     document.getElementById("popup-mensaje").textContent = "Error: " + error.message;
   } else {
-    console.log("Llamando a Edge Function con correo:", email);
     await fetch("https://pcjqvqscarltpztdrrfp.supabase.co/functions/v1/agregar-contacto-brevo", {
       method: "POST",
       headers: {
@@ -66,6 +63,6 @@ document.getElementById("popup-btnRegister").addEventListener("click", async () 
       body: JSON.stringify({ email: email })
     });
     document.getElementById("popup-mensaje").style.color = "green";
-    document.getElementById("popup-mensaje").textContent = "¡Cuenta creada! Ya puedes iniciar sesión.";
+    document.getElementById("popup-mensaje").textContent = "Cuenta creada! Ya puedes iniciar sesion.";
   }
 });
