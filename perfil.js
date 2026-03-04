@@ -125,10 +125,3 @@ document.getElementById("btnCancelarRespuesta").addEventListener("click", () => 
 });
 
 cargarMensajes();
-
-document.getElementById("btnCancelarRespuesta").addEventListener("click", () => {
-  document.getElementById("respuesta-container").style.display = "none";
-});
-
-cargarMensajes();
-});
