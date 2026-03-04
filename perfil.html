@@ -11,23 +11,24 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Montserrat', sans-serif; background: #f0f0f0; }
     .perfil-container { max-width: 700px; margin: 40px auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
-    .perfil-header { background: #1c1c1c; color: white; padding: 2rem; display: flex; align-items: center; gap: 1.5rem; }
-    .perfil-avatar { width: 70px; height: 70px; background: #3ecf8e; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; }
+    .perfil-header { background: #0e3d92; color: white; padding: 2rem; display: flex; align-items: center; gap: 1.5rem; }
+    .perfil-avatar { width: 70px; height: 70px; background: #f8b700; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #0e3d92; }
     .perfil-header h2 { font-size: 1.2rem; }
-    .perfil-header p { font-size: 0.85rem; color: #aaa; margin-top: 4px; }
+    .perfil-header p { font-size: 0.85rem; color: #aac4ff; margin-top: 4px; }
     .perfil-body { padding: 2rem; }
-    .perfil-body h3 { font-size: 1rem; color: #1c1c1c; margin: 1.5rem 0 1rem; border-bottom: 2px solid #3ecf8e; padding-bottom: 6px; }
+    .perfil-body h3 { font-size: 1rem; color: #1c1c1c; margin: 1.5rem 0 1rem; border-bottom: 2px solid #f8b700; padding-bottom: 6px; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 5px; }
     .form-group.full { grid-column: 1 / -1; }
     label { font-size: 0.82rem; color: #666; font-weight: 600; }
     input, select, textarea { padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; font-family: inherit; width: 100%; }
-    input:focus, select:focus, textarea:focus { outline: none; border-color: #3ecf8e; }
-    textarea { resize: vertical; min-height: 80px; }
-    .btn-guardar { width: 100%; padding: 12px; background: #3ecf8e; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 1.5rem; }
-    .btn-guardar:hover { background: #2db87a; }
-    .btn-cerrar { width: 100%; padding: 12px; background: #1c1c1c; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 0.5rem; }
-    .btn-cerrar:hover { background: #333; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #0e3d92; }
+    .btn-guardar { width: 100%; padding: 12px; background: #0e3d92; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 1.5rem; }
+    .btn-guardar:hover { background: #0b2f70; }
+    .btn-solicitar { width: 100%; padding: 12px; background: #f8b700; color: #0e3d92; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 0.5rem; }
+    .btn-solicitar:hover { background: #e0a500; }
+    .btn-inicio { width: 100%; padding: 12px; background: #f0f0f0; color: #333; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 0.5rem; text-align: center; text-decoration: none; display: block; }
+    .btn-inicio:hover { background: #e0e0e0; }
     #mensaje { text-align: center; margin-top: 10px; font-size: 0.9rem; }
     @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
   </style>
@@ -92,41 +93,9 @@
       </div>
     </div>
 
-    <h3>Servicios Requeridos</h3>
-    <div class="form-grid">
-      <div class="form-group">
-        <label>Tipo de Servicio</label>
-        <select id="servicio_solicitado">
-          <option value="">Selecciona...</option>
-          <option value="contable">Servicios Contables</option>
-          <option value="tributario">Servicios Tributarios</option>
-          <option value="laboral">Servicios Laborales</option>
-          <option value="legal">Asesoría Legal</option>
-          <option value="nafe">NAFE</option>
-          <option value="sercop">SERCOP</option>
-          <option value="facturacion">Facturación Electrónica</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Tipo de Proceso</label>
-        <select id="tipo_proceso">
-          <option value="">Selecciona...</option>
-          <option value="declaracion">Declaración de Impuestos</option>
-          <option value="contabilidad">Contabilidad Mensual</option>
-          <option value="nomina">Nómina y Roles de Pago</option>
-          <option value="constitucion">Constitución de Empresa</option>
-          <option value="anexos">Anexos Tributarios</option>
-          <option value="otro">Otro</option>
-        </select>
-      </div>
-      <div class="form-group full">
-        <label>Detalle adicional</label>
-        <textarea id="detalle" placeholder="Describe brevemente lo que necesitas..."></textarea>
-      </div>
-    </div>
-
-    <button class="btn-guardar" id="btnGuardar">Guardar Perfil</button>
-    <button class="btn-cerrar" id="btnCerrar">Cerrar Sesión</button>
+    <button class="btn-guardar" id="btnGuardar">💾 Guardar Perfil</button>
+    <button class="btn-solicitar" onclick="window.location.href='solicitud.html'">📋 Solicitar Proceso</button>
+    <a class="btn-inicio" href="index.html">🏠 Volver al Inicio</a>
     <p id="mensaje"></p>
 
   </div>
