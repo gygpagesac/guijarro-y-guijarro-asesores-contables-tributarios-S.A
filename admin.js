@@ -71,6 +71,7 @@ async function cargarSolicitudes() {
       <td>
         <button class="btn-pdf" onclick="descargarPDF('${s.id}')">📄 PDF</button>
         <button class="btn-estado" onclick="cambiarEstado('${s.id}', '${s.estado}')">✏️ Estado</button>
+        <button class="btn-estado" onclick="abrirMensaje('${s.user_id}', '${correoUsuario}')">✉️ Mensaje</button>
       </td>
     `;
     tbody.appendChild(tr);
@@ -221,6 +222,50 @@ window.descargarPDF = async (id) => {
   doc.text("G & G Asesores Tributarios | gygasesores1@gmail.com", margen, 293);
 
   doc.save(`solicitud_${s.id.substring(0, 8)}.pdf`);
+};
+// Abrir modal de mensaje
+window.abrirMensaje = function(userId, correo) {
+  document.getElementById("modal-user-id").value = userId;
+  document.getElementById("modal-para").value = correo;
+  document.getElementById("modal-asunto").value = "";
+  document.getElementById("modal-mensaje-texto").value = "";
+  document.getElementById("modal-resultado").textContent = "";
+  document.getElementById("modal-mensaje").style.display = "flex";
+};
+
+// Cerrar modal
+window.cerrarModal = function() {
+  document.getElementById("modal-mensaje").style.display = "none";
+};
+
+// Enviar mensaje
+window.enviarMensaje = async () => {
+  const userId = document.getElementById("modal-user-id").value;
+  const asunto = document.getElementById("modal-asunto").value;
+  const mensaje = document.getElementById("modal-mensaje-texto").value;
+
+  if (!asunto.trim() || !mensaje.trim()) {
+    document.getElementById("modal-resultado").style.color = "red";
+    document.getElementById("modal-resultado").textContent = "Por favor completa todos los campos.";
+    return;
+  }
+
+  const { error } = await supabase.from("mensajes").insert({
+    user_id: userId,
+    remitente: "G & G Asesores Tributarios",
+    asunto: asunto,
+    mensaje: mensaje,
+    leido: false
+  });
+
+  if (error) {
+    document.getElementById("modal-resultado").style.color = "red";
+    document.getElementById("modal-resultado").textContent = "Error al enviar.";
+  } else {
+    document.getElementById("modal-resultado").style.color = "green";
+    document.getElementById("modal-resultado").textContent = "✅ Mensaje enviado correctamente.";
+    setTimeout(() => cerrarModal(), 1500);
+  }
 };
 
 cargarSolicitudes();
