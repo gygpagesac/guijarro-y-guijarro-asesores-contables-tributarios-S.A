@@ -224,10 +224,4 @@ window.descargarPDF = async (id) => {
 };
 
 cargarSolicitudes();
-```
 
----
-
-Sube los dos archivos a GitHub. Para acceder al panel ve a:
-```
-https://gygpagesac.github.io/guijarro-y-guijarro-asesores-contables-tributarios-S.A/admin.html
