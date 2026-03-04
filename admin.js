@@ -4,10 +4,8 @@ const SUPABASE_URL = "https://pcjqvqscarltpztdrrfp.supabase.co";
 const SUPABASE_KEY = "sb_publishable_DYnjwiSWoiKabr-6WNlbFg_sncdthhO";
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// Correos autorizados
 const ADMINS = ["guijarroyguijarrotk@gmail.com", "gygasesores1@gmail.com"];
 
-// Verificar sesión y permisos
 const { data: { session } } = await supabase.auth.getSession();
 if (!session || !ADMINS.includes(session.user.email)) {
   window.location.href = "index.html";
@@ -15,33 +13,33 @@ if (!session || !ADMINS.includes(session.user.email)) {
 
 document.getElementById("admin-correo").textContent = session.user.email;
 
-// Cerrar sesión
 document.getElementById("btnLogout").addEventListener("click", async () => {
   await supabase.auth.signOut();
   window.location.href = "index.html";
 });
 
-// Cargar solicitudes con datos del perfil
 async function cargarSolicitudes() {
   const { data: solicitudes, error } = await supabase
     .from("solicitudes")
     .select("*")
     .order("created_at", { ascending: false });
 
-  if (error || !solicitudes) return;
-  console.log("Solicitudes encontradas:", solicitudes.length);
-  console.log("Perfiles:", perfiles);
-  console.log("Correos:", correos);
+  if (error || !solicitudes) {
+    console.log("Error cargando solicitudes:", error);
+    return;
+  }
 
-  // Stats
-  document.getElementById("total-solicitudes").textContent = solicitudes.length;
-  document.getElementById("total-pendientes").textContent = solicitudes.filter(s => s.estado === "pendiente").length;
-  document.getElementById("total-completadas").textContent = solicitudes.filter(s => s.estado === "completado").length;
-
-  // Cargar perfiles
   const { data: perfiles } = await supabase.from("perfiles").select("*");
   const { data: correos } = await supabase.from("usuarios_correos").select("*");
   const { data: totalUsuarios } = await supabase.from("perfiles").select("id");
+
+  console.log("Solicitudes:", solicitudes.length);
+  console.log("Perfiles:", perfiles);
+  console.log("Correos:", correos);
+
+  document.getElementById("total-solicitudes").textContent = solicitudes.length;
+  document.getElementById("total-pendientes").textContent = solicitudes.filter(s => s.estado === "pendiente").length;
+  document.getElementById("total-completadas").textContent = solicitudes.filter(s => s.estado === "completado").length;
   document.getElementById("total-usuarios").textContent = totalUsuarios?.length || 0;
 
   const tbody = document.getElementById("tabla-solicitudes");
@@ -81,7 +79,6 @@ async function cargarSolicitudes() {
   }
 }
 
-// Cambiar estado de solicitud
 window.cambiarEstado = async (id, estadoActual) => {
   const estados = ["pendiente", "en proceso", "completado"];
   const siguiente = estados[(estados.indexOf(estadoActual) + 1) % estados.length];
@@ -89,18 +86,17 @@ window.cambiarEstado = async (id, estadoActual) => {
   cargarSolicitudes();
 };
 
-// Descargar PDF
 window.descargarPDF = async (id) => {
   const { jsPDF } = window.jspdf;
 
   const { data: s } = await supabase.from("solicitudes").select("*").eq("id", id).single();
-  const { data: perfil } = await supabase.from("perfiles").select("*").eq("user_id", s.user_id).single();
+  const { data: perfilData } = await supabase.from("perfiles").select("*").eq("user_id", s.user_id);
+  const perfil = perfilData?.[0] || null;
 
   const doc = new jsPDF();
   const margen = 20;
   let y = 20;
 
-  // Encabezado
   doc.setFillColor(14, 61, 146);
   doc.rect(0, 0, 210, 35, "F");
   doc.setTextColor(255, 255, 255);
@@ -115,7 +111,6 @@ window.descargarPDF = async (id) => {
   y = 50;
   doc.setTextColor(0, 0, 0);
 
-  // Datos del cliente
   doc.setFillColor(248, 183, 0);
   doc.rect(margen, y - 5, 170, 8, "F");
   doc.setTextColor(14, 61, 146);
@@ -146,8 +141,6 @@ window.descargarPDF = async (id) => {
   }
 
   y += 5;
-
-  // Datos de la solicitud
   doc.setFillColor(248, 183, 0);
   doc.rect(margen, y - 5, 170, 8, "F");
   doc.setTextColor(14, 61, 146);
@@ -176,7 +169,6 @@ window.descargarPDF = async (id) => {
     y += 7;
   }
 
-  // Observaciones
   if (s.observaciones) {
     y += 5;
     doc.setFont("helvetica", "bold");
@@ -188,7 +180,6 @@ window.descargarPDF = async (id) => {
     y += lineas.length * 7;
   }
 
-  // Personas
   if (s.personas) {
     const personas = JSON.parse(s.personas);
     y += 5;
@@ -217,7 +208,6 @@ window.descargarPDF = async (id) => {
     }
   }
 
-  // Pie de página
   doc.setFillColor(14, 61, 146);
   doc.rect(0, 285, 210, 15, "F");
   doc.setTextColor(255, 255, 255);
@@ -226,7 +216,7 @@ window.descargarPDF = async (id) => {
 
   doc.save(`solicitud_${s.id.substring(0, 8)}.pdf`);
 };
-// Abrir modal de mensaje
+
 window.abrirMensaje = function(userId, correo) {
   document.getElementById("modal-user-id").value = userId;
   document.getElementById("modal-para").value = correo;
@@ -236,12 +226,10 @@ window.abrirMensaje = function(userId, correo) {
   document.getElementById("modal-mensaje").style.display = "flex";
 };
 
-// Cerrar modal
 window.cerrarModal = function() {
   document.getElementById("modal-mensaje").style.display = "none";
 };
 
-// Enviar mensaje
 window.enviarMensaje = async () => {
   const userId = document.getElementById("modal-user-id").value;
   const asunto = document.getElementById("modal-asunto").value;
@@ -263,7 +251,7 @@ window.enviarMensaje = async () => {
 
   if (error) {
     document.getElementById("modal-resultado").style.color = "red";
-    document.getElementById("modal-resultado").textContent = "Error al enviar.";
+    document.getElementById("modal-resultado").textContent = "Error al enviar: " + error.message;
   } else {
     document.getElementById("modal-resultado").style.color = "green";
     document.getElementById("modal-resultado").textContent = "✅ Mensaje enviado correctamente.";
@@ -272,4 +260,3 @@ window.enviarMensaje = async () => {
 };
 
 cargarSolicitudes();
-
