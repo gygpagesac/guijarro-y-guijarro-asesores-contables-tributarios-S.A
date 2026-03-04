@@ -51,4 +51,74 @@ document.getElementById("btnGuardar").addEventListener("click", async () => {
     document.getElementById("mensaje").textContent = "¡Perfil guardado correctamente!";
     document.getElementById("header-nombre").textContent = `${datos.nombres} ${datos.apellidos}`.trim();
   }
+  // Cargar mensajes
+async function cargarMensajes() {
+  const { data: mensajes } = await supabase
+    .from("mensajes")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false });
+
+  const container = document.getElementById("bandeja-container");
+
+  if (!mensajes || mensajes.length === 0) {
+    container.innerHTML = `<p style="color:#999; font-size:0.9rem;">No tienes mensajes aún.</p>`;
+    return;
+  }
+
+  container.innerHTML = "";
+  for (const m of mensajes) {
+    const fecha = new Date(m.created_at).toLocaleDateString("es-EC");
+    const div = document.createElement("div");
+    div.className = `mensaje-card ${m.leido ? "" : "no-leido"}`;
+    div.innerHTML = `
+      <h4>${m.asunto || "Sin asunto"} ${!m.leido ? "🔔" : ""}</h4>
+      <p>${m.mensaje}</p>
+      <div class="mensaje-meta">
+        <span>De: ${m.remitente}</span>
+        <span>${fecha}</span>
+      </div>
+      <button class="btn-responder-msg" onclick="mostrarRespuesta('${m.id}', '${m.asunto}')">↩️ Responder</button>
+    `;
+    container.appendChild(div);
+
+    // Marcar como leído
+    if (!m.leido) {
+      await supabase.from("mensajes").update({ leido: true }).eq("id", m.id);
+    }
+  }
+}
+
+// Mostrar formulario de respuesta
+window.mostrarRespuesta = function(mensajeId, asunto) {
+  document.getElementById("respuesta-container").style.display = "block";
+  document.getElementById("respuesta-asunto").value = `RE: ${asunto}`;
+  document.getElementById("respuesta-container").scrollIntoView({ behavior: "smooth" });
+
+  document.getElementById("btnResponder").onclick = async () => {
+    const asuntoResp = document.getElementById("respuesta-asunto").value;
+    const mensajeResp = document.getElementById("respuesta-mensaje").value;
+
+    if (!mensajeResp.trim()) return;
+
+    const { error } = await supabase.from("mensajes").insert({
+      user_id: "admin",
+      remitente: user.email,
+      asunto: asuntoResp,
+      mensaje: mensajeResp,
+    });
+
+    if (!error) {
+      document.getElementById("respuesta-mensaje").value = "";
+      document.getElementById("respuesta-container").style.display = "none";
+      alert("✅ Respuesta enviada correctamente.");
+    }
+  };
+};
+
+document.getElementById("btnCancelarRespuesta").addEventListener("click", () => {
+  document.getElementById("respuesta-container").style.display = "none";
+});
+
+cargarMensajes();
 });
