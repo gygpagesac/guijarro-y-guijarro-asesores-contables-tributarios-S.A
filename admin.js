@@ -29,6 +29,9 @@ async function cargarSolicitudes() {
     .order("created_at", { ascending: false });
 
   if (error || !solicitudes) return;
+  console.log("Solicitudes encontradas:", solicitudes.length);
+  console.log("Perfiles:", perfiles);
+  console.log("Correos:", correos);
 
   // Stats
   document.getElementById("total-solicitudes").textContent = solicitudes.length;
