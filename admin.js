@@ -37,6 +37,7 @@ async function cargarSolicitudes() {
 
   // Cargar perfiles
   const { data: perfiles } = await supabase.from("perfiles").select("*");
+  const { data: correos } = await supabase.from("usuarios_correos").select("*");
   const { data: totalUsuarios } = await supabase.from("perfiles").select("id");
   document.getElementById("total-usuarios").textContent = totalUsuarios?.length || 0;
 
@@ -51,6 +52,7 @@ async function cargarSolicitudes() {
   for (const s of solicitudes) {
     const perfil = perfiles?.find(p => p.user_id === s.user_id);
     const nombre = perfil ? `${perfil.nombres || ""} ${perfil.apellidos || ""}`.trim() : "Sin nombre";
+    const correoUsuario = correos?.find(c => c.id === s.user_id)?.email || "-";
     const fecha = new Date(s.created_at).toLocaleDateString("es-EC");
 
     let badgeClass = "badge-pendiente";
@@ -61,7 +63,7 @@ async function cargarSolicitudes() {
     tr.innerHTML = `
       <td>${fecha}</td>
       <td>${nombre}</td>
-      <td>${perfil?.ruc || "-"}</td>
+      <td>${correoUsuario}</td>
       <td>${s.tipo_declaracion || "-"}</td>
       <td>${s.periodo_fiscal || "-"}</td>
       <td>${s.num_personas || 1}</td>
