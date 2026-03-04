@@ -10,11 +10,13 @@ if (!session) window.location.href = "index.html";
 const user = session.user;
 document.getElementById("header-correo").textContent = user.email;
 
-const { data: perfil } = await supabase
+// Cargar perfil
+const { data: perfilData } = await supabase
   .from("perfiles")
   .select("*")
-  .eq("user_id", user.id)
-  .single();
+  .eq("user_id", user.id);
+
+const perfil = perfilData?.[0] || null;
 
 if (perfil) {
   document.getElementById("nombres").value = perfil.nombres || "";
@@ -27,6 +29,7 @@ if (perfil) {
   document.getElementById("header-nombre").textContent = `${perfil.nombres || ""} ${perfil.apellidos || ""}`.trim() || "Mi Perfil";
 }
 
+// Guardar perfil
 document.getElementById("btnGuardar").addEventListener("click", async () => {
   const datos = {
     user_id: user.id,
@@ -51,7 +54,9 @@ document.getElementById("btnGuardar").addEventListener("click", async () => {
     document.getElementById("mensaje").textContent = "¡Perfil guardado correctamente!";
     document.getElementById("header-nombre").textContent = `${datos.nombres} ${datos.apellidos}`.trim();
   }
-  // Cargar mensajes
+});
+
+// Cargar mensajes
 async function cargarMensajes() {
   const { data: mensajes } = await supabase
     .from("mensajes")
@@ -82,7 +87,6 @@ async function cargarMensajes() {
     `;
     container.appendChild(div);
 
-    // Marcar como leído
     if (!m.leido) {
       await supabase.from("mensajes").update({ leido: true }).eq("id", m.id);
     }
@@ -115,6 +119,12 @@ window.mostrarRespuesta = function(mensajeId, asunto) {
     }
   };
 };
+
+document.getElementById("btnCancelarRespuesta").addEventListener("click", () => {
+  document.getElementById("respuesta-container").style.display = "none";
+});
+
+cargarMensajes();
 
 document.getElementById("btnCancelarRespuesta").addEventListener("click", () => {
   document.getElementById("respuesta-container").style.display = "none";
