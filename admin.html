@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin | G & G Asesores Tributarios</title>
+  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: #f0f0f0; }
+
+    /* HEADER */
+    .admin-header {
+      background: linear-gradient(90deg, #0e3d92, #1b78c1);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+    }
+    .admin-header h1 { font-size: 1.2rem; }
+    .admin-header span { font-size: 0.85rem; color: #aac4ff; }
+    .btn-logout {
+      background: #f8b700;
+      color: #0e3d92;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: Montserrat, sans-serif;
+      font-size: 0.85rem;
+    }
+
+    /* STATS */
+    .stats-bar {
+      display: flex;
+      gap: 20px;
+      padding: 20px 30px;
+      flex-wrap: wrap;
+    }
+    .stat-card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px 25px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
+    }
+    .stat-card h3 { font-size: 2rem; color: #0e3d92; }
+    .stat-card p { font-size: 0.8rem; color: #666; margin-top: 4px; }
+
+    /* TABLA */
+    .table-container {
+      margin: 0 30px 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .table-header {
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .table-header h2 { font-size: 1rem; color: #1c1c1c; }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      background: #0e3d92;
+      color: white;
+      padding: 12px 15px;
+      text-align: left;
+      font-size: 0.82rem;
+    }
+    td {
+      padding: 12px 15px;
+      font-size: 0.85rem;
+      color: #333;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    tr:hover { background: #f8f9ff; }
+    .badge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .badge-pendiente { background: #fff3cd; color: #856404; }
+    .badge-proceso { background: #cfe2ff; color: #0a58ca; }
+    .badge-completado { background: #d1e7dd; color: #0f5132; }
+    .btn-pdf {
+      background: #0e3d92;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      font-family: Montserrat, sans-serif;
+      font-weight: 600;
+    }
+    .btn-pdf:hover { background: #0b2f70; }
+    .btn-estado {
+      background: #f8b700;
+      color: #0e3d92;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      font-family: Montserrat, sans-serif;
+      font-weight: 600;
+      margin-left: 5px;
+    }
+    .sin-datos { text-align: center; padding: 40px; color: #999; }
+  </style>
+</head>
+<body>
+
+<div class="admin-header">
+  <div>
+    <h1>🛡️ Panel de Administración</h1>
+    <span id="admin-correo"></span>
+  </div>
+  <button class="btn-logout" id="btnLogout">Cerrar Sesión</button>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-card">
+    <h3 id="total-solicitudes">0</h3>
+    <p>Total Solicitudes</p>
+  </div>
+  <div class="stat-card">
+    <h3 id="total-pendientes">0</h3>
+    <p>Pendientes</p>
+  </div>
+  <div class="stat-card">
+    <h3 id="total-completadas">0</h3>
+    <p>Completadas</p>
+  </div>
+  <div class="stat-card">
+    <h3 id="total-usuarios">0</h3>
+    <p>Usuarios Registrados</p>
+  </div>
+</div>
+
+<div class="table-container">
+  <div class="table-header">
+    <h2>📋 Solicitudes de Proceso</h2>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Cliente</th>
+        <th>Correo</th>
+        <th>Declaración</th>
+        <th>Período</th>
+        <th>Personas</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tabla-solicitudes">
+      <tr><td colspan="8" class="sin-datos">Cargando...</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>
