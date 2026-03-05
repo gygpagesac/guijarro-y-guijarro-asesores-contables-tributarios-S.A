@@ -62,6 +62,7 @@ async function cargarMensajes() {
     .from("mensajes")
     .select("*")
     .eq("user_id", user.id)
+    .eq("es_respuesta", false)
     .order("created_at", { ascending: false });
 
   const container = document.getElementById("bandeja-container");
