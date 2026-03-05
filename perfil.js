@@ -58,12 +58,12 @@ document.getElementById("btnGuardar").addEventListener("click", async () => {
 
 // Cargar mensajes
 async function cargarMensajes() {
-  const { data: mensajes } = await supabase
-    .from("mensajes")
-    .select("*")
-    .eq("user_id", user.id)
-    .eq("es_respuesta", false)
-    .order("created_at", { ascending: false });
+ const { data: mensajes } = await supabase
+  .from("mensajes")
+  .select("*")
+  .eq("destinatario_id", user.id)
+  .eq("es_respuesta", false)
+  .order("created_at", { ascending: false });
 
   const container = document.getElementById("bandeja-container");
 
@@ -106,8 +106,9 @@ window.mostrarRespuesta = function(mensajeId, asunto) {
 
     if (!mensajeResp.trim()) return;
 
-    const { error } = await supabase.from("mensajes").insert({
-     user_id: session.user.id,
+   const { error } = await supabase.from("mensajes").insert({
+     user_id: user.id,
+     destinatario_id: user.id,
      remitente: user.email,
      asunto: asuntoResp,
      mensaje: mensajeResp,
