@@ -2,6 +2,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 const SUPABASE_URL = "https://pcjqvqscarltpztdrrfp.supabase.co";
 const SUPABASE_KEY = "sb_publishable_DYnjwiSWoiKabr-6WNlbFg_sncdthhO";
+const ADMINS = ["guijarroyguijarrotk@gmail.com", "gygasesores1@gmail.com"];
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const { data: { session } } = await supabase.auth.getSession();
@@ -124,6 +125,7 @@ if (headerContainer) {
         </div>
         <a href="index.html">🏠 Página Principal</a>
         <a href="perfil.html">👤 Mi Perfil</a>
+        ${ADMINS.includes(session.user.email) ? '<a href="admin.html">🛡️ Panel Admin</a>' : ''}
         <hr>
         <button class="btn-cerrar-sesion" id="btnCerrarSesion">🚪 Cerrar Sesión</button>
       </div>
