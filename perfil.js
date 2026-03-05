@@ -106,11 +106,12 @@ window.mostrarRespuesta = function(mensajeId, asunto) {
     if (!mensajeResp.trim()) return;
 
     const { error } = await supabase.from("mensajes").insert({
-      user_id: "admin",
-      remitente: user.email,
-      asunto: asuntoResp,
-      mensaje: mensajeResp,
-    });
+     user_id: session.user.id,
+     remitente: user.email,
+     asunto: asuntoResp,
+     mensaje: mensajeResp,
+     es_respuesta: true
+   });
 
     if (!error) {
       document.getElementById("respuesta-mensaje").value = "";
