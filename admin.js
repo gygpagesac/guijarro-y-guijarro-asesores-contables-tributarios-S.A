@@ -248,11 +248,12 @@ window.enviarMensaje = async () => {
   }
 
   const { error } = await supabase.from("mensajes").insert({
-    user_id: userId,
-    remitente: "G & G Asesores Tributarios",
-    asunto: asunto,
-    mensaje: mensaje,
-    leido: false
+  user_id: userId,
+  destinatario_id: userId,
+  remitente: "G & G Asesores Tributarios",
+  asunto: asunto,
+  mensaje: mensaje,
+  leido: false
   });
 
   if (error) {
