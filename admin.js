@@ -76,9 +76,11 @@ async function cargarSolicitudes() {
       <td>${s.num_personas || 1}</td>
       <td><span class="badge ${badgeClass}">${s.estado}</span></td>
       <td>
-        <button class="btn-pdf" onclick="descargarPDF('${s.id}')">📄 PDF</button>
-        <button class="btn-estado" onclick="cambiarEstado('${s.id}', '${s.estado}')">✏️ Estado</button>
-        <button class="btn-estado" onclick="abrirMensaje('${s.user_id}', '${correoUsuario}')">✉️ Mensaje</button>
+      <div class="acciones-cell">
+      <button class="btn-pdf" onclick="descargarPDF('${s.id}')">📄 PDF</button>
+      <button class="btn-estado" onclick="cambiarEstado('${s.id}', '${s.estado}')">✏️ Estado</button>
+      <button class="btn-estado" onclick="abrirMensaje('${s.user_id}', '${correoUsuario}')">✉️ Mensaje</button>
+      </div>
       </td>
     `;
     tbody.appendChild(tr);
