@@ -35,13 +35,13 @@ async function cargarSolicitudes() {
   console.log("Solicitudes:", solicitudes, "Error:", error);
 
   if (error || !solicitudes) return;
-
-  const { data: perfiles } = await supabase.from("perfiles").select("*");
   const { data: correos } = await supabase.from("usuarios_correos").select("*");
-  const { data: totalUsuarios } = await supabase.from("perfiles").select("id");
+  const { data: perfiles, error: errorPerfiles } = await supabase.from("perfiles").select("*");
+  const { data: totalUsuarios, error: errorUsuarios } = await supabase.from("perfiles").select("id");
+  console.log("Perfiles:", perfiles, errorPerfiles);
+  console.log("Total usuarios:", totalUsuarios, errorUsuarios);
 
-  console.log("Perfiles:", perfiles);
-  console.log("Correos:", correos);
+
 
   document.getElementById("total-solicitudes").textContent = solicitudes.length;
   document.getElementById("total-pendientes").textContent = solicitudes.filter(s => s.estado === "pendiente").length;
