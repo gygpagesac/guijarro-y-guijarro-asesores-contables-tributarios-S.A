@@ -39,13 +39,9 @@ async function cargarSolicitudes() {
   const { data: perfiles, error: errorPerfiles } = await supabase.from("perfiles").select("*");
   console.log("Perfiles:", perfiles, errorPerfiles);
   document.getElementById("total-usuarios").textContent = perfiles?.length || 0;
-
-
-
   document.getElementById("total-solicitudes").textContent = solicitudes.length;
   document.getElementById("total-pendientes").textContent = solicitudes.filter(s => s.estado === "pendiente").length;
   document.getElementById("total-completadas").textContent = solicitudes.filter(s => s.estado === "completado").length;
-  document.getElementById("total-usuarios").textContent = totalUsuarios?.length || 0;
 
   const tbody = document.getElementById("tabla-solicitudes");
   tbody.innerHTML = "";
