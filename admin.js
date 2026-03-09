@@ -37,9 +37,8 @@ async function cargarSolicitudes() {
   if (error || !solicitudes) return;
   const { data: correos } = await supabase.from("usuarios_correos").select("*");
   const { data: perfiles, error: errorPerfiles } = await supabase.from("perfiles").select("*");
-  const { data: totalUsuarios, error: errorUsuarios } = await supabase.from("perfiles").select("id");
   console.log("Perfiles:", perfiles, errorPerfiles);
-  console.log("Total usuarios:", totalUsuarios, errorUsuarios);
+  document.getElementById("total-usuarios").textContent = perfiles?.length || 0;
 
 
 
