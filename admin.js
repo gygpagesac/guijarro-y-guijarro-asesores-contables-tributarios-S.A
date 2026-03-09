@@ -271,21 +271,27 @@ async function cargarRespuestas() {
     .eq("es_respuesta", true)
     .order("created_at", { ascending: false });
 
-  console.log("Respuestas:", respuestas, error);
+  const { data: perfiles } = await supabase.from("perfiles").select("*");
 
   const tbody = document.getElementById("tabla-respuestas");
 
   if (error || !respuestas || respuestas.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4" class="sin-datos">No hay respuestas aún</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" class="sin-datos">No hay respuestas aún</td></tr>`;
     return;
   }
 
   tbody.innerHTML = "";
   for (const r of respuestas) {
     const fecha = new Date(r.created_at).toLocaleDateString("es-EC");
+    const perfil = perfiles?.find(p => p.user_id === r.user_id);
+    const nombre = perfil ? `${perfil.nombres || ""} ${perfil.apellidos || ""}`.trim() : "-";
+    const ruc = perfil?.ruc || "-";
+
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${fecha}</td>
+      <td>${nombre}</td>
+      <td>${ruc}</td>
       <td>${r.remitente}</td>
       <td>${r.asunto || "-"}</td>
       <td>${r.mensaje}</td>
