@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Software Contable | G & G Asesores Tributarios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; color: #333; }
+
+    /* HERO */
+    .sw-hero {
+      background: linear-gradient(135deg, #0e3d92 0%, #1b78c1 100%);
+      padding: 70px 20px 60px;
+      text-align: center;
+      color: white;
+    }
+    .sw-hero .hero-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.9; }
+    .sw-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 14px; }
+    .sw-hero p { font-size: 1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.7; }
+    .hero-badge {
+      display: inline-block;
+      background: #f8b700;
+      color: #0e3d92;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* INTRO */
+    .intro-section { background: #f8faff; padding: 55px 20px; text-align: center; }
+    .intro-section h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .intro-section p { max-width: 750px; margin: 0 auto; color: #555; line-height: 1.8; font-size: 0.95rem; }
+    .intro-divider { width: 60px; height: 4px; background: #f8b700; border-radius: 4px; margin: 18px auto 0; }
+
+    /* TARJETAS MÓDULOS — 3x2 */
+    .cards-section { padding: 60px 20px; background: white; }
+    .cards-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .cards-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: #f8faff;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 30px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(14,61,146,0.12); }
+    .card-icon {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.4rem; color: white;
+    }
+    .service-card h3 { color: #0e3d92; font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { color: #666; font-size: 0.85rem; line-height: 1.7; }
+
+    /* DETALLE — 4x2 */
+    .detail-section { background: #f0f4fb; padding: 60px 20px; }
+    .detail-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 40px; }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .detail-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .detail-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .detail-card-header i { color: #f8b700; font-size: 1.4rem; flex-shrink: 0; }
+    .detail-card h3 { color: #0e3d92; font-size: 0.88rem; font-weight: 700; line-height: 1.4; }
+    .detail-card ul { list-style: none; padding: 0; }
+    .detail-card ul li {
+      font-size: 0.82rem; color: #555;
+      padding: 6px 0;
+      border-bottom: 1px dashed #eee;
+      display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+    }
+    .detail-card ul li:last-child { border-bottom: none; }
+    .detail-card ul li::before { content: '✓'; color: #0e3d92; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* COMPROMISO */
+    .compromiso-section {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      padding: 55px 20px; text-align: center; color: white;
+    }
+    .compromiso-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .compromiso-section p { max-width: 650px; margin: 0 auto 10px; opacity: 0.92; line-height: 1.8; font-size: 0.95rem; }
+    .compromiso-section .highlight { font-weight: 700; color: #f8b700; font-size: 1rem; margin-top: 14px; display: block; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .detail-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .sw-hero h1 { font-size: 1.6rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header-new">
+  <div class="header-new-container">
+    <div class="logo-new">
+      <img src="IMAGENES/logo.png" alt="Logo G&G">
+      <span>G & G ASESORES TRIBUTARIOS</span>
+    </div>
+    <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
+    <nav class="menu-new" id="menu-new">
+      <a href="index.html">Inicio</a>
+      <div class="dropdown-new">
+        <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>
+        <div class="dropdown-content-new">
+          <a href="personas-naturales.html">Personas Naturales</a>
+          <a href="personas-juridicas.html">Empresas</a>
+          <a href="anexos tributarios.html">Anexos</a>
+          <a href="otros anexos.html">Otros Anexos</a>
+          <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>
+          <a href="softwarecontable.html">Software Contable</a>
+        </div>
+      </div>
+      <div class="dropdown-new">
+        <a href="#" class="dropbtn-new">Servicios Laborales</a>
+        <div class="dropdown-content-new">
+          <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
+        </div>
+      </div>
+      <div class="dropdown-new">
+        <a href="#" class="dropbtn-new">Otros Servicios</a>
+        <div class="dropdown-content-new">
+          <a href="asesorialegal.html">Asesoría Legal</a>
+          <a href="capacitaciones.html">Capacitaciones</a>
+          <a href="uafe.html">UAFE</a>
+          <a href="sercop.html">SERCOP</a>
+        </div>
+      </div>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="sw-hero">
+  <div class="hero-icon"><i class="fa-solid fa-laptop-code"></i></div>
+  <span class="hero-badge">Herramienta Profesional</span>
+  <h1>Software Contable Gálac</h1>
+  <p>Automatiza tus procesos financieros, administrativos y de cumplimiento legal con el software más utilizado por contadores y PYMEs en la región.</p>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <h2>¿Qué es Gálac Software?</h2>
+  <p>Gálac es un programa diseñado específicamente para automatizar procesos financieros, administrativos y de cumplimiento legal. Es ampliamente utilizado por contadores, administradores y pequeñas y medianas empresas debido a su adaptabilidad a las normativas locales. Su estructura modular permite implementar solo las áreas que tu negocio necesita, creciendo junto a ti.</p>
+  <div class="intro-divider"></div>
+</section>
+
+<!-- TARJETAS MÓDULOS — 3x2 -->
+<section class="cards-section">
+  <h2>Módulos Principales</h2>
+  <p class="section-sub">Soluciones integradas para cada área de tu empresa</p>
+  <div class="cards-grid">
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-book"></i></div>
+      <h3>Contabilidad General</h3>
+      <p>Registro y procesamiento de la historia financiera para generar balances y estados de resultados de forma rápida y precisa, cumpliendo con las normas contables vigentes.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+      <h3>IVA y Renta</h3>
+      <p>Facilita la declaración electrónica de impuestos y el cumplimiento de obligaciones fiscales ante el SRI, evitando errores y multas por presentación incorrecta.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+      <h3>Nómina y Personal</h3>
+      <p>Cálculo automatizado de salarios, beneficios sociales, pasivos laborales y gestión integral del personal, con reportes para el IESS y el Ministerio de Trabajo.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+      <h3>Módulo Administrativo</h3>
+      <p>Control completo de inventarios, cuentas por cobrar y pagar, compras y ventas en un solo lugar, con reportes en tiempo real para una mejor toma de decisiones.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-receipt"></i></div>
+      <h3>Facturación Electrónica</h3>
+      <p>Sistema homologado para emitir facturas, notas de crédito y comprobantes de retención correctamente, cumpliendo con los requisitos del SRI y evitando clausuras.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-warehouse"></i></div>
+      <h3>Activos Fijos</h3>
+      <p>Control y seguimiento de bienes de la empresa con generación automática de informes de depreciación mensual o anual según los métodos contables permitidos.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DETALLE — 4x2 -->
+<section class="detail-section">
+  <h2>¿Qué incluye cada módulo?</h2>
+  <div class="detail-grid">
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-book"></i>
+        <h3>Contabilidad General</h3>
+      </div>
+      <ul>
+        <li>Diario general y mayor contable</li>
+        <li>Balance de comprobación automático</li>
+        <li>Estado de resultados y balance general</li>
+        <li>Conciliaciones bancarias integradas</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        <h3>Área Tributaria</h3>
+      </div>
+      <ul>
+        <li>Declaración de IVA mensual y semestral</li>
+        <li>Impuesto a la Renta anual</li>
+        <li>Retenciones en la fuente automáticas</li>
+        <li>Anexos ATS y RDEP para el SRI</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-users-gear"></i>
+        <h3>Nómina</h3>
+      </div>
+      <ul>
+        <li>Cálculo de roles de pago mensuales</li>
+        <li>Décimos tercero y cuarto automáticos</li>
+        <li>Aportes patronales y personales al IESS</li>
+        <li>Liquidaciones y actas de finiquito</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        <h3>Inventarios</h3>
+      </div>
+      <ul>
+        <li>Control de stock en tiempo real</li>
+        <li>Métodos FIFO, LIFO y promedio ponderado</li>
+        <li>Alertas de stock mínimo</li>
+        <li>Reportes de rotación de inventario</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-receipt"></i>
+        <h3>Facturación Electrónica</h3>
+      </div>
+      <ul>
+        <li>Emisión de facturas homologadas SRI</li>
+        <li>Notas de crédito y débito electrónicas</li>
+        <li>Comprobantes de retención automáticos</li>
+        <li>Envío directo al correo del cliente</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-warehouse"></i>
+        <h3>Activos Fijos</h3>
+      </div>
+      <ul>
+        <li>Registro y codificación de activos</li>
+        <li>Depreciación lineal y acelerada</li>
+        <li>Informes mensuales y anuales</li>
+        <li>Control de bajas y revalorizaciones</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-hand-holding-dollar"></i>
+        <h3>Cuentas por Cobrar y Pagar</h3>
+      </div>
+      <ul>
+        <li>Registro de créditos a clientes y proveedores</li>
+        <li>Alertas de vencimiento de cuotas</li>
+        <li>Estado de cuenta por cliente o proveedor</li>
+        <li>Conciliación automática de pagos</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-chart-bar"></i>
+        <h3>Reportes Gerenciales</h3>
+      </div>
+      <ul>
+        <li>Tablero de indicadores financieros</li>
+        <li>Comparativos por período o sucursal</li>
+        <li>Exportación a Excel y PDF</li>
+        <li>Informes personalizados por área</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPROMISO -->
+<section class="compromiso-section">
+  <h2><i class="fa-solid fa-circle-check" style="margin-right:10px;"></i>¿Por qué usar Gálac con nosotros?</h2>
+  <p>En G & G Asesores Tributarios te ayudamos a implementar, configurar y capacitar a tu equipo en el uso de Gálac Software para que aproveches al máximo todas sus funcionalidades.</p>
+  <p>No solo instalamos el programa: te acompañamos en la migración de datos, la parametrización tributaria y el soporte continuo para que tu empresa opere sin interrupciones.</p>
+  <span class="highlight">Con Gálac y nuestro equipo, tu contabilidad siempre estará al día y en cumplimiento total.</span>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact-section">
+  <h2 class="title">Contáctanos</h2>
+  <p class="subtitle">¿Quieres implementar Gálac en tu empresa? Escríbenos y te asesoramos.</p>
+  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">Escríbenos por WhatsApp</a>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="location-section">
+  <div class="location-container">
+    <div class="location-info">
+      <h2>Nuestra Ubicación</h2>
+      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable, tributaria y tecnológica confiable. Visítanos y recibe atención personalizada.</p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación en Google Maps</a>
+    </div>
+    <div class="location-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-item">
+      <i class="fa-brands fa-whatsapp"></i>
+      <h4>WhatsApp</h4>
+      <a href="https://wa.link/7a1xme" target="_blank">Escríbenos</a>
+    </div>
+    <div class="footer-item">
+      <i class="fa-solid fa-envelope"></i>
+      <h4>Gmail</h4>
+      <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a>
+    </div>
+    <div class="footer-item">
+      <i class="fa-solid fa-location-dot"></i>
+      <h4>Maps</h4>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">Ver ubicación</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script type="module" src="header.js"></script>
+</body>
+</html>
