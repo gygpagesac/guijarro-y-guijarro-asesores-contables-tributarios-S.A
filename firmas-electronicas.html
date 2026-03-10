@@ -2,287 +2,496 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Firmas Electrónicas | G & G Asesores Tributarios</title>
-
-  <link rel="icon" href="IMAGENES/favicon.png" type="image/png">
-
+  <title>Firmas y Facturación Electrónica | G & G Asesores Tributarios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS PRINCIPAL -->
+  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
   <link rel="stylesheet" href="style.css">
-
-  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- ICONOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
-  
-</head>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; color: #333; }
 
+    /* HERO */
+    .fe-hero {
+      background: linear-gradient(135deg, #0e3d92 0%, #1b78c1 100%);
+      padding: 70px 20px 60px;
+      text-align: center;
+      color: white;
+    }
+    .fe-hero .hero-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.9; }
+    .fe-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 14px; }
+    .fe-hero p { font-size: 1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.7; }
+    .hero-badge {
+      display: inline-block;
+      background: #f8b700;
+      color: #0e3d92;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* INTRO */
+    .intro-section { background: #f8faff; padding: 55px 20px; text-align: center; }
+    .intro-section h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .intro-section p { max-width: 750px; margin: 0 auto; color: #555; line-height: 1.8; font-size: 0.95rem; }
+    .intro-divider { width: 60px; height: 4px; background: #f8b700; border-radius: 4px; margin: 18px auto 0; }
+
+    /* PASOS FIRMA — 4 tarjetas en fila */
+    .steps-section { padding: 60px 20px; background: white; }
+    .steps-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .steps-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .step-card {
+      background: #f8faff;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 28px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
+    }
+    .step-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(14,61,146,0.12); }
+    .step-num {
+      width: 36px; height: 36px;
+      background: #f8b700;
+      color: #0e3d92;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem;
+      margin: 0 auto 14px;
+    }
+    .step-icon {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.4rem; color: white;
+    }
+    .step-card h3 { color: #0e3d92; font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .step-card p { color: #666; font-size: 0.83rem; line-height: 1.6; }
+
+    /* TARJETAS SERVICIOS — 3x2 */
+    .cards-section { padding: 60px 20px; background: #f0f4fb; }
+    .cards-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .cards-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: white;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 30px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(14,61,146,0.12); }
+    .card-icon {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.4rem; color: white;
+    }
+    .service-card h3 { color: #0e3d92; font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { color: #666; font-size: 0.85rem; line-height: 1.7; }
+
+    /* DETALLE — 4x2 */
+    .detail-section { background: white; padding: 60px 20px; }
+    .detail-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 40px; }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .detail-card { background: #f8faff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .detail-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .detail-card-header i { color: #f8b700; font-size: 1.4rem; flex-shrink: 0; }
+    .detail-card h3 { color: #0e3d92; font-size: 0.88rem; font-weight: 700; line-height: 1.4; }
+    .detail-card ul { list-style: none; padding: 0; }
+    .detail-card ul li {
+      font-size: 0.82rem; color: #555;
+      padding: 6px 0;
+      border-bottom: 1px dashed #e0e8f5;
+      display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+    }
+    .detail-card ul li:last-child { border-bottom: none; }
+    .detail-card ul li::before { content: '✓'; color: #0e3d92; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* COMPROMISO */
+    .compromiso-section {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      padding: 55px 20px; text-align: center; color: white;
+    }
+    .compromiso-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .compromiso-section p { max-width: 650px; margin: 0 auto 10px; opacity: 0.92; line-height: 1.8; font-size: 0.95rem; }
+    .compromiso-section .highlight { font-weight: 700; color: #f8b700; font-size: 1rem; margin-top: 14px; display: block; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .detail-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .fe-hero h1 { font-size: 1.6rem; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
 <body>
 
-<!-- ===== HEADER (MISMO QUE INDEX) ===== -->
+<!-- HEADER -->
 <header class="header-new">
   <div class="header-new-container">
-
     <div class="logo-new">
       <img src="IMAGENES/logo.png" alt="Logo G&G">
       <span>G & G ASESORES TRIBUTARIOS</span>
     </div>
-
-
     <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
-    <nav class="menu-new" id="menu-new"> 
-      
+    <nav class="menu-new" id="menu-new">
       <a href="index.html">Inicio</a>
-      
-      <!-- SERVICIOS CONTABLES -->
-      <div class="dropdown-new"> 
-        <a href="servicios.html" class="dropbtn-new">Servicios Contables</a> 
-        <div class="dropdown-content-new"> 
-          <a href="personas-naturales.html">Personas Naturales</a>  
-          <a href="personas-juridicas.html">Empresas</a>  
-          <a href="anexos tributarios.html">Anexos</a>  
-          <a href="otros anexos.html">Otros Anexos</a>  
-          <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>    
-          <a href="Softwarecontable.html">Software Contable</a>   
+      <div class="dropdown-new">
+        <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>
+        <div class="dropdown-content-new">
+          <a href="personas-naturales.html">Personas Naturales</a>
+          <a href="personas-juridicas.html">Empresas</a>
+          <a href="anexos tributarios.html">Anexos</a>
+          <a href="otros anexos.html">Otros Anexos</a>
+          <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>
+          <a href="softwarecontable.html">Software Contable</a>
         </div>
       </div>
-  
-      <!-- SERVICIOS LABORALES --> 
       <div class="dropdown-new">
-        <a href="#" class="dropbtn-new">Servicios Laborales</a> 
+        <a href="#" class="dropbtn-new">Servicios Laborales</a>
         <div class="dropdown-content-new">
           <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
         </div>
       </div>
- 
-      <!-- OTROS SERVICIOS --> 
-      <div class="dropdown-new"> 
-        <a href="#" class="dropbtn-new">Otros Servicios</a>  
-        <div class="dropdown-content-new">   
+      <div class="dropdown-new">
+        <a href="#" class="dropbtn-new">Otros Servicios</a>
+        <div class="dropdown-content-new">
           <a href="asesorialegal.html">Asesoría Legal</a>
-            <a href="capacitaciones.html">Capacitaciones</a>           
-          <a href="uafe.html">UAFE</a>           
-          <a href="sercop.html">SERCOP</a>    
+          <a href="capacitaciones.html">Capacitaciones</a>
+          <a href="uafe.html">UAFE</a>
+          <a href="sercop.html">SERCOP</a>
         </div>
       </div>
- 
       <a href="contacto.html">Contacto</a>
     </nav>
   </div>
 </header>
 
-<!-- ===== CONTENIDO FIRMA ELECTRÓNICA ===== -->
- <section class="banner">
-  <img src="IMAGENES/firmaselectronicasfinal.jpg" alt="Banner G & G Asesores Tributarios">
+<!-- HERO -->
+<section class="fe-hero">
+  <div class="hero-icon"><i class="fa-solid fa-file-signature"></i></div>
+  <span class="hero-badge">Trámite Rápido y Seguro</span>
+  <h1>Firmas y Facturación Electrónica</h1>
+  <p>Obtén tu firma electrónica en menos de 2 horas y emite facturas desde cualquier lugar. Nosotros nos encargamos de todo para que tú solo te preocupes por vender.</p>
 </section>
 
-<section class="firma-section">
-  <div class="firma-container">
+<!-- INTRO -->
+<section class="intro-section">
+  <h2>¿Qué es la Facturación Electrónica?</h2>
+  <p>Es el mismo comprobante de siempre, pero en formato digital con plena validez legal. Un archivo cifrado que viaja de tu negocio al SRI y luego al correo de tu cliente. Oficial, seguro y moderno. Hoy en día, facturar electrónicamente no es una opción: es una obligación legal y una ventaja competitiva.</p>
+  <div class="intro-divider"></div>
+</section>
 
-    <h1>Firmas electrónicas en menos de 2 horas</h1>
+<!-- PASOS FIRMA ELECTRÓNICA -->
+<section class="steps-section">
+  <h2>Tu Firma Electrónica en 4 Pasos</h2>
+  <p class="section-sub">Proceso rápido, sencillo y con respaldo profesional</p>
+  <div class="steps-grid">
 
-    <p>
-      Obtén tu firma electrónica de forma rápida, segura y con respaldo profesional.
-      Nos encargamos de todo el proceso, desde la generación hasta la configuración
-      para que puedas usarla sin complicaciones.
-    </p>
-
-    <div class="firma-steps">
-
-      <div class="firma-card">
-        <i class="fa-solid fa-user"></i>
-        <h3>Envíanos tus datos</h3>
-        <p>Recibimos tu información de forma segura y confidencial.</p>
-      </div>
-
-      <div class="firma-card">
-        <i class="fa-solid fa-pen-nib"></i>
-        <h3>Generamos tu firma</h3>
-        <p>Procesamos tu firma electrónica conforme a la normativa vigente.</p>
-      </div>
-
-      <div class="firma-card">
-        <i class="fa-solid fa-clock"></i>
-        <h3>Entrega rápida</h3>
-        <p>Recibe tu firma electrónica en menos de 2 horas.</p>
-      </div>
-
-      <div class="firma-card">
-        <i class="fa-solid fa-gear"></i>
-        <h3>Configuración SRI y Yo</h3>
-        <p>Dejamos tu cuenta lista para usar sin complicaciones.</p>
-      </div>
-
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-icon"><i class="fa-solid fa-user"></i></div>
+      <h3>Envíanos tus datos</h3>
+      <p>Recibimos tu información de forma segura y confidencial para iniciar el proceso.</p>
     </div>
 
-    <a href="https://wa.link/7a1xme" target="_blank" class="btn">
-      Solicitar firma electrónica
-    </a>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-icon"><i class="fa-solid fa-pen-nib"></i></div>
+      <h3>Generamos tu firma</h3>
+      <p>Procesamos tu firma electrónica conforme a la normativa vigente del SRI.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-icon"><i class="fa-solid fa-clock"></i></div>
+      <h3>Entrega en 2 horas</h3>
+      <p>Recibes tu firma electrónica lista para usar en menos de 2 horas hábiles.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div class="step-icon"><i class="fa-solid fa-gear"></i></div>
+      <h3>Configuración SRI y Yo</h3>
+      <p>Dejamos tu cuenta completamente configurada para que empieces sin complicaciones.</p>
+    </div>
 
   </div>
 </section>
 
-  <section class="info-section">
-  <div class="info-container">
+<!-- VENTAJAS FACTURACIÓN — 3x2 -->
+<section class="cards-section">
+  <h2>Ventajas de Nuestro Sistema</h2>
+  <p class="section-sub">Una herramienta diseñada para dueños de negocio que no tienen tiempo que perder</p>
+  <div class="cards-grid">
 
-    <!-- BLOQUE 1 -->
-    <div class="info-card">
-      <i class="fa-solid fa-pen-to-square"></i>
-      <h2>¿Qué son las firmas electrónicas?</h2>
-      <p>
-        Una firma electrónica es una herramienta digital que permite identificar
-        de manera segura a la persona que firma un documento y garantiza que su
-        contenido no ha sido modificado después de la firma.
-      </p>
-      <p>
-        Su finalidad es brindar seguridad y validez legal a documentos y trámites
-        realizados por medios electrónicos, ofreciendo respaldo jurídico y
-        confianza en cada gestión.
-      </p>
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+      <h3>Factura desde Cualquier Lugar</h3>
+      <p>¿En el local? Usas la computadora. ¿En la calle entregando un pedido? Sacas el celular y facturas en segundos. Tu sistema te sigue a todos lados.</p>
     </div>
-       <!-- BLOQUE 2 -->
-    <div class="info-card highlight">
-      <i class="fa-solid fa-briefcase"></i>
-      <h2>¿Porque usamos la firma electrónica</h2>
-      <p>Usamos las firmas electronicas para agilizar procesos, garantizar la
-         seguridad y autenticidad de documentos, ahorrar costos y tiempo, contar 
-         con validez legal equivalente a una firma manuscrita</p>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h3>Velocidad Rayo</h3>
+      <p>Configuras tus productos una sola vez y la próxima solo eliges el nombre, pones el precio y ¡listo! Una factura completa en menos de 10 segundos.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h3>Cero Errores Tributarios</h3>
+      <p>El sistema calcula los impuestos automáticamente. No necesitas ser experto en contabilidad; el software se encarga de que todo cuadre perfecto para el SRI.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-file-excel"></i></div>
+      <h3>Carga Masiva desde Excel</h3>
+      <p>¿Ya tienes una lista larga de productos o clientes? La subimos de golpe y en minutos tienes todo tu inventario listo para empezar a vender.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-brands fa-whatsapp"></i></div>
+      <h3>Envío por WhatsApp y Correo</h3>
+      <p>No solo llega el PDF al cliente; el sistema envía un mensaje personalizado automáticamente. Te haces quedar como un negocio de alto nivel.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-headset"></i></div>
+      <h3>Soporte de Gente Real</h3>
+      <p>Aquí no hablas con un robot. Si tienes una duda o el SRI se pone pesado, nosotros te contestamos de inmediato para solucionarlo. No te dejamos solo.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DETALLE — 4x2 -->
+<section class="detail-section">
+  <h2>¿Qué incluye el servicio?</h2>
+  <div class="detail-grid">
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-file-signature"></i>
+        <h3>Firma Electrónica</h3>
+      </div>
       <ul>
-        <li>Seguridad y autenticidad</li>
-        <li>Eficiencia y ahorro de tiempo</li>
-        <li>Validez legal</li>       
-        <li>Comodidad y movilidad</li>
+        <li>Generación conforme a normativa SRI</li>
+        <li>Entrega en menos de 2 horas</li>
+        <li>Configuración en el portal SRI y Yo</li>
+        <li>Asesoría en renovación anual</li>
       </ul>
     </div>
 
-    <!-- BLOQUE 3 -->
-    <div class="info-card">
-      <i class="fa-solid fa-file-invoice"></i>
-      <h2> Cuando las usamos</h2>
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-file-invoice"></i>
+        <h3>Facturación Electrónica</h3>
+      </div>
+      <ul>
+        <li>Facturas, notas de crédito y débito</li>
+        <li>Comprobantes de retención automáticos</li>
+        <li>Validación en tiempo real con el SRI</li>
+        <li>Archivo y respaldo en la nube</li>
+      </ul>
+    </div>
 
-      <p>  Las usamos para validar la identidad de los firmantes y garantizar la 
-        integridad de los documentos digitales</p>
-        <ul>
-            <li>Contratos y acuerdos legales</li>
-            <li>Trámites gubernamentales y administrativos            </li>
-            <li>Pagos y operaciones bancarias electrónica</li>
-            <li>Envío de facturas o documentos comerciales</li>
-        </ul>
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-chart-pie"></i>
+        <h3>Reportes Inteligentes</h3>
+      </div>
+      <ul>
+        <li>Resumen visual de ventas por período</li>
+        <li>Productos más vendidos del mes</li>
+        <li>IVA acumulado listo para declarar</li>
+        <li>Exportación a Excel y PDF</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-users"></i>
+        <h3>Gestión de Clientes</h3>
+      </div>
+      <ul>
+        <li>Base de datos de clientes integrada</li>
+        <li>Historial de facturas por cliente</li>
+        <li>Carga masiva desde Excel</li>
+        <li>Envío automático al correo del cliente</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        <h3>Catálogo de Productos</h3>
+      </div>
+      <ul>
+        <li>Registro ilimitado de productos</li>
+        <li>Precios, códigos y tarifas de IVA</li>
+        <li>Carga masiva desde inventario existente</li>
+        <li>Actualización de precios en un clic</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-cloud"></i>
+        <h3>Sistema en la Nube</h3>
+      </div>
+      <ul>
+        <li>Acceso desde computadora y celular</li>
+        <li>Sin instalación ni mantenimiento</li>
+        <li>Respaldo automático de información</li>
+        <li>Disponible las 24 horas del día</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>Seguridad y Validez Legal</h3>
+      </div>
+      <ul>
+        <li>Documentos con firma electrónica integrada</li>
+        <li>Cumplimiento total con normativa SRI</li>
+        <li>Válido como respaldo tributario</li>
+        <li>Cifrado y protección de datos</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-headset"></i>
+        <h3>Soporte y Capacitación</h3>
+      </div>
+      <ul>
+        <li>Capacitación inicial incluida</li>
+        <li>Soporte por WhatsApp y llamada</li>
+        <li>Ayuda en casos de contingencia SRI</li>
+        <li>Actualizaciones ante cambios normativos</li>
+      </ul>
     </div>
 
   </div>
 </section>
 
-<section class="contact-section">
-      <h2 class="title">Contáctanos</h2>
-      <p class="subtitle">
-        Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.
-      </p>
+<!-- COMPROMISO -->
+<section class="compromiso-section">
+  <h2><i class="fa-solid fa-handshake" style="margin-right:10px;"></i>Nuestro Compromiso Contigo</h2>
+  <p>No te vendemos un programa y te dejamos solo. Te acompañamos desde la instalación hasta que emitas tu primera factura con total seguridad, y seguimos contigo cuando lo necesites.</p>
+  <p>Trabajamos para que el cumplimiento tributario deje de ser un dolor de cabeza y se convierta en una ventaja para tu negocio.</p>
+  <span class="highlight">Con nosotros, facturas rápido, cumples con el SRI y le das a tu negocio la imagen profesional que merece.</span>
+</section>
 
-      <a href="https://wa.link/7a1xme"
-           class="btn btn-whatsapp"
-           target="_blank">
-           Escríbenos por WhatsApp
-      </a>
-    </section>
+<!-- CONTACTO -->
+<section class="contact-section">
+  <h2 class="title">Contáctanos</h2>
+  <p class="subtitle">¿Listo para facturar electrónicamente? Escríbenos y te ayudamos hoy mismo.</p>
+  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">Escríbenos por WhatsApp</a>
+</section>
+
+<!-- UBICACIÓN -->
 <section class="location-section">
   <div class="location-container">
-
-    <!-- TEXTO -->
     <div class="location-info">
       <h2>Nuestra Ubicación</h2>
-      <p>
-        Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de
-        fácil acceso para quienes buscan asesoría contable y tributaria confiable.
-        Visítanos para recibir atención personalizada, resolver tus dudas y obtener el
-        apoyo profesional que tu gestión necesita. ¡Estaremos encantados de ayudarte!
-      </p>
-
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6"
-         target="_blank"
-         class="btn-location">
-        Ver ubicación en Google Maps
-      </a>
+      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable y tributaria confiable. Visítanos y recibe atención personalizada de nuestro equipo profesional.</p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación en Google Maps</a>
     </div>
-
-    <!-- MAPA -->
     <div class="location-map">
-      
-      <iframe
-        width="100%"
-        height="400"
-        style="border:0;"
-        loading="lazy"
-        allowfullscreen=""
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5640259090364!2d-76.8916587!3d0.0846226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20%26%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses!2sec!4v1707000000000">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
-
   </div>
 </section>
 
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
-    <a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-
-<!-- ===== FOOTER (MISMO QUE INDEX) ===== -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-item">
       <i class="fa-brands fa-whatsapp"></i>
       <h4>WhatsApp</h4>
       <a href="https://wa.link/7a1xme" target="_blank">Escríbenos</a>
     </div>
-
     <div class="footer-item">
       <i class="fa-solid fa-envelope"></i>
       <h4>Gmail</h4>
       <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a>
     </div>
-
     <div class="footer-item">
       <i class="fa-solid fa-location-dot"></i>
       <h4>Maps</h4>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">
-        Ver ubicación
-      </a>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">Ver ubicación</a>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
   </div>
-
-
 </footer>
 
-<!-- JS -->
 <script src="script.js"></script>
-  <script type="module" src="header.js"></script>
-
+<script type="module" src="header.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
