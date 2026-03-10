@@ -162,15 +162,15 @@
   </div>
   <table>
     <thead>
-      <tr>    
-        <th>Fecha</th>
+       <tr>
+        <th>Fecha</th>   
         <th>Cliente</th>   
-        <th>Correo</th>   
-        <th>Servicio</th>    
-        <th>Período</th>   
-        <th>Tipo</th>   
-        <th>Archivos</th>    
-        <th>Estado</th>    
+        <th>Correo</th>  
+        <th>Servicio</th>  
+        <th>Período</th>    
+        <th>Tipo</th>  
+        <th>Archivos</th>   
+        <th>Estado</th>  
         <th>Acciones</th>
       </tr>
     </thead>
@@ -181,9 +181,10 @@
 </div>
 
   <div class="table-container" style="margin-top: 20px;">
-  <div class="table-header">
-    <h2>📨 Respuestas de Clientes</h2>
-  </div>
+    <div class="table-header">
+      <h2>📋 Solicitudes Activas</h2>  
+      <button class="btn-estado" onclick="abrirHistorial()">📁 Ver Historial Completo</button>
+    </div>
   <table>
 <thead>
   <tr>
@@ -220,6 +221,34 @@
     </div>
     <button onclick="enviarMensaje()" style="width:100%; padding:12px; background:#0e3d92; color:white; border:none; border-radius:6px; font-size:1rem; font-weight:600; cursor:pointer; font-family:Montserrat,sans-serif;">📤 Enviar</button>
     <p id="modal-resultado" style="text-align:center; margin-top:8px; font-size:0.9rem;"></p>
+  </div>
+</div>
+  <div id="modal-historial" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:flex-start; padding:30px 10px; overflow-y:auto;">
+  <div style="background:white; border-radius:14px; width:100%; max-width:1100px; overflow:hidden;">
+    <div style="background:#0e3d92; padding:16px 24px; display:flex; justify-content:space-between; align-items:center;">
+      <h2 style="color:white; font-size:1rem;">📁 Historial Completo de Solicitudes</h2>
+      <button onclick="cerrarHistorial()" style="background:none; border:none; color:white; font-size:1.4rem; cursor:pointer;">✕</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th style="background:#0e3d92; color:white; padding:12px 15px; text-align:left; font-size:0.82rem;">Fecha</th>
+            <th style="background:#0e3d92; color:white; padding:12px 15px; text-align:left; font-size:0.82rem;">Cliente</th>
+            <th style="background:#0e3d92; color:white; padding:12px 15px; text-align:left; font-size:0.82rem;">Correo</th>
+            <th style="background:#0e3d92; color:white; padding:12px 15px; text-align:left; font-size:0.82rem;">Servicio</th>
+            <th style="background:#0e3d92; color:white; padding:12px 15px; text-align:left; font-size:0.82rem;">Período</th>
+            <th style="background:#0e3d92; color:white; padding:12px 15px; text-align:left; font-size:0.82rem;">Tipo</th>
+            <th style="background:#0e3d92; color:white; padding:12px 15px; text-align:left; font-size:0.82rem;">Archivos</th>
+            <th style="background:#0e3d92; color:white; padding:12px 15px; text-align:left; font-size:0.82rem;">Estado</th>
+            <th style="background:#0e3d92; color:white; padding:12px 15px; text-align:left; font-size:0.82rem;">PDF</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-historial">
+          <tr><td colspan="9" class="sin-datos">Cargando...</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 <script type="module" src="admin.js"></script>
