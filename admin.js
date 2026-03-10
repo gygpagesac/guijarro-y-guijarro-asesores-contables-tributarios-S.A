@@ -34,14 +34,22 @@ async function cargarSolicitudes() {
   document.getElementById("total-pendientes").textContent = solicitudes.filter(s => s.estado === "pendiente").length;
   document.getElementById("total-completadas").textContent = solicitudes.filter(s => s.estado === "completado").length;
 
+  // Solo mostrar pendientes y en proceso
+  const activas = solicitudes.filter(s => s.estado !== "completado");
+
   const tbody = document.getElementById("tabla-solicitudes");
   tbody.innerHTML = "";
 
-  if (solicitudes.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="9" class="sin-datos">No hay solicitudes aún</td></tr>`;
+  if (activas.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" class="sin-datos">No hay solicitudes activas</td></tr>`;
     return;
   }
 
+  renderFilas(activas, tbody);
+}
+
+function renderFilas(solicitudes, tbody) {
+  tbody.innerHTML = "";
   for (const s of solicitudes) {
     const fecha = new Date(s.created_at).toLocaleDateString("es-EC");
     const tipo = s.tipo_solicitud === "multiple" ? "👥 Múltiple" : "👤 Personal";
@@ -53,7 +61,6 @@ async function cargarSolicitudes() {
     if (s.estado === "en proceso") badgeClass = "badge-proceso";
     if (s.estado === "completado") badgeClass = "badge-completado";
 
-    // Archivos
     let archivosHtml = "-";
     if (s.archivos) {
       try {
@@ -93,6 +100,60 @@ window.cambiarEstado = async (id, estadoActual) => {
   cargarSolicitudes();
 };
 
+// Modal historial
+window.abrirHistorial = async function() {
+  const { data: solicitudes } = await supabase
+    .from("solicitudes_v2")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  const tbody = document.getElementById("tabla-historial");
+  tbody.innerHTML = "";
+
+  if (!solicitudes || solicitudes.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" class="sin-datos">No hay solicitudes</td></tr>`;
+  } else {
+    for (const s of solicitudes) {
+      const fecha = new Date(s.created_at).toLocaleDateString("es-EC");
+      const tipo = s.tipo_solicitud === "multiple" ? "👥 Múltiple" : "👤 Personal";
+
+      let badgeClass = "badge-pendiente";
+      if (s.estado === "en proceso") badgeClass = "badge-proceso";
+      if (s.estado === "completado") badgeClass = "badge-completado";
+
+      let archivosHtml = "-";
+      if (s.archivos) {
+        try {
+          const arr = JSON.parse(s.archivos);
+          if (arr.length > 0) {
+            archivosHtml = arr.map(a => `<a href="${a.link}" target="_blank" style="color:#0e3d92;font-size:0.75rem;display:block;">📎 ${a.nombre}</a>`).join("");
+          }
+        } catch(e) {}
+      }
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${fecha}</td>
+        <td>${s.nombre_completo || "-"}</td>
+        <td>${s.correo || "-"}</td>
+        <td>${s.tipo_servicio || "-"}</td>
+        <td>${s.periodo_fiscal || "-"}</td>
+        <td>${tipo}</td>
+        <td>${archivosHtml}</td>
+        <td><span class="badge ${badgeClass}">${s.estado}</span></td>
+        <td><button class="btn-pdf" onclick="descargarPDF('${s.id}')">📄 PDF</button></td>
+      `;
+      tbody.appendChild(tr);
+    }
+  }
+
+  document.getElementById("modal-historial").style.display = "flex";
+};
+
+window.cerrarHistorial = function() {
+  document.getElementById("modal-historial").style.display = "none";
+};
+
 window.descargarPDF = async (id) => {
   const { jsPDF } = window.jspdf;
   const { data: s } = await supabase.from("solicitudes_v2").select("*").eq("id", id).single();
@@ -124,7 +185,6 @@ window.descargarPDF = async (id) => {
   doc.text(fechaDoc, 210 - margen, y, { align: "right" });
   y += 10;
 
-  // Datos del cliente
   doc.setFillColor(248, 183, 0);
   doc.rect(margen, y, 170, 10, "F");
   doc.setTextColor(14, 61, 146);
@@ -136,7 +196,7 @@ window.descargarPDF = async (id) => {
   doc.setTextColor(30, 30, 30);
   doc.setFontSize(10);
   const datosCliente = [
-    ["Tipo de Contribuyente:", s.tipo_contribuyente || "-"],
+    ["Tipo Contribuyente:", s.tipo_contribuyente || "-"],
     ["Nombre / Razón Social:", s.nombre_completo || "-"],
     ["Cédula / RUC:", s.cedula_ruc || "-"],
     ["Teléfono:", s.telefono || "-"],
@@ -155,7 +215,6 @@ window.descargarPDF = async (id) => {
   }
   y += 4;
 
-  // Detalles del proceso
   doc.setFillColor(248, 183, 0);
   doc.rect(margen, y, 170, 10, "F");
   doc.setTextColor(14, 61, 146);
@@ -191,7 +250,6 @@ window.descargarPDF = async (id) => {
     y += lineas.length * 6;
   }
 
-  // Personas adicionales
   if (s.personas_adicionales) {
     try {
       const personas = JSON.parse(s.personas_adicionales);
@@ -221,7 +279,6 @@ window.descargarPDF = async (id) => {
     } catch(e) {}
   }
 
-  // Footer
   doc.setFillColor(14, 61, 146);
   doc.rect(0, 285, 210, 15, "F");
   doc.setTextColor(255, 255, 255);
