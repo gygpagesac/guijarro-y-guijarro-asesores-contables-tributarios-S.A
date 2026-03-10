@@ -2,271 +2,496 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title> Asesorías IESS y el Ministerio de Trabajo | G & G Asesores Tributarios </title>
-
-  <link rel="icon" href="IMÁGENES/favicon.png" type="image/png">
-
+  <title>Asesoría IESS y Ministerio de Trabajo | G & G Asesores Tributarios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS PRINCIPAL -->
+  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
   <link rel="stylesheet" href="style.css">
-
-  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- ICONOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
-  
-</head>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; color: #333; }
 
+    /* HERO */
+    .iess-hero {
+      background: linear-gradient(135deg, #0e3d92 0%, #1b78c1 100%);
+      padding: 70px 20px 60px;
+      text-align: center;
+      color: white;
+    }
+    .iess-hero .hero-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.9; }
+    .iess-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 14px; }
+    .iess-hero p { font-size: 1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.7; }
+    .hero-badge {
+      display: inline-block;
+      background: #f8b700;
+      color: #0e3d92;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* INTRO */
+    .intro-section { background: #f8faff; padding: 55px 20px; text-align: center; }
+    .intro-section h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .intro-section p { max-width: 750px; margin: 0 auto 12px; color: #555; line-height: 1.8; font-size: 0.95rem; }
+    .intro-divider { width: 60px; height: 4px; background: #f8b700; border-radius: 4px; margin: 18px auto 0; }
+
+    /* DOS TARJETAS PRINCIPALES */
+    .dos-cards-section { padding: 60px 20px; background: white; }
+    .dos-cards-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .dos-cards-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .dos-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .dos-card {
+      border-radius: 14px;
+      padding: 34px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .dos-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(14,61,146,0.13); }
+    .dos-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
+    }
+    .dos-card.azul {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      color: white;
+    }
+    .dos-card.claro {
+      background: #f8faff;
+      border: 1.5px solid #e0e8f5;
+    }
+    .dos-card-icon { font-size: 2.2rem; margin-bottom: 16px; opacity: 0.9; }
+    .dos-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; }
+    .dos-card.azul h3 { color: white; }
+    .dos-card.claro h3 { color: #0e3d92; }
+    .dos-card ul { list-style: none; padding: 0; }
+    .dos-card ul li {
+      font-size: 0.86rem; padding: 7px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.2);
+      display: flex; align-items: flex-start; gap: 10px; line-height: 1.6;
+    }
+    .dos-card.claro ul li { border-bottom-color: #e0e8f5; color: #555; }
+    .dos-card.azul ul li { color: rgba(255,255,255,0.92); }
+    .dos-card ul li:last-child { border-bottom: none; }
+    .dos-card ul li::before { content: '✓'; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .dos-card.azul ul li::before { color: #f8b700; }
+    .dos-card.claro ul li::before { color: #0e3d92; }
+
+    /* TARJETAS SERVICIOS — 3x2 */
+    .cards-section { padding: 60px 20px; background: #f0f4fb; }
+    .cards-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .cards-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: white;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 28px 22px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(14,61,146,0.12); }
+    .card-icon {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      font-size: 1.3rem; color: white;
+    }
+    .service-card h3 { color: #0e3d92; font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .service-card p { color: #666; font-size: 0.84rem; line-height: 1.7; }
+
+    /* DETALLE — 4x2 */
+    .detail-section { background: white; padding: 60px 20px; }
+    .detail-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 40px; }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .detail-card { background: #f8faff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .detail-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .detail-card-header i { color: #f8b700; font-size: 1.4rem; flex-shrink: 0; }
+    .detail-card h3 { color: #0e3d92; font-size: 0.88rem; font-weight: 700; line-height: 1.4; }
+    .detail-card ul { list-style: none; padding: 0; }
+    .detail-card ul li {
+      font-size: 0.82rem; color: #555;
+      padding: 6px 0;
+      border-bottom: 1px dashed #e0e8f5;
+      display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+    }
+    .detail-card ul li:last-child { border-bottom: none; }
+    .detail-card ul li::before { content: '✓'; color: #0e3d92; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* COMPROMISO */
+    .compromiso-section {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      padding: 55px 20px; text-align: center; color: white;
+    }
+    .compromiso-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .compromiso-section p { max-width: 650px; margin: 0 auto 10px; opacity: 0.92; line-height: 1.8; font-size: 0.95rem; }
+    .compromiso-section .highlight { font-weight: 700; color: #f8b700; font-size: 1rem; margin-top: 14px; display: block; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .dos-cards-grid { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .detail-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .iess-hero h1 { font-size: 1.6rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 <header class="header-new">
   <div class="header-new-container">
-
     <div class="logo-new">
       <img src="IMAGENES/logo.png" alt="Logo G&G">
       <span>G & G ASESORES TRIBUTARIOS</span>
     </div>
-
-   <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
+    <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
     <nav class="menu-new" id="menu-new">
-    
       <a href="index.html">Inicio</a>
-
-      <!-- SERVICIOS CONTABLES -->
-      <div class="dropdown-new">  
-        <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>   
-        <div class="dropdown-content-new">      
-          <a href="personas-naturales.html">Personas Naturales</a>      
-          <a href="personas-juridicas.html">Empresas</a>      
+      <div class="dropdown-new">
+        <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>
+        <div class="dropdown-content-new">
+          <a href="personas-naturales.html">Personas Naturales</a>
+          <a href="personas-juridicas.html">Empresas</a>
           <a href="anexos tributarios.html">Anexos</a>
-          <a href="otros anexos.html">Otros Anexos</a>       
-          <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>    
-          <a href="Softwarecontable.html">Software Contable</a> 
+          <a href="otros anexos.html">Otros Anexos</a>
+          <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>
+          <a href="softwarecontable.html">Software Contable</a>
         </div>
       </div>
- 
-      <!-- SERVICIOS LABORALES -->  
-      <div class="dropdown-new">  
-        <a href="#" class="dropbtn-new">Servicios Laborales</a>   
-        <div class="dropdown-content-new">    
-          <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>   
+      <div class="dropdown-new">
+        <a href="#" class="dropbtn-new">Servicios Laborales</a>
+        <div class="dropdown-content-new">
+          <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
         </div>
       </div>
-
-      <!-- OTROS SERVICIOS -->
       <div class="dropdown-new">
         <a href="#" class="dropbtn-new">Otros Servicios</a>
-        <div class="dropdown-content-new">    
-          <a href="asesorialegal.html">Asesoría Legal</a>  
-          <a href="capacitaciones.html">Capacitaciones</a>  
+        <div class="dropdown-content-new">
+          <a href="asesorialegal.html">Asesoría Legal</a>
+          <a href="capacitaciones.html">Capacitaciones</a>
           <a href="uafe.html">UAFE</a>
           <a href="sercop.html">SERCOP</a>
         </div>
       </div>
-
-  <a href="contacto.html">Contacto</a>
-
-</nav>
-
+      <a href="contacto.html">Contacto</a>
+    </nav>
   </div>
 </header>
 
-  <section class="banner">
-    <img src="IMAGENES/asesoriasieeymdtfinal.jpg" alt=" Banner G & G Asesores Tributarios ">
-  </section>
-
-  <section class="iess-asesoria-section" style="text-align:center; margin:50px 0;">
-
-  <!-- TÍTULO PRINCIPAL -->
-  <h2 style="color:#0d6efd; margin-bottom:20px;">
-    Te guiamos en el cumplimiento ante el IESS
-  </h2>
-
-  <!-- DESCRIPCIÓN INTRODUCTORIA -->
-  <p style="max-width:850px; margin:0 auto 45px auto; color:#555; line-height:1.7;">
-    En <strong>Guijarro & Guijarro Asesores</strong> te acompañamos en todo el proceso de cumplimiento
-    ante el Instituto Ecuatoriano de Seguridad Social (IESS), para que tu empresa opere con
-    tranquilidad y sin riesgos legales.
-  </p>
-
-  <p style="max-width:850px; margin:0 auto 45px auto; color:#555; line-height:1.7;">
-    Nuestro servicio de asesoría al IESS está diseñado para empresas y empleadores que desean
-    hacer las cosas bien desde el inicio, evitar multas y proteger correctamente a sus trabajadores.
-  </p>
-
-  <!-- CARDS -->
-  <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
-
-    <!-- CARD: EN QUÉ TE AYUDAMOS -->
-    <div style="background-color:#f0f4ff; padding:35px; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,0.1); max-width:420px; flex:1 1 320px; text-align:left;">
-      <h3 style="color:#0d6efd; margin-bottom:20px; text-align:center;">
-        <i class="fa-solid fa-list-check" style="margin-right:8px;"></i>
-        ¿En qué te ayudamos?
-      </h3>
-
-      <ul style="color:#555; line-height:1.7; padding-left:20px;">
-        <li>Afiliación y desafiliación correcta de trabajadores.</li>
-        <li>Registro y control de novedades laborales (ingresos, salidas y sueldos).</li>
-        <li>Cálculo y revisión de aportes patronales y personales.</li>
-        <li>Regularización de mora patronal y gestión de acuerdos de pago.</li>
-        <li>Atención y respuesta a glosas, notificaciones o requerimientos del IESS.</li>
-      </ul>
-    </div>
-
-    <!-- CARD: IMPORTANCIA -->
-    <div style="background-color:#f0f4ff; padding:35px; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,0.1); max-width:420px; flex:1 1 320px; text-align:left;">
-      <h3 style="color:#0d6efd; margin-bottom:20px; text-align:center;">
-        <i class="fa-solid fa-scale-balanced" style="margin-right:8px;"></i>
-        ¿Por qué es importante contar con asesoría al IESS?
-      </h3>
-
-      <p style="color:#555; line-height:1.7;">
-        El IESS es una entidad de control permanente. Un error, un retraso o una afiliación mal
-        registrada puede generar multas, intereses y problemas legales.
-      </p>
-
-      <ul style="color:#555; line-height:1.7; padding-left:20px; margin-top:15px;">
-        <li>Cumples correctamente con la ley.</li>
-        <li>Evitas sanciones económicas innecesarias.</li>
-        <li>Garantizas los derechos de tus trabajadores.</li>
-        <li>Mantienes tu empresa ordenada y segura.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- BLOQUE FINAL -->
-  <div style="max-width:850px; margin:45px auto 0 auto;">
-    <h3 style="color:#0d6efd; margin-bottom:15px;">
-      <i class="fa-solid fa-handshake" style="margin-right:8px;"></i>
-      Nuestro compromiso contigo
-    </h3>
-
-    <p style="color:#555; line-height:1.7;">
-      No solo realizamos trámites. Te acompañamos y te explicamos cada paso, para que tengas claridad
-      y confianza en el manejo de tus obligaciones laborales.
-    </p>
-
-    <p style="color:#084298; font-weight:600; margin-top:15px;">
-      Con nosotros, tu empresa cumple, tus trabajadores están protegidos y tú trabajas con tranquilidad.
-    </p>
-  </div>
-
-  
+<!-- HERO -->
+<section class="iess-hero">
+  <div class="hero-icon"><i class="fa-solid fa-briefcase"></i></div>
+  <span class="hero-badge">Servicios Laborales</span>
+  <h1>Asesoría IESS y Ministerio de Trabajo</h1>
+  <p>Te acompañamos en todo el proceso de cumplimiento laboral para que tu empresa opere con tranquilidad, proteja a sus trabajadores y evite sanciones innecesarias.</p>
 </section>
 
+<!-- INTRO -->
+<section class="intro-section">
+  <h2>Te guiamos en el cumplimiento laboral</h2>
+  <p>En G & G Asesores Tributarios te acompañamos ante el Instituto Ecuatoriano de Seguridad Social (IESS) y el Ministerio de Trabajo, para que tu empresa cumpla correctamente con todas sus obligaciones laborales desde el primer día.</p>
+  <p>Nuestro servicio está diseñado para empleadores y empresas que desean hacer las cosas bien, evitar multas y garantizar los derechos de sus trabajadores de forma segura y ordenada.</p>
+  <div class="intro-divider"></div>
+</section>
+
+<!-- DOS TARJETAS PRINCIPALES -->
+<section class="dos-cards-section">
+  <h2>¿Por qué necesitas asesoría laboral?</h2>
+  <p class="section-sub">El IESS y el Ministerio de Trabajo son entidades de control permanente — un error puede costar caro</p>
+  <div class="dos-cards-grid">
+
+    <div class="dos-card azul">
+      <div class="dos-card-icon"><i class="fa-solid fa-list-check"></i></div>
+      <h3>¿En qué te ayudamos?</h3>
+      <ul>
+        <li>Afiliación y desafiliación correcta de trabajadores</li>
+        <li>Registro y control de novedades laborales</li>
+        <li>Cálculo y revisión de aportes patronales y personales</li>
+        <li>Regularización de mora patronal y acuerdos de pago</li>
+        <li>Atención a glosas, notificaciones y requerimientos del IESS</li>
+        <li>Contratos de trabajo ante el Ministerio de Trabajo</li>
+      </ul>
+    </div>
+
+    <div class="dos-card claro">
+      <div class="dos-card-icon" style="color:#0e3d92;"><i class="fa-solid fa-scale-balanced"></i></div>
+      <h3>¿Por qué es importante?</h3>
+      <ul>
+        <li>Cumples correctamente con la ley laboral ecuatoriana</li>
+        <li>Evitas sanciones económicas y multas innecesarias</li>
+        <li>Garantizas los derechos y beneficios de tus trabajadores</li>
+        <li>Mantienes tu empresa ordenada y sin riesgos legales</li>
+        <li>Proteges tu negocio ante posibles inspecciones laborales</li>
+        <li>Reduces la posibilidad de conflictos con el personal</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICIOS — 3x2 -->
+<section class="cards-section">
+  <h2>Nuestros Servicios Laborales</h2>
+  <p class="section-sub">Soluciones completas para el cumplimiento ante el IESS y el Ministerio de Trabajo</p>
+  <div class="cards-grid">
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-user-plus"></i></div>
+      <h3>Afiliación de Trabajadores</h3>
+      <p>Registro correcto y oportuno de nuevos empleados ante el IESS, cumpliendo con los plazos legales para evitar multas patronales.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-file-contract"></i></div>
+      <h3>Contratos de Trabajo</h3>
+      <p>Elaboración, legalización y registro de contratos ante el Ministerio de Trabajo según el tipo de relación laboral y normativa vigente.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
+      <h3>Cálculo de Aportes y Roles</h3>
+      <p>Revisión y cálculo correcto de aportes patronales, personales, fondos de reserva y roles de pago mensuales de tu nómina.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <h3>Regularización de Mora</h3>
+      <p>Gestión de acuerdos de pago y regularización de mora patronal ante el IESS para poner al día tu empresa sin sanciones adicionales.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-person-walking-arrow-right"></i></div>
+      <h3>Actas de Finiquito</h3>
+      <p>Elaboración y legalización de actas de finiquito ante el Ministerio de Trabajo al momento de finalizar una relación laboral.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>Atención a Requerimientos</h3>
+      <p>Respuesta oportuna y documentada a notificaciones, glosas e inspecciones del IESS y del Ministerio de Trabajo.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DETALLE — 4x2 -->
+<section class="detail-section">
+  <h2>¿Qué incluye cada servicio?</h2>
+  <div class="detail-grid">
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-user-plus"></i>
+        <h3>Afiliación al IESS</h3>
+      </div>
+      <ul>
+        <li>Registro de nuevos empleados en el sistema</li>
+        <li>Desafiliación correcta al término del contrato</li>
+        <li>Verificación de datos y tipo de relación laboral</li>
+        <li>Cumplimiento del plazo de 15 días legales</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-file-contract"></i>
+        <h3>Contratos Laborales</h3>
+      </div>
+      <ul>
+        <li>Contratos indefinidos, a plazo fijo y por obra</li>
+        <li>Contratos de aprendizaje y pasantías</li>
+        <li>Registro en el sistema del Ministerio de Trabajo</li>
+        <li>Revisión de cláusulas conforme a la ley</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-calculator"></i>
+        <h3>Nómina y Aportes</h3>
+      </div>
+      <ul>
+        <li>Roles de pago mensuales detallados</li>
+        <li>Cálculo de aporte patronal (12.15%) y personal (9.45%)</li>
+        <li>Fondos de reserva desde el segundo año</li>
+        <li>Décimos tercero y cuarto automáticos</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h3>Mora Patronal</h3>
+      </div>
+      <ul>
+        <li>Diagnóstico de deuda con el IESS</li>
+        <li>Gestión de convenios de pago</li>
+        <li>Regularización de períodos atrasados</li>
+        <li>Seguimiento hasta la normalización</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-person-walking-arrow-right"></i>
+        <h3>Desvinculación Laboral</h3>
+      </div>
+      <ul>
+        <li>Actas de finiquito legalizadas</li>
+        <li>Liquidación de haberes correcta</li>
+        <li>Desafiliación del IESS al día siguiente</li>
+        <li>Registro en el Ministerio de Trabajo</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <h3>Inspecciones Laborales</h3>
+      </div>
+      <ul>
+        <li>Preparación previa de documentación</li>
+        <li>Acompañamiento durante la inspección</li>
+        <li>Respuesta a observaciones y descargos</li>
+        <li>Corrección de incumplimientos detectados</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-bell"></i>
+        <h3>Notificaciones del IESS</h3>
+      </div>
+      <ul>
+        <li>Revisión y análisis de notificaciones</li>
+        <li>Elaboración de respuestas y descargos</li>
+        <li>Impugnación de glosas injustificadas</li>
+        <li>Seguimiento del proceso administrativo</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-chart-bar"></i>
+        <h3>Reportes Laborales</h3>
+      </div>
+      <ul>
+        <li>Informe mensual de nómina y aportes</li>
+        <li>Reporte de vacaciones y beneficios acumulados</li>
+        <li>Registro de novedades del personal</li>
+        <li>Documentación lista para auditorías</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPROMISO -->
+<section class="compromiso-section">
+  <h2><i class="fa-solid fa-handshake" style="margin-right:10px;"></i>Nuestro Compromiso Contigo</h2>
+  <p>No solo realizamos trámites. Te acompañamos y explicamos cada paso del proceso para que tengas claridad y confianza en el manejo de tus obligaciones laborales.</p>
+  <p>Trabajamos con ética, confidencialidad y dedicación para que tu empresa opere sin interrupciones y tus trabajadores tengan los derechos que les corresponden.</p>
+  <span class="highlight">Con nosotros, tu empresa cumple, tus trabajadores están protegidos y tú trabajas con tranquilidad.</span>
+</section>
+
+<!-- CONTACTO -->
 <section class="contact-section">
- 
-      <h2 class="title">Contáctanos</h2>
- 
-      <p class="subtitle">
- 
-        Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.
- 
-      </p>
+  <h2 class="title">Contáctanos</h2>
+  <p class="subtitle">Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.</p>
+  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">Escríbenos por WhatsApp</a>
+</section>
 
-      <a href="https://wa.link/7a1xme"
-           class="btn btn-whatsapp"
-           target="_blank">
-           Escríbenos por WhatsApp
-      </a>
-    </section>
-
-<!-- ================= SECCIÓN UBICACIÓN ================= -->
+<!-- UBICACIÓN -->
 <section class="location-section">
   <div class="location-container">
-
-    <!-- TEXTO -->
     <div class="location-info">
       <h2>Nuestra Ubicación</h2>
-      <p>
-        Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio,
-        un punto de fácil acceso para quienes buscan asesoría contable y
-        tributaria confiable. Visítanos y recibe atención personalizada
-        de nuestro equipo profesional.
-      </p>
-
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6"
-         target="_blank"
-         class="btn-location">
-        Ver ubicación en Google Maps
-      </a>
+      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable y tributaria confiable. Visítanos y recibe atención personalizada de nuestro equipo profesional.</p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación en Google Maps</a>
     </div>
-
-    <!-- MAPA -->
     <div class="location-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
-
   </div>
 </section>
 
-<!-- ================= BOTÓN WHATSAPP ================= -->
+<!-- WHATSAPP FLOAT -->
 <a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-item">
       <i class="fa-brands fa-whatsapp"></i>
       <h4>WhatsApp</h4>
       <a href="https://wa.link/7a1xme" target="_blank">Escríbenos</a>
     </div>
-
     <div class="footer-item">
       <i class="fa-solid fa-envelope"></i>
       <h4>Gmail</h4>
       <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a>
     </div>
-
     <div class="footer-item">
       <i class="fa-solid fa-location-dot"></i>
       <h4>Maps</h4>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">
-        Ver ubicación
-      </a>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">Ver ubicación</a>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
   </div>
 </footer>
 
-<!-- JS -->
 <script src="script.js"></script>
-  <script type="module" src="header.js"></script>
-
+<script type="module" src="header.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
