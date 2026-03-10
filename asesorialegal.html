@@ -22,23 +22,9 @@
       text-align: center;
       color: white;
     }
-    .legal-hero .hero-icon {
-      font-size: 3rem;
-      margin-bottom: 16px;
-      opacity: 0.9;
-    }
-    .legal-hero h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-    .legal-hero p {
-      font-size: 1rem;
-      max-width: 700px;
-      margin: 0 auto;
-      opacity: 0.9;
-      line-height: 1.7;
-    }
+    .legal-hero .hero-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.9; }
+    .legal-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 14px; }
+    .legal-hero p { font-size: 1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.7; }
     .hero-badge {
       display: inline-block;
       background: #f8b700;
@@ -52,57 +38,21 @@
       text-transform: uppercase;
     }
 
-    /* SECCIÓN INTRO */
-    .intro-section {
-      background: #f8faff;
-      padding: 55px 20px;
-      text-align: center;
-    }
-    .intro-section h2 {
-      color: #0e3d92;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .intro-section p {
-      max-width: 750px;
-      margin: 0 auto;
-      color: #555;
-      line-height: 1.8;
-      font-size: 0.95rem;
-    }
-    .intro-divider {
-      width: 60px;
-      height: 4px;
-      background: #f8b700;
-      border-radius: 4px;
-      margin: 18px auto 0;
-    }
+    /* INTRO */
+    .intro-section { background: #f8faff; padding: 55px 20px; text-align: center; }
+    .intro-section h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .intro-section p { max-width: 750px; margin: 0 auto; color: #555; line-height: 1.8; font-size: 0.95rem; }
+    .intro-divider { width: 60px; height: 4px; background: #f8b700; border-radius: 4px; margin: 18px auto 0; }
 
-    /* TARJETAS */
-    .cards-section {
-      padding: 60px 20px;
-      background: white;
-    }
-    .cards-section h2 {
-      text-align: center;
-      color: #0e3d92;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .cards-section .section-sub {
-      text-align: center;
-      color: #777;
-      font-size: 0.88rem;
-      margin-bottom: 40px;
-    }
- 
+    /* TARJETAS SERVICIOS — 3 columnas x 2 filas */
+    .cards-section { padding: 60px 20px; background: white; }
+    .cards-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .cards-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 20px;
-      max-width: 1400px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1050px;
       margin: 0 auto;
     }
     .service-card {
@@ -121,150 +71,61 @@
       height: 4px;
       background: #f8b700;
     }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(14,61,146,0.12);
-    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(14,61,146,0.12); }
     .card-icon {
-      width: 54px;
-      height: 54px;
+      width: 54px; height: 54px;
       background: linear-gradient(135deg, #0e3d92, #1b78c1);
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       margin-bottom: 18px;
-      font-size: 1.4rem;
-      color: white;
+      font-size: 1.4rem; color: white;
     }
-    .service-card h3 {
-      color: #0e3d92;
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .service-card p {
-      color: #666;
-      font-size: 0.85rem;
-      line-height: 1.7;
-    }
+    .service-card h3 { color: #0e3d92; font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { color: #666; font-size: 0.85rem; line-height: 1.7; }
 
-    /* SERVICIOS DETALLADOS */
-    .detail-section {
-      background: #f0f4fb;
-      padding: 60px 20px;
-    }
-    .detail-section h2 {
-      text-align: center;
-      color: #0e3d92;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 40px;
-    }
+    /* DETALLE — 4 columnas x 2 filas */
+    .detail-section { background: #f0f4fb; padding: 60px 20px; }
+    .detail-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 40px; }
     .detail-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      max-width: 1500px;
+      max-width: 1200px;
       margin: 0 auto;
     }
+    .detail-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .detail-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .detail-card-header i { color: #f8b700; font-size: 1.4rem; flex-shrink: 0; }
+    .detail-card h3 { color: #0e3d92; font-size: 0.88rem; font-weight: 700; line-height: 1.4; }
+    .detail-card ul { list-style: none; padding: 0; }
+    .detail-card ul li {
+      font-size: 0.82rem; color: #555;
+      padding: 6px 0;
+      border-bottom: 1px dashed #eee;
+      display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+    }
+    .detail-card ul li:last-child { border-bottom: none; }
+    .detail-card ul li::before { content: '✓'; color: #0e3d92; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* COMPROMISO */
+    .compromiso-section {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      padding: 55px 20px; text-align: center; color: white;
+    }
+    .compromiso-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .compromiso-section p { max-width: 650px; margin: 0 auto 10px; opacity: 0.92; line-height: 1.8; font-size: 0.95rem; }
+    .compromiso-section .highlight { font-weight: 700; color: #f8b700; font-size: 1rem; margin-top: 14px; display: block; }
+
+    /* RESPONSIVE */
     @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
       .detail-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 500px) {
+      .legal-hero h1 { font-size: 1.6rem; }
+      .cards-grid { grid-template-columns: 1fr; }
       .detail-grid { grid-template-columns: 1fr; }
     }
-    .detail-card {
-      background: white;
-      border-radius: 12px;
-      padding: 26px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-    .detail-card-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-    .detail-card-header i {
-      color: #f8b700;
-      font-size: 1.4rem;
-    }
-    .detail-card h3 {
-      color: #0e3d92;
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-    .detail-card ul {
-      list-style: none;
-      padding: 0;
-    }
-    .detail-card ul li {
-      font-size: 0.85rem;
-      color: #555;
-      padding: 6px 0;
-      border-bottom: 1px dashed #eee;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      line-height: 1.5;
-    }
-    .detail-card ul li:last-child { border-bottom: none; }
-    .detail-card ul li::before {
-      content: '✓';
-      color: #0e3d92;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* BLOQUE COMPROMISO */
-    .compromiso-section {
-      background: linear-gradient(135deg, #0e3d92, #1b78c1);
-      padding: 55px 20px;
-      text-align: center;
-      color: white;
-    }
-    .compromiso-section h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .compromiso-section p {
-      max-width: 650px;
-      margin: 0 auto 10px;
-      opacity: 0.92;
-      line-height: 1.8;
-      font-size: 0.95rem;
-    }
-    .compromiso-section .highlight {
-      font-weight: 700;
-      color: #f8b700;
-      font-size: 1rem;
-      margin-top: 14px;
-      display: block;
-    }
-
-    @media (max-width: 700px) {
-      .legal-hero h1 { font-size: 1.6rem; }
-    }
-    @media (max-width: 1200px) {
-  .cards-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-}
   </style>
 </head>
 <body>
@@ -315,24 +176,17 @@
   <div class="hero-icon"><i class="fa-solid fa-scale-balanced"></i></div>
   <span class="hero-badge">Servicio Especializado</span>
   <h1>Asesoría Legal Tributaria</h1>
-  <p>
-    Combinamos el conocimiento del derecho con la normativa fiscal para ayudarte a cumplir tus obligaciones impositivas,
-    optimizar tu carga fiscal y defenderte ante las autoridades tributarias con respaldo profesional.
-  </p>
+  <p>Combinamos el conocimiento del derecho con la normativa fiscal para ayudarte a cumplir tus obligaciones impositivas, optimizar tu carga fiscal y defenderte ante las autoridades tributarias con respaldo profesional.</p>
 </section>
 
 <!-- INTRO -->
 <section class="intro-section">
   <h2>¿Qué es la Asesoría Legal Tributaria?</h2>
-  <p>
-    Es un servicio integral y especializado que une el derecho y la contabilidad para que personas naturales y empresas
-    puedan operar con total seguridad jurídica. Nuestros especialistas te acompañan en cada paso: desde el cumplimiento
-    de tus obligaciones fiscales hasta la defensa de tus derechos ante el SRI u otras entidades reguladoras.
-  </p>
+  <p>Es un servicio integral y especializado que une el derecho y la contabilidad para que personas naturales y empresas puedan operar con total seguridad jurídica. Nuestros especialistas te acompañan en cada paso: desde el cumplimiento de tus obligaciones fiscales hasta la defensa de tus derechos ante el SRI u otras entidades reguladoras.</p>
   <div class="intro-divider"></div>
 </section>
 
-<!-- TARJETAS DE SERVICIOS PRINCIPALES -->
+<!-- TARJETAS SERVICIOS — 3x2 -->
 <section class="cards-section">
   <h2>Nuestros Servicios Legales</h2>
   <p class="section-sub">Soluciones jurídicas y contables para cada necesidad</p>
@@ -341,61 +195,43 @@
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-building"></i></div>
       <h3>Constitución de Empresas</h3>
-      <p>
-        Te asesoramos en la creación legal de tu empresa: elección del tipo societario, elaboración de estatutos,
-        registro en la Superintendencia de Compañías y obtención del RUC empresarial.
-      </p>
+      <p>Te asesoramos en la creación legal de tu empresa: elección del tipo societario, elaboración de estatutos, registro en la Superintendencia de Compañías y obtención del RUC empresarial.</p>
     </div>
 
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-file-contract"></i></div>
       <h3>Contratos y Acuerdos</h3>
-      <p>
-        Redacción, revisión y asesoría en contratos comerciales, laborales y civiles. Nos aseguramos de que
-        cada acuerdo proteja tus intereses y cumpla con la normativa ecuatoriana vigente.
-      </p>
+      <p>Redacción, revisión y asesoría en contratos comerciales, laborales y civiles. Nos aseguramos de que cada acuerdo proteja tus intereses y cumpla con la normativa ecuatoriana vigente.</p>
     </div>
 
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
       <h3>Defensa Tributaria ante el SRI</h3>
-      <p>
-        Representación legal en auditorías, procesos de determinación tributaria, impugnación de glosas y
-        defensa ante cualquier notificación del Servicio de Rentas Internas.
-      </p>
+      <p>Representación legal en auditorías, procesos de determinación tributaria, impugnación de glosas y defensa ante cualquier notificación del Servicio de Rentas Internas.</p>
     </div>
 
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-gavel"></i></div>
       <h3>Recursos y Apelaciones</h3>
-      <p>
-        Elaboración y presentación de recursos administrativos y judiciales: reclamos, apelaciones ante el
-        Tribunal Distrital de lo Contencioso Tributario y acciones ante la Corte Nacional.
-      </p>
+      <p>Elaboración y presentación de recursos administrativos y judiciales: reclamos, apelaciones ante el Tribunal Distrital de lo Contencioso Tributario y acciones ante la Corte Nacional.</p>
     </div>
 
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
       <h3>Planificación Fiscal</h3>
-      <p>
-        Estrategias legales para reducir el pago de impuestos de forma lícita, aprovechando beneficios,
-        exoneraciones e incentivos tributarios contemplados en la ley.
-      </p>
+      <p>Estrategias legales para reducir el pago de impuestos de forma lícita, aprovechando beneficios, exoneraciones e incentivos tributarios contemplados en la ley.</p>
     </div>
 
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-rotate-left"></i></div>
       <h3>Recuperación de Impuestos</h3>
-      <p>
-        Gestión de devolución de IVA para adultos mayores, personas con discapacidad, exportadores y
-        empresas con crédito tributario acumulado.
-      </p>
+      <p>Gestión de devolución de IVA para adultos mayores, personas con discapacidad, exportadores y empresas con crédito tributario acumulado.</p>
     </div>
 
   </div>
 </section>
 
-<!-- DETALLE DE SERVICIOS -->
+<!-- DETALLE — 4x2 -->
 <section class="detail-section">
   <h2>¿Qué incluye cada servicio?</h2>
   <div class="detail-grid">
@@ -445,23 +281,23 @@
         <h3>Defensa Técnica Especializada</h3>
       </div>
       <ul>
-        <li>Atención de notificaciones y requerimientos del SRI</li>
+        <li>Atención de notificaciones del SRI</li>
         <li>Impugnación de actas de determinación</li>
         <li>Presentación de recursos administrativos</li>
-        <li>Representación en procesos judiciales tributarios</li>
+        <li>Representación en procesos judiciales</li>
       </ul>
     </div>
 
     <div class="detail-card">
       <div class="detail-card-header">
         <i class="fa-solid fa-building-columns"></i>
-        <h3>Constitución y Restructuración Societaria</h3>
+        <h3>Constitución Societaria</h3>
       </div>
       <ul>
-        <li>Creación de compañías limitadas, S.A. y unipersonales</li>
-        <li>Elaboración y revisión de estatutos sociales</li>
+        <li>Creación de Cía. Ltda., S.A. y unipersonales</li>
+        <li>Elaboración y revisión de estatutos</li>
         <li>Aumento o reducción de capital social</li>
-        <li>Fusiones, escisiones y liquidación de empresas</li>
+        <li>Fusiones, escisiones y liquidaciones</li>
       </ul>
     </div>
 
@@ -472,22 +308,22 @@
       </div>
       <ul>
         <li>Contratos de compraventa y arrendamiento</li>
-        <li>Acuerdos de confidencialidad y no competencia</li>
-        <li>Contratos de prestación de servicios profesionales</li>
-        <li>Revisión y negociación de cláusulas contractuales</li>
+        <li>Acuerdos de confidencialidad</li>
+        <li>Contratos de prestación de servicios</li>
+        <li>Revisión y negociación de cláusulas</li>
       </ul>
     </div>
 
     <div class="detail-card">
       <div class="detail-card-header">
         <i class="fa-solid fa-magnifying-glass-chart"></i>
-        <h3>Auditoría y Revisión Preventiva</h3>
+        <h3>Auditoría Preventiva</h3>
       </div>
       <ul>
-        <li>Revisión previa de declaraciones antes de presentarlas</li>
-        <li>Detección de inconsistencias fiscales y contables</li>
-        <li>Informes de diagnóstico tributario empresarial</li>
-        <li>Recomendaciones para reducir riesgo de glosas</li>
+        <li>Revisión previa de declaraciones</li>
+        <li>Detección de inconsistencias fiscales</li>
+        <li>Informes de diagnóstico tributario</li>
+        <li>Reducción de riesgo de glosas</li>
       </ul>
     </div>
 
@@ -497,50 +333,29 @@
         <h3>Asesoría a Emprendedores</h3>
       </div>
       <ul>
-        <li>Orientación en elección del régimen tributario adecuado</li>
-        <li>Registro de actividad económica y obtención del RUC</li>
-        <li>Guía en obligaciones fiscales desde el inicio</li>
-        <li>Acompañamiento en primeras declaraciones y anexos</li>
-      </ul>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-card-header">
-        <i class="fa-solid fa-globe"></i>
-        <h3>Comercio Exterior y Aduanas</h3>
-      </div>
-      <ul>
-        <li>Asesoría en regímenes aduaneros de importación y exportación</li>
-        <li>Clasificación arancelaria y liquidación de tributos al comercio</li>
-        <li>Devolución de IVA para exportadores</li>
-        <li>Cumplimiento de normativas del SENAE y BCE</li>
+        <li>Elección del régimen tributario adecuado</li>
+        <li>Registro de actividad y obtención del RUC</li>
+        <li>Guía en obligaciones fiscales iniciales</li>
+        <li>Acompañamiento en primeras declaraciones</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-  <!-- CONTACTO -->
-<section class="contact-section">
-  <h2 class="title">Contáctanos</h2>
-  <p class="subtitle">Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.</p>
-  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">
-    Escríbenos por WhatsApp
-  </a>
-</section>
-  
 <!-- COMPROMISO -->
 <section class="compromiso-section">
   <h2><i class="fa-solid fa-handshake" style="margin-right:10px;"></i>Nuestro Compromiso Contigo</h2>
-  <p>
-    No solo realizamos trámites. Te acompañamos y explicamos cada paso del proceso para que tengas
-    claridad y confianza en el manejo de tus obligaciones legales y tributarias.
-  </p>
-  <p>
-    Trabajamos con ética, confidencialidad y dedicación para que tú puedas enfocarte en lo que
-    realmente importa: hacer crecer tu negocio.
-  </p>
+  <p>No solo realizamos trámites. Te acompañamos y explicamos cada paso del proceso para que tengas claridad y confianza en el manejo de tus obligaciones legales y tributarias.</p>
+  <p>Trabajamos con ética, confidencialidad y dedicación para que tú puedas enfocarte en lo que realmente importa: hacer crecer tu negocio.</p>
   <span class="highlight">Con nosotros, tu empresa cumple, tus derechos están protegidos y tú trabajas con tranquilidad.</span>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact-section">
+  <h2 class="title">Contáctanos</h2>
+  <p class="subtitle">Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.</p>
+  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">Escríbenos por WhatsApp</a>
 </section>
 
 <!-- UBICACIÓN -->
@@ -548,18 +363,11 @@
   <div class="location-container">
     <div class="location-info">
       <h2>Nuestra Ubicación</h2>
-      <p>
-        Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio,
-        un punto de fácil acceso para quienes buscan asesoría contable, tributaria
-        y legal confiable. Visítanos y recibe atención personalizada de nuestro equipo profesional.
-      </p>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">
-        Ver ubicación en Google Maps
-      </a>
+      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable, tributaria y legal confiable. Visítanos y recibe atención personalizada de nuestro equipo profesional.</p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación en Google Maps</a>
     </div>
     <div class="location-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
         loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
