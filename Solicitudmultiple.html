@@ -245,7 +245,7 @@
   <!-- Titular de la cuenta — BLOQUEADO -->
   <div class="form-card">
     <div class="card-header">
-      <h2>Tus datos</h2>
+      <h2>Datos del Tiular</h2>
       <span class="lock-badge">No editable</span>
     </div>
     <div class="card-body">
@@ -288,43 +288,7 @@
         </div>
       </div>
 
-      <hr class="divider">
-      <p class="section-subtitle">Tu Solicitud</p>
-      <div class="form-grid">
-        <div class="field">
-          <label>Tipo de Servicio *</label>
-          <select id="tipoServicio0">
-            <option value="">Seleccionar...</option>
-            <option>Declaración de IVA</option>
-            <option>Declaración de Renta</option>
-            <option>Declaración RIMPE</option>
-            <option>Declaración de Retenciones en la Fuente</option>
-            <option>Anexo Transaccional Simplificado (ATS)</option>
-            <option>Registro de actividad económica</option>
-            <option>Actualización del RUC</option>
-            <option>Suspensión / Cancelación del RUC</option>
-            <option>Contabilidad mensual</option>
-            <option>Asesoría tributaria</option>
-            <option>Otro</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Período Fiscal *</label>
-          <input type="month" id="periodoFiscal0">
-        </div>
-        <div class="field full">
-          <label>Fecha Límite *</label>
-          <input type="date" id="fechaLimite0">
-        </div>
-        <div class="field full">
-          <label>Descripción *</label>
-          <textarea id="descripcion0" placeholder="Describe lo que necesitas..."></textarea>
-        </div>
-        <div class="field">
-          <label>Clave del SRI (opcional)</label>
-          <input type="password" id="claveSri0" placeholder="Se maneja con confidencialidad">
-        </div>
-      </div>
+
     </div>
   </div>
 
@@ -334,7 +298,7 @@
 
   <!-- Descripción general -->
   <div class="form-card">
-    <div class="card-header card-header-yellow"><h2>📝 Información General Adicional</h2></div>
+    <div class="card-header card-header-yellow"><h2>Información General Adicional</h2></div>
     <div class="card-body">
       <div class="field">
         <label>Descripción General (opcional)</label>
@@ -345,7 +309,7 @@
 
   <!-- Documentos -->
   <div class="form-card">
-    <div class="card-header"><h2>📎 Subir Documentos</h2></div>
+    <div class="card-header"><h2>Subir Documentos</h2></div>
     <div class="card-body">
       <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
         <div class="upload-icon">☁️</div>
@@ -586,9 +550,7 @@ function mostrarAlerta(msg, tipo) {
 }
 
 window.enviarSolicitud = async function() {
-  if (!document.getElementById("tipoServicio0").value) { mostrarAlerta("⚠️ Selecciona el tipo de servicio para tu solicitud.", "error"); return; }
-  if (!document.getElementById("periodoFiscal0").value) { mostrarAlerta("⚠️ Indica el período fiscal de tu solicitud.", "error"); return; }
-  if (!document.getElementById("descripcion0").value.trim()) { mostrarAlerta("⚠️ Escribe una descripción para tu solicitud.", "error"); return; }
+  if (personasExtra.length === 0) { mostrarAlerta("⚠️ Agrega al menos una persona para la solicitud.", "error"); return; }
 
   const btn = document.getElementById("btnEnviar");
   btn.disabled = true; btn.textContent = "Enviando...";
@@ -622,10 +584,10 @@ window.enviarSolicitud = async function() {
     ciudad: document.getElementById("ciudad").value,
     correo: document.getElementById("correo").value,
     actividad_economica: document.getElementById("actividadEconomica").value,
-    tipo_servicio: document.getElementById("tipoServicio0").value,
-    periodo_fiscal: document.getElementById("periodoFiscal0").value,
-    fecha_limite: document.getElementById("fechaLimite0").value,
-    descripcion: document.getElementById("descripcion0").value,
+    tipo_servicio: "",
+    periodo_fiscal: "",
+    fecha_limite: "",
+    descripcion: "",
     descripcion_general: document.getElementById("descripcionGeneral").value,
     personas_adicionales: JSON.stringify(personas),
     archivos: JSON.stringify(archivosLinks),
@@ -644,7 +606,7 @@ window.enviarSolicitud = async function() {
 };
 
 window.limpiarFormulario = function() {
-  ["tipoServicio0","periodoFiscal0","fechaLimite0","descripcion0","claveSri0","descripcionGeneral"].forEach(id => {
+  ["descripcionGeneral"].forEach(id => {
     const el = document.getElementById(id); if (el) el.value = "";
   });
   document.getElementById("personasContainer").innerHTML = "";
