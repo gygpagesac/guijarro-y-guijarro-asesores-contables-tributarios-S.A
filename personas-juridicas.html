@@ -2,521 +2,492 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title> Personas Juridicas | G & G Asesores Tributarios</title>
-
-  <link rel="icon" href="IMAGENES/icon.png" type="image/png">
-
+  <title>Personas Jurídicas | G & G Asesores Tributarios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS PRINCIPAL -->
+  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
   <link rel="stylesheet" href="style.css">
-
-  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- ICONOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
-  
-</head>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; color: #333; }
 
+    /* HERO */
+    .pj-hero {
+      background: linear-gradient(135deg, #0e3d92 0%, #1b78c1 100%);
+      padding: 70px 20px 60px;
+      text-align: center;
+      color: white;
+    }
+    .pj-hero .hero-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.9; }
+    .pj-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 14px; }
+    .pj-hero p { font-size: 1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.7; }
+    .hero-badge {
+      display: inline-block;
+      background: #f8b700;
+      color: #0e3d92;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* INTRO */
+    .intro-section { background: #f8faff; padding: 55px 20px; text-align: center; }
+    .intro-section h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .intro-section p { max-width: 750px; margin: 0 auto; color: #555; line-height: 1.8; font-size: 0.95rem; }
+    .intro-divider { width: 60px; height: 4px; background: #f8b700; border-radius: 4px; margin: 18px auto 0; }
+
+    /* TARJETAS SERVICIOS — 4x2 */
+    .cards-section { padding: 60px 20px; background: white; }
+    .cards-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .cards-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: #f8faff;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 26px 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(14,61,146,0.12); }
+    .card-icon {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      font-size: 1.3rem; color: white;
+    }
+    .service-card h3 { color: #0e3d92; font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+    .service-card p { color: #666; font-size: 0.82rem; line-height: 1.7; }
+
+    /* INFO BLOQUES — qué es / cuándo */
+    .info-section { background: #f0f4fb; padding: 60px 20px; }
+    .info-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
+    .info-section .info-sub { text-align: center; color: #666; font-size: 0.9rem; max-width: 700px; margin: 0 auto 36px; line-height: 1.7; }
+    .info-card-single {
+      background: white;
+      border-radius: 14px;
+      padding: 32px 36px;
+      max-width: 780px;
+      margin: 0 auto;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+    .info-card-single p { color: #555; font-size: 0.9rem; line-height: 1.8; margin-bottom: 16px; }
+    .info-card-single ul { list-style: none; padding: 0; }
+    .info-card-single ul li {
+      color: #555; font-size: 0.88rem; padding: 7px 0;
+      border-bottom: 1px dashed #e8eef8;
+      display: flex; align-items: flex-start; gap: 10px; line-height: 1.6;
+    }
+    .info-card-single ul li:last-child { border-bottom: none; }
+    .info-card-single ul li::before { content: '✓'; color: #0e3d92; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    /* TIPOS DE EMPRESA — 3 columnas */
+    .tipos-section { background: white; padding: 60px 20px; }
+    .tipos-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
+    .tipos-section .tipos-sub { text-align: center; color: #666; font-size: 0.9rem; max-width: 700px; margin: 0 auto 36px; line-height: 1.7; }
+    .tipos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .tipo-card {
+      background: #f8faff;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 28px 22px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .tipo-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
+    }
+    .tipo-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(14,61,146,0.1); }
+    .tipo-card-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+      font-size: 1.3rem; color: white;
+    }
+    .tipo-card h3 { color: #0e3d92; font-size: 0.92rem; font-weight: 700; margin-bottom: 10px; }
+    .tipo-card p { color: #666; font-size: 0.82rem; line-height: 1.6; margin-bottom: 12px; }
+    .tipo-card ul { list-style: none; padding: 0; }
+    .tipo-card ul li { color: #555; font-size: 0.82rem; padding: 4px 0; border-bottom: 1px dashed #e0e8f5; }
+    .tipo-card ul li:last-child { border-bottom: none; }
+
+    /* CARACTERÍSTICAS — 4 tarjetas */
+    .caract-section { background: #f0f4fb; padding: 60px 20px; }
+    .caract-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
+    .caract-section .caract-sub { text-align: center; color: #666; font-size: 0.9rem; max-width: 700px; margin: 0 auto 36px; line-height: 1.7; }
+    .caract-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .caract-card {
+      background: white;
+      border-radius: 12px;
+      padding: 26px 20px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+    .caract-card:hover { transform: translateY(-4px); }
+    .caract-icon {
+      font-size: 2rem;
+      color: #f8b700;
+      margin-bottom: 14px;
+    }
+    .caract-card h3 { color: #0e3d92; font-size: 0.9rem; font-weight: 700; margin-bottom: 10px; }
+    .caract-card p { color: #666; font-size: 0.82rem; line-height: 1.6; }
+
+    /* COMPROMISO */
+    .compromiso-section {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      padding: 55px 20px; text-align: center; color: white;
+    }
+    .compromiso-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .compromiso-section p { max-width: 650px; margin: 0 auto 10px; opacity: 0.92; line-height: 1.8; font-size: 0.95rem; }
+    .compromiso-section .highlight { font-weight: 700; color: #f8b700; font-size: 1rem; margin-top: 14px; display: block; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .caract-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .tipos-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 500px) {
+      .pj-hero h1 { font-size: 1.6rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .caract-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
 <body>
-<!-- ================= HEADER ================= -->
+
+<!-- HEADER -->
 <header class="header-new">
   <div class="header-new-container">
-
     <div class="logo-new">
       <img src="IMAGENES/logo.png" alt="Logo G&G">
       <span>G & G ASESORES TRIBUTARIOS</span>
     </div>
-
-<div class="menu-toggle-new" id="menu-toggle-new">☰</div>
+    <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
     <nav class="menu-new" id="menu-new">
       <a href="index.html">Inicio</a>
- 
-      <!-- SERVICIOS CONTABLES -->
       <div class="dropdown-new">
-        <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>  
+        <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>
         <div class="dropdown-content-new">
           <a href="personas-naturales.html">Personas Naturales</a>
-          <a href="personas-juridicas.html">Empresas</a> 
-          <a href="anexos tributarios.html">Anexos</a> 
+          <a href="personas-juridicas.html">Empresas</a>
+          <a href="anexos tributarios.html">Anexos</a>
           <a href="otros anexos.html">Otros Anexos</a>
           <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>
           <a href="Softwarecontable.html">Software Contable</a>
         </div>
       </div>
- 
-      <!-- SERVICIOS LABORALES -->
       <div class="dropdown-new">
         <a href="#" class="dropbtn-new">Servicios Laborales</a>
         <div class="dropdown-content-new">
           <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
         </div>
       </div>
-      
-      <!-- OTROS SERVICIOS -->
-      <div class="dropdown-new">   
+      <div class="dropdown-new">
         <a href="#" class="dropbtn-new">Otros Servicios</a>
-        <div class="dropdown-content-new">    
+        <div class="dropdown-content-new">
           <a href="asesorialegal.html">Asesoría Legal</a>
-          <a href="capacitaciones.html">Capacitaciones</a>          
+          <a href="capacitaciones.html">Capacitaciones</a>
           <a href="uafe.html">UAFE</a>
           <a href="sercop.html">SERCOP</a>
         </div>
       </div>
       <a href="contacto.html">Contacto</a>
     </nav>
-      
-
   </div>
 </header>
-<!-- ===== TARJETAS INFORMATIVAS CENTRADAS ===== -->
- <section class="banner">
-  <img src="IMAGENES/personasjuridicasfinal.jpg" alt="Banner G & G Asesores Tributarios">
-</section>
-<section class="info-cards-section"
-  style="
-    margin:0;
-    background: linear-gradient(135deg, #0d6efd, #084298);
-    padding:100px 20px;
-  ">
 
-  <!-- TÍTULO ARRIBA -->
-  <h2 style="
-    font-size:2.6rem;
-    color:#ffffff;
-    margin-bottom:50px;
-    text-align:center;
-    line-height:1.2;
-  ">
-    Empresas y Personas Jurídicas: Crece con Respaldo y Seguridad Legal   
-  </h2>
-
-  <!-- CONTENIDO EN DOS COLUMNAS -->
-  <div style="
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:50px;
-    max-width:1200px;
-    margin:0 auto;
-    flex-wrap:wrap;
-  ">
-
-    <!-- TEXTO -->
-    <div style="
-      flex:1 1 520px;
-      color:#ffffff;
-      text-align:left;
-    ">
-      <p style="
-        font-size:1.2rem;
-        margin-bottom:35px;
-        line-height:1.7;
-      ">
-        Las empresas y personas jurídicas son el motor del desarrollo económico. 
-        Sin embargo, su correcta administración requiere cumplir con obligaciones
-        tributarias, laborales legales que garantizan su funcionamiento y sostenibilidad.  
-      </p>
-
-      <p style="
-        font-size:1.2rem;
-        line-height:1.7;
-      ">
-        En <strong>Guijarro & Guijarro Asesores Tributarios</strong>, acompañamos a empresas en cada etapa de su crecimiento,
-        brindando asesoría contable, tributaria laboral, para que operen con orden, seguridad 
-        y total tranquilidad frente a los organismos de control.
-      </p>
-    </div>
-
-    <!-- IMAGEN -->
-    <div style="flex:1 1 420px; text-align:center;">
-      <img src="IMAGENES/juridica.jpg"
-           alt="Empresas y Personas Jurídicas"
-           style="
-             width:100%;
-             max-width:480px;
-           ">
-    </div>
-
-  </div>
-
+<!-- HERO -->
+<section class="pj-hero">
+  <div class="hero-icon"><i class="fa-solid fa-building"></i></div>
+  <span class="hero-badge">Servicios Empresariales</span>
+  <h1>Empresas y Personas Jurídicas</h1>
+  <p>Acompañamos a tu empresa en cada etapa de su crecimiento con asesoría contable, tributaria y laboral para que operes con orden, seguridad y total tranquilidad frente a los organismos de control.</p>
 </section>
 
+<!-- INTRO -->
+<section class="intro-section">
+  <h2>Crece con Respaldo y Seguridad Legal</h2>
+  <p>Las empresas y personas jurídicas son el motor del desarrollo económico. Sin embargo, su correcta administración requiere cumplir con obligaciones tributarias, laborales y legales que garantizan su funcionamiento y sostenibilidad. En G & G Asesores Tributarios te ayudamos a cumplir con todo ello de forma eficiente y sin complicaciones.</p>
+  <div class="intro-divider"></div>
+</section>
 
-<section class="business-cards-section">
-  <!-- TÍTULO DE LA SECCIÓN -->
-  <h2 class="section-title">
-    Soluciones Contables Tributarias para Empresas
-  </h2>
+<!-- SERVICIOS — 4x2 -->
+<section class="cards-section">
+  <h2>Soluciones Contables y Tributarias para Empresas</h2>
+  <p class="section-sub">Acompañamos a personas jurídicas en el cumplimiento correcto y oportuno de sus obligaciones</p>
+  <div class="cards-grid">
 
-  <p class="section-subtitle">
-    Acompañamos a personas jurídicas en el cumplimiento correcto y oportuno de sus obligaciones.
-  </p>
-
-  <!-- GRID DE CARDS -->
-  <div class="business-cards-grid">
-
-    <!-- CARD 1 -->
-    <div class="business-card">
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
       <h3>Cumplimiento Tributario Empresarial</h3>
-      <p>
-        Nos encargamos de la correcta presentación de declaraciones y anexos de tu empresa,
-        asegurando el cumplimiento ante el SRI, evitando sanciones innecesarias.
-      </p>
-      <a href="https://wa.link/7a1xme" target="_blank" class="btn-card">Conocer más</a>
+      <p>Declaraciones y anexos correctos y a tiempo ante el SRI, evitando multas e intereses innecesarios para tu empresa.</p>
     </div>
 
-    <!-- CARD 2 -->
-    <div class="business-card">
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-user-tie"></i></div>
       <h3>Respaldo para Representantes Legales</h3>
-      <p>
-        Acompañamos a representantes legales en la gestión contable tributaria,
-        brindando tranquilidad, orden y asesoría clara en cada proceso.
-      </p>
-      <a href="https://wa.link/7a1xme" target="_blank" class="btn-card">Conocer más</a>
+      <p>Acompañamos a representantes legales en la gestión contable y tributaria, brindando tranquilidad y orden en cada proceso.</p>
     </div>
 
-    <!-- CARD 3 -->
-    <div class="business-card">
-      <h3>Asesoría Estratégica para Empresas</h3>
-      <p>
-        Analizamos la situación contable de tu empresa y te orientamos en la toma
-        de decisiones con información confiable.
-      </p>
-      <a href="https://wa.link/7a1xme" target="_blank" class="btn-card">Conocer más</a>
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>Asesoría Estratégica Empresarial</h3>
+      <p>Analizamos la situación contable de tu empresa y te orientamos en la toma de decisiones con información confiable y actualizada.</p>
     </div>
 
-    <!-- CARD 4 -->
-    <div class="business-card">
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
       <h3>Prevención de Multas y Riesgos</h3>
-      <p>
-        Revisamos cada obligación tributaria y laboral para reducir riesgos,
-        evitar observaciones para mantener a tu empresa en regla.
-      </p>
-      <a href="https://wa.link/7a1xme" target="_blank" class="btn-card">Conocer más</a>
+      <p>Revisamos cada obligación tributaria y laboral para reducir riesgos, evitar observaciones y mantener tu empresa en regla.</p>
     </div>
 
-    <!-- CARD 5 -->
-    <div class="business-card">
-      <h3>Acompañamiento en el Crecimiento Empresarial</h3>
-      <p>
-        Adaptamos nuestros servicios a la etapa de crecimiento de tu empresa,
-        brindando un soporte contable acorde a tus necesidades reales.
-      </p>
-      <a href="https://wa.link/7a1xme" target="_blank" class="btn-card">Conocer más</a>
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+      <h3>Acompañamiento en el Crecimiento</h3>
+      <p>Adaptamos nuestros servicios a la etapa de crecimiento de tu empresa, con soporte contable acorde a tus necesidades reales.</p>
     </div>
 
-    <!-- CARD 6 -->
-    <div class="business-card">
-      <h3>Asesoría Personalizada para Personas Jurídicas</h3>
-      <p>
-        Cada empresa es diferente. Te explicamos de forma clara qué debes declarar,
-        cuándo hacerlo y cómo cumplir correctamente.
-      </p>
-      <a href="https://wa.link/7a1xme" target="_blank" class="btn-card">Conocer más</a>
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
+      <h3>Asesoría Personalizada</h3>
+      <p>Cada empresa es diferente. Te explicamos qué debes declarar, cuándo hacerlo y cómo cumplir correctamente con la normativa.</p>
     </div>
 
-    <!-- CARD 7 -->
-    <div class="business-card">
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
       <h3>Gestión Responsable y Confidencial</h3>
-      <p>
-        Manejamos la información de tu empresa con ética y profesionalismo,
-        garantizando un servicio responsable y seguro.
-      </p>
-      <a href="https://wa.link/7a1xme" target="_blank" class="btn-card">Conocer más</a>
+      <p>Manejamos la información de tu empresa con ética y profesionalismo, garantizando un servicio responsable y completamente seguro.</p>
     </div>
 
-    <!-- CARD 8 -->
-    <div class="business-card">
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
       <h3>Tu Aliado Contable y Tributario</h3>
-      <p>
-        Nos convertimos en el respaldo profesional de tu empresa,
-        permitiéndote enfocarte en el crecimiento de tu negocio.
-      </p>
-      <a href="https://wa.link/7a1xme" target="_blank" class="btn-card">Conocer más</a>
+      <p>Nos convertimos en el respaldo profesional de tu empresa para que puedas enfocarte en lo que realmente importa: crecer.</p>
     </div>
 
   </div>
 </section>
 
-
-<section class="empresa-quees-section" style="text-align:center; margin:40px 0;">
-
-  <!-- TÍTULO GENERAL -->
-  <h2 style="color:#0d6efd; margin-bottom:20px;">¿Qué es una empresa o persona jurídica?</h2>
-
-  <!-- BREVE DESCRIPCIÓN -->
-  <p style="max-width:800px; margin:0 auto 40px auto; color:#555; line-height:1.6;">
-    Una empresa o persona jurídica es una entidad legal creada para desarrollar actividades económicas, comerciales, industriales o de servicios. A diferencia de una persona natural, tiene personeria jurídica propia.
-  </p>
-
-  <!-- CARD PRINCIPAL -->
-  <div class="empresa-card" style="background-color:#f0f4ff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:600px; margin:0 auto; text-align:left;">
-    
-    <p style="color:#555; line-height:1.6; margin-bottom:20px;">
-      Esto significa que una empresa o persona jurídica puede:
-    </p>
-
-    <ul style="color:#555; line-height:1.6; margin-left:20px;">
-      <li>Comprar y vender bienes o servicios.</li>
-      <li>Firmar contratos y asumir obligaciones.</li>
-      <li>Ser responsable de sus deudas y obligaciones de manera independiente de sus socios o propietarios.</li>
+<!-- QUÉ ES UNA PERSONA JURÍDICA -->
+<section class="info-section">
+  <h2>¿Qué es una Empresa o Persona Jurídica?</h2>
+  <p class="info-sub">Una empresa o persona jurídica es una entidad legal creada para desarrollar actividades económicas, comerciales, industriales o de servicios. A diferencia de una persona natural, tiene personería jurídica propia.</p>
+  <div class="info-card-single">
+    <p>Esto significa que una empresa o persona jurídica puede actuar de forma independiente en el mundo legal y comercial:</p>
+    <ul>
+      <li>Comprar y vender bienes o servicios de manera autónoma</li>
+      <li>Firmar contratos y asumir obligaciones legales propias</li>
+      <li>Ser responsable de sus deudas de manera independiente a sus socios</li>
+      <li>Tener patrimonio, cuentas bancarias y activos a su nombre</li>
+      <li>Contratar personal y cumplir obligaciones laborales</li>
     </ul>
-
-    <p style="color:#555; line-height:1.6; margin-top:20px;">
-      En otras palabras, la empresa es “un ente legal” creada por la ley para actuar en el comercio o negocio.
-    </p>
+    <p style="margin-top:14px;">En otras palabras, la empresa es un "ente legal" creado por la ley para actuar en el comercio o negocio con plena capacidad jurídica.</p>
   </div>
-
 </section>
 
-<section class="empresa-cuando-section" style="text-align:center; margin:40px 0;">
-
-  <!-- TÍTULO GENERAL -->
-  <h2 style="color:#0d6efd; margin-bottom:20px;">¿Cuándo alguien se considera empresa o persona jurídica?</h2>
-
-  <!-- BREVE DESCRIPCIÓN -->
-  <p style="max-width:800px; margin:0 auto 40px auto; color:#555; line-height:1.6;">
-    Una entidad se considera empresa o persona jurídica cuando cumple ciertas condiciones legales y organizativas que le permiten operar formalmente en Ecuador.
-  </p>
-
-  <!-- CARD PRINCIPAL -->
-  <div class="empresa-card" style="background-color:#f0f4ff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:700px; margin:0 auto; text-align:left;">
-    
-    <p style="color:#555; line-height:1.6; margin-bottom:20px;">
-      Las condiciones principales son:
-    </p>
-
-    <ul style="color:#555; line-height:1.6; margin-left:20px;">
-      <li><strong>Registro legal:</strong> La entidad está registrada formalmente ante organismos como el Registro Mercantil y obtiene un RUC (Registro Único de Contribuyentes).</li>
-      <li><strong>Actividad económica organizada:</strong> Realiza actividades comerciales, industriales, de servicios o cualquier actividad productiva con fines de lucro.</li>
-      <li><strong>Separación patrimonial:</strong> Tiene patrimonio propio, separado del patrimonio personal de los socios o fundadores.</li>
-      <li><strong>Constitución según la ley:</strong> Se crea mediante estatutos, escritura pública y registro oficial según la legislación vigente del país.</li>
-    </ul>
-
-    <p style="color:#555; line-height:1.6; margin-top:20px;">
-      Para operar conforme a la normativa ecuatoriana, las empresas deben cumplir con los trámites legales iniciales, que incluyen su constitución formal y la habilitación tributaria ante el Servicio de Rentas Internas.
-    </p>
+<!-- CUÁNDO SE CONSIDERA PERSONA JURÍDICA -->
+<section class="tipos-section" style="background:#f8faff;">
+  <h2>¿Cuándo se Considera Empresa o Persona Jurídica?</h2>
+  <p class="tipos-sub">Una entidad se considera persona jurídica cuando cumple ciertas condiciones legales que le permiten operar formalmente en Ecuador.</p>
+  <div style="max-width:780px; margin:0 auto;">
+    <div class="info-card-single" style="background:#f0f4fb;">
+      <ul>
+        <li><strong>Registro legal:</strong> Inscrita ante el Registro Mercantil con RUC obtenido en el SRI</li>
+        <li><strong>Actividad económica organizada:</strong> Realiza actividades comerciales, industriales o de servicios con fines de lucro</li>
+        <li><strong>Separación patrimonial:</strong> Tiene patrimonio propio, separado del de los socios o fundadores</li>
+        <li><strong>Constitución según la ley:</strong> Creada mediante estatutos, escritura pública y registro oficial vigente</li>
+        <li><strong>Cumplimiento tributario:</strong> Habilitada ante el SRI y al día con sus obligaciones fiscales</li>
+      </ul>
+    </div>
   </div>
-
 </section>
 
+<!-- TIPOS DE EMPRESA — 3 columnas -->
+<section class="tipos-section">
+  <h2>Tipos de Empresas o Personas Jurídicas</h2>
+  <p class="tipos-sub">Existen varias formas legales de organizar una empresa, cada una con características y responsabilidades específicas.</p>
+  <div class="tipos-grid">
 
-<section class="tipos-empresa-section" style="text-align:center; margin:40px 0;">
-
-  <!-- TÍTULO GENERAL -->
-  <h2 style="color:#0d6efd; margin-bottom:20px;">Tipos de Empresas o Personas Jurídicas</h2>
-
-  <!-- BREVE DESCRIPCIÓN -->
-  <p style="max-width:800px; margin:0 auto 40px auto; color:#555; line-height:1.6;">
-    Existen varias formas legales de organizar una empresa o persona jurídica, cada una con características y responsabilidades específicas. A continuación, te presentamos los tipos más comunes con ejemplos de cada uno.
-  </p>
-
-  <!-- CARDS -->
-  <div class="tipos-cards" style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
-
-    <!-- CARD 1: Sociedades de capital limitado -->
-    <div class="empresa-card" style="background-color:#f0f4ff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:300px; flex:1 1 250px; text-align:center;">
-      <h3 style="color:#0d6efd; margin-bottom:15px;">Sociedades o empresas de capital limitado</h3>
-      <p style="color:#555; line-height:1.6; margin-bottom:10px;">
-        Empresas con capital dividido en aportes de socios y responsabilidad limitada al aporte.
-      </p>
-      <ul style="color:#555; line-height:1.6; list-style-type:none; padding:0; margin:0;">
+    <div class="tipo-card">
+      <div class="tipo-card-icon"><i class="fa-solid fa-building-columns"></i></div>
+      <h3>Sociedades de Capital Limitado</h3>
+      <p>Empresas con capital dividido en aportes de socios y responsabilidad limitada al aporte realizado.</p>
+      <ul>
         <li>S.A. (Sociedad Anónima)</li>
-        <li>Ltda. (Compañía Limitada)</li>
-        <li>S.A.S. (Sociedad por Acciones Simplificada)</li>
+        <li>Cía. Ltda. (Compañía Limitada)</li>
+        <li>S.A.S. (Soc. por Acciones Simplificada)</li>
       </ul>
     </div>
 
-    <!-- CARD 2: Sociedades de personas -->
-    <div class="empresa-card" style="background-color:#f0f4ff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:300px; flex:1 1 250px; text-align:center;">
-      <h3 style="color:#0d6efd; margin-bottom:15px;">Sociedades de personas</h3>
-      <p style="color:#555; line-height:1.6; margin-bottom:10px;">
-        Sociedades donde los socios responden directamente por las obligaciones de la empresa.
-      </p>
-      <ul style="color:#555; line-height:1.6; list-style-type:none; padding:0; margin:0;">
+    <div class="tipo-card">
+      <div class="tipo-card-icon"><i class="fa-solid fa-people-group"></i></div>
+      <h3>Sociedades de Personas</h3>
+      <p>Sociedades donde los socios responden directamente por las obligaciones contraídas por la empresa.</p>
+      <ul>
         <li>Sociedad Colectiva</li>
-        <li>Sociedad en Comandita</li>
+        <li>Sociedad en Comandita Simple</li>
+        <li>Sociedad en Comandita por Acciones</li>
       </ul>
     </div>
 
-    <!-- CARD 3: Otras formas jurídicas -->
-    <div class="empresa-card" style="background-color:#f0f4ff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:300px; flex:1 1 250px; text-align:center;">
-      <h3 style="color:#0d6efd; margin-bottom:15px;">Otras formas jurídicas</h3>
-      <p style="color:#555; line-height:1.6; margin-bottom:10px;">
-        Entidades con personalidad jurídica creada por la ley, normalmente sin fines de lucro o estatales.
-      </p>
-      <ul style="color:#555; line-height:1.6; list-style-type:none; padding:0; margin:0;">
-        <li>Asociaciones</li>
-        <li>Fundaciones</li>
+    <div class="tipo-card">
+      <div class="tipo-card-icon"><i class="fa-solid fa-landmark"></i></div>
+      <h3>Otras Formas Jurídicas</h3>
+      <p>Entidades con personalidad jurídica reconocida por la ley, normalmente sin fines de lucro o de carácter estatal.</p>
+      <ul>
+        <li>Asociaciones y Fundaciones</li>
         <li>Empresas públicas o mixtas</li>
+        <li>Corporaciones sin fines de lucro</li>
       </ul>
     </div>
 
   </div>
 </section>
-<section class="caracteristicas-empresa-section" style="text-align:center; margin:40px 0;">
 
-  <!-- TÍTULO GENERAL -->
-  <h2 style="color:#0d6efd; margin-bottom:20px;">Características de una empresa o persona jurídica</h2>
+<!-- CARACTERÍSTICAS — 4 tarjetas -->
+<section class="caract-section">
+  <h2>Características de una Empresa o Persona Jurídica</h2>
+  <p class="caract-sub">Las empresas tienen características clave que las diferencian de las personas naturales y les permiten operar legalmente en el comercio.</p>
+  <div class="caract-grid">
 
-  <!-- BREVE DESCRIPCIÓN -->
-  <p style="max-width:800px; margin:0 auto 40px auto; color:#555; line-height:1.6;">
-    Las empresas o personas jurídicas tienen ciertas características clave que las diferencian de las personas naturales y les permiten operar legalmente en el comercio y la sociedad.
-  </p>
-
-  <!-- CARDS -->
-  <div class="caracteristicas-cards" style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
-
-    <!-- CARD 1: Personalidad jurídica propia -->
-    <div class="caracteristica-card" style="background-color:#f0f4ff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:300px; flex:1 1 250px; text-align:center;">
-      <h3 style="color:#0d6efd; margin-bottom:15px;">Personalidad jurídica propia</h3>
-      <p style="color:#555; line-height:1.6;">
-        Puede actuar en justicia y realizar negocios legales de manera independiente de sus socios.
-      </p>
+    <div class="caract-card">
+      <div class="caract-icon"><i class="fa-solid fa-gavel"></i></div>
+      <h3>Personalidad Jurídica Propia</h3>
+      <p>Puede actuar en justicia y realizar negocios legales de manera independiente de sus socios o propietarios.</p>
     </div>
 
-    <!-- CARD 2: Patrimonio independiente -->
-    <div class="caracteristica-card" style="background-color:#f0f4ff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:300px; flex:1 1 250px; text-align:center;">
-      <h3 style="color:#0d6efd; margin-bottom:15px;">Patrimonio independiente</h3>
-      <p style="color:#555; line-height:1.6;">
-        Sus bienes no se confunden con los de los socios, garantizando separación legal y financiera.
-      </p>
+    <div class="caract-card">
+      <div class="caract-icon"><i class="fa-solid fa-vault"></i></div>
+      <h3>Patrimonio Independiente</h3>
+      <p>Sus bienes no se confunden con los de los socios, garantizando separación legal y financiera total.</p>
     </div>
 
-    <!-- CARD 3: Objetivo económico o social -->
-    <div class="caracteristica-card" style="background-color:#f0f4ff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:300px; flex:1 1 250px; text-align:center;">
-      <h3 style="color:#0d6efd; margin-bottom:15px;">Objetivo económico o social</h3>
-      <p style="color:#555; line-height:1.6;">
-        Puede tener fines de lucro (empresas) o sin fines de lucro (fundaciones), según su tipo.
-      </p>
+    <div class="caract-card">
+      <div class="caract-icon"><i class="fa-solid fa-bullseye"></i></div>
+      <h3>Objetivo Económico o Social</h3>
+      <p>Puede tener fines de lucro como las empresas comerciales, o sin fines de lucro como las fundaciones.</p>
     </div>
 
-    <!-- CARD 4: Regulación y obligaciones legales -->
-    <div class="caracteristica-card" style="background-color:#f0f4ff; padding:30px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:300px; flex:1 1 250px; text-align:center;">
-      <h3 style="color:#0d6efd; margin-bottom:15px;">Regulación y obligaciones legales</h3>
-      <p style="color:#555; line-height:1.6;">
-        Deben cumplir con normas tributarias, laborales, societarias y contables, asegurando su legalidad y transparencia.
-      </p>
+    <div class="caract-card">
+      <div class="caract-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+      <h3>Regulación y Obligaciones Legales</h3>
+      <p>Deben cumplir normas tributarias, laborales, societarias y contables para asegurar su legalidad y transparencia.</p>
     </div>
-  </div>
-</section>
-<section class="visit-section">
-  <div class="visit-container">
-
-    <h2>Agenda una Visita con Nuestros Asesores</h2>
-
-    <p>
-      ¿Necesitas orientación contable, tributaria o laboral y no sabes por dónde empezar?
-      En Guijarro & Guijarro te escuchamos, analizamos tu situación y te guiamos paso a paso.
-      Agenda una visita y recibe una asesoría clara, personalizada y adaptada a tus necesidades.
-    </p>
-
-    <p class="visit-highlight">
-      Personas naturales, empresas y emprendedores: estamos listos para ayudarte.
-    </p>
-
-    <a href="https://wa.link/7a1xme" target="_blank" class="btn-visit">
-      Agendar visita por WhatsApp
-    </a>
 
   </div>
 </section>
 
+<!-- COMPROMISO -->
+<section class="compromiso-section">
+  <h2><i class="fa-solid fa-handshake" style="margin-right:10px;"></i>Tu Empresa en las Mejores Manos</h2>
+  <p>En G & G Asesores Tributarios nos convertimos en el aliado estratégico de tu empresa. No solo llevamos tus números: te acompañamos, te explicamos y te ayudamos a tomar las mejores decisiones.</p>
+  <p>Trabajamos con ética, confidencialidad y dedicación para que tu empresa cumpla, crezca y opere con total tranquilidad frente a los organismos de control.</p>
+  <span class="highlight">Con nosotros, tu empresa cumple, tus representantes están protegidos y tú te enfocas en crecer.</span>
+</section>
 
-<!-- ================= SECCIÓN UBICACIÓN ================= -->
+<!-- CONTACTO -->
+<section class="contact-section">
+  <h2 class="title">Contáctanos</h2>
+  <p class="subtitle">¿Tienes una empresa y necesitas asesoría? Escríbenos y te ayudamos hoy mismo.</p>
+  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">Escríbenos por WhatsApp</a>
+</section>
+
+<!-- UBICACIÓN -->
 <section class="location-section">
   <div class="location-container">
-
-    <!-- TEXTO -->
     <div class="location-info">
       <h2>Nuestra Ubicación</h2>
-      <p>
-        Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio,
-        un punto de fácil acceso para quienes buscan asesoría contable y
-        tributaria confiable. Visítanos y recibe atención personalizada
-        de nuestro equipo profesional.
-      </p>
-
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6"
-         target="_blank"
-         class="btn-location">
-        Ver ubicación en Google Maps
-      </a>
+      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable y tributaria confiable. Visítanos y recibe atención personalizada de nuestro equipo profesional.</p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación en Google Maps</a>
     </div>
-
-    <!-- MAPA -->
     <div class="location-map">
-      <iframe
-        width="100%"
-        height="400"
-        style="border:0;"
-        loading="lazy"
-        allowfullscreen=""
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5640259090364!2d-76.8916587!3d0.0846226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20%26%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses!2sec!4v1707000000000">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
-
   </div>
 </section>
 
-<!-- ================= BOTÓN WHATSAPP ================= -->
+<!-- WHATSAPP FLOAT -->
 <a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-item">
       <i class="fa-brands fa-whatsapp"></i>
       <h4>WhatsApp</h4>
       <a href="https://wa.link/7a1xme" target="_blank">Escríbenos</a>
     </div>
-
     <div class="footer-item">
       <i class="fa-solid fa-envelope"></i>
       <h4>Gmail</h4>
       <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a>
     </div>
-
     <div class="footer-item">
       <i class="fa-solid fa-location-dot"></i>
       <h4>Maps</h4>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">
-        Ver ubicación
-      </a>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">Ver ubicación</a>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
   </div>
 </footer>
 
-<!-- JS -->
-  <script type="module" src="header.js"></script>
 <script src="script.js"></script>
-
+<script type="module" src="header.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
 
