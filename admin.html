@@ -131,10 +131,14 @@
 
 <div class="admin-header">
   <div>
-    <h1>🛡️ Panel de Administración</h1>
+    <h1> Panel de Administración</h1>
     <span id="admin-correo"></span>
   </div>
-  <button class="btn-logout" id="btnLogout">Cerrar Sesión</button>
+
+  <div style="display:flex; gap:10px; align-items:center;">
+    <a href="index.html" class="btn-logout" style="text-decoration:none; background:rgba(255,255,255,0.2); color:white; border:1px solid rgba(255,255,255,0.4);">Inicio</a>  
+    <button class="btn-logout" id="btnLogout">Cerrar Sesión</button>
+  </div>
 </div>
 
 <div class="stats-bar">
@@ -182,7 +186,7 @@
 
   <div class="table-container" style="margin-top: 20px;">
     <div class="table-header">
-      <h2>📋 Solicitudes Activas</h2>  
+      <h2>📋 Mensaje de Clientes / Solicitudes Activas</h2>  
       <button class="btn-estado" onclick="abrirHistorial()">📁 Ver Historial Completo</button>
     </div>
   <table>
