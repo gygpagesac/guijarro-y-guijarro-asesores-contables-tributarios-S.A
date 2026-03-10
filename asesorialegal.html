@@ -162,10 +162,13 @@
     }
     .detail-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      max-width: 1100px;
+      max-width: 900px;
       margin: 0 auto;
+    }
+    @media (max-width: 650px) {
+      .detail-grid { grid-template-columns: 1fr; }
     }
     .detail-card {
       background: white;
@@ -428,16 +431,72 @@
       </ul>
     </div>
 
-  </div>
-</section>
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-building-columns"></i>
+        <h3>Constitución y Restructuración Societaria</h3>
+      </div>
+      <ul>
+        <li>Creación de compañías limitadas, S.A. y unipersonales</li>
+        <li>Elaboración y revisión de estatutos sociales</li>
+        <li>Aumento o reducción de capital social</li>
+        <li>Fusiones, escisiones y liquidación de empresas</li>
+      </ul>
+    </div>
 
-  <!-- CONTACTO -->
-<section class="contact-section">
-  <h2 class="title">Contáctanos</h2>
-  <p class="subtitle">Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.</p>
-  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">
-    Escríbenos por WhatsApp
-  </a>
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-file-signature"></i>
+        <h3>Contratos y Documentos Legales</h3>
+      </div>
+      <ul>
+        <li>Contratos de compraventa y arrendamiento</li>
+        <li>Acuerdos de confidencialidad y no competencia</li>
+        <li>Contratos de prestación de servicios profesionales</li>
+        <li>Revisión y negociación de cláusulas contractuales</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
+        <h3>Auditoría y Revisión Preventiva</h3>
+      </div>
+      <ul>
+        <li>Revisión previa de declaraciones antes de presentarlas</li>
+        <li>Detección de inconsistencias fiscales y contables</li>
+        <li>Informes de diagnóstico tributario empresarial</li>
+        <li>Recomendaciones para reducir riesgo de glosas</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-handshake-angle"></i>
+        <h3>Asesoría a Emprendedores</h3>
+      </div>
+      <ul>
+        <li>Orientación en elección del régimen tributario adecuado</li>
+        <li>Registro de actividad económica y obtención del RUC</li>
+        <li>Guía en obligaciones fiscales desde el inicio</li>
+        <li>Acompañamiento en primeras declaraciones y anexos</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-globe"></i>
+        <h3>Comercio Exterior y Aduanas</h3>
+      </div>
+      <ul>
+        <li>Asesoría en regímenes aduaneros de importación y exportación</li>
+        <li>Clasificación arancelaria y liquidación de tributos al comercio</li>
+        <li>Devolución de IVA para exportadores</li>
+        <li>Cumplimiento de normativas del SENAE y BCE</li>
+      </ul>
+    </div>
+
+  </div>
 </section>
 
 <!-- COMPROMISO -->
@@ -452,6 +511,15 @@
     realmente importa: hacer crecer tu negocio.
   </p>
   <span class="highlight">Con nosotros, tu empresa cumple, tus derechos están protegidos y tú trabajas con tranquilidad.</span>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact-section">
+  <h2 class="title">Contáctanos</h2>
+  <p class="subtitle">Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.</p>
+  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">
+    Escríbenos por WhatsApp
+  </a>
 </section>
 
 <!-- UBICACIÓN -->
