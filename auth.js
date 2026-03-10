@@ -10,7 +10,7 @@ function mostrarPopup() {
 
 window.cerrarPopup = function () {
   document.getElementById("popup-overlay").style.display = "none";
-  setTimeout(mostrarPopup, 5000);
+  setTimeout(mostrarPopup, 600000);
 };
 
 const { data: { session } } = await supabase.auth.getSession();
@@ -18,7 +18,7 @@ const { data: { session } } = await supabase.auth.getSession();
 if (session) {
   // sesión manejada por header.js
 } else {
-  setTimeout(mostrarPopup, 5000);
+  setTimeout(mostrarPopup, 600000)
 }
 
 document.getElementById("popup-btnLogin").addEventListener("click", async () => {
