@@ -6,10 +6,14 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 function mostrarPopup() {
   document.getElementById("popup-overlay").style.display = "flex";
+  document.getElementById("fab").style.display = "none";                    // oculta bot
+  document.querySelector(".whatsapp-float").style.display = "none";         // oculta whatsapp
 }
 
 window.cerrarPopup = function () {
   document.getElementById("popup-overlay").style.display = "none";
+  document.getElementById("fab").style.display = "flex";                    // muestra bot
+  document.querySelector(".whatsapp-float").style.display = "flex";         // muestra whatsapp
   setTimeout(mostrarPopup, 600000);
 };
 
