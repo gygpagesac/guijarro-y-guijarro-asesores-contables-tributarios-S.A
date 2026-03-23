@@ -14,7 +14,7 @@ window.cerrarPopup = function () {
   document.getElementById("popup-overlay").style.display = "none";
   document.getElementById("fab").style.display = "flex";                    // muestra bot
   document.querySelector(".whatsapp-float").style.display = "flex";         // muestra whatsapp
-  setTimeout(mostrarPopup, 600000);
+  setTimeout(mostrarPopup, 60000);
 };
 
 const { data: { session } } = await supabase.auth.getSession();
@@ -22,7 +22,7 @@ const { data: { session } } = await supabase.auth.getSession();
 if (session) {
   // sesión manejada por header.js
 } else {
-  setTimeout(mostrarPopup, 600000)
+  setTimeout(mostrarPopup, 60000)
 }
 
 document.getElementById("popup-btnLogin").addEventListener("click", async () => {
