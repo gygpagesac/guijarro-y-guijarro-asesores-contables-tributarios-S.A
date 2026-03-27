@@ -7,20 +7,24 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 // 🔴 control del timer
 let popupTimer;
 
-// 🔹 función para mostrar popup
-function mostrarPopup() {
-  const popup = document.getElementById("popup-overlay");
-  if (popup && popup.style.display === "flex") return;
-  if (popup) popup.style.display = "flex";
-  ocultarBotones(); // 👈 IMPORTANTE
-}
+// 🔹 ocultar botones
+function ocultarBotones() {
+  const fab = document.getElementById("fab");
+  const whatsapp = document.querySelector(".whatsapp-float");
 
-  // 🛑 evita abrirlo si ya está visible
-  if (popup && popup.style.display === "flex") return;
-
-  if (popup) popup.style.display = "flex";
   if (fab) fab.style.display = "none";
   if (whatsapp) whatsapp.style.display = "none";
+}
+
+// 🔹 mostrar popup
+function mostrarPopup() {
+  const popup = document.getElementById("popup-overlay");
+
+  if (popup && popup.style.display === "flex") return;
+
+  if (popup) popup.style.display = "flex";
+
+  ocultarBotones();
 }
 
 // 🔹 cerrar popup
@@ -34,7 +38,7 @@ window.cerrarPopup = function () {
   if (whatsapp) whatsapp.style.display = "flex";
 };
 
-// 🔹 iniciar ciclo automático cada 60s
+// 🔹 iniciar popup automático
 function iniciarPopupAutomatico() {
   clearInterval(popupTimer);
 
@@ -50,10 +54,10 @@ if (!session) {
   iniciarPopupAutomatico();
 }
 
-//
 // 🔐 LOGIN
-//
 document.getElementById("popup-btnLogin")?.addEventListener("click", async () => {
+  ocultarBotones(); // 👈 CLAVE
+
   const email = document.getElementById("popup-email").value;
   const password = document.getElementById("popup-password").value;
 
@@ -71,10 +75,10 @@ document.getElementById("popup-btnLogin")?.addEventListener("click", async () =>
   }
 });
 
-//
 // 📝 REGISTRO
-//
 document.getElementById("popup-btnRegister")?.addEventListener("click", async () => {
+  ocultarBotones(); // 👈 también aquí
+
   const email = document.getElementById("popup-email").value;
   const password = document.getElementById("popup-password").value;
 
@@ -102,14 +106,4 @@ document.getElementById("popup-btnRegister")?.addEventListener("click", async ()
       mensaje.textContent = "Cuenta creada! Ya puedes iniciar sesión.";
     }
   }
-  function ocultarBotones() {
-  const fab = document.getElementById("fab");
-  const whatsapp = document.querySelector(".whatsapp-float");
-
-  if (fab) fab.style.display = "none";
-  if (whatsapp) whatsapp.style.display = "none";
-}
-  document.getElementById("popup-btnLogin")?.addEventListener("click", () => {
-  ocultarBotones();
-});
 });
