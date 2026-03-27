@@ -4,47 +4,84 @@ const SUPABASE_URL = "https://pcjqvqscarltpztdrrfp.supabase.co";
 const SUPABASE_KEY = "sb_publishable_DYnjwiSWoiKabr-6WNlbFg_sncdthhO";
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
+//  Control del timer
+let popupTimer;
+
+//  Mostrar popup
 function mostrarPopup() {
-  document.getElementById("popup-overlay").style.display = "flex";
-  document.getElementById("fab").style.display = "none";                    // oculta bot
-  document.querySelector(".whatsapp-float").style.display = "none";         // oculta whatsapp
+  //  Evita que se repita en la misma sesión
+  if (sessionStorage.getItem("popupShown")) return;
+
+  sessionStorage.setItem("popupShown", "true");
+
+  const popup = document.getElementById("popup-overlay");
+  const fab = document.getElementById("fab");
+  const whatsapp = document.querySelector(".whatsapp-float");
+
+  if (popup) popup.style.display = "flex";
+  if (fab) fab.style.display = "none";
+  if (whatsapp) whatsapp.style.display = "none";
 }
 
+// 🔹 Cerrar popup
 window.cerrarPopup = function () {
-  document.getElementById("popup-overlay").style.display = "none";
-  document.getElementById("fab").style.display = "flex";                    // muestra bot
-  document.querySelector(".whatsapp-float").style.display = "flex";         // muestra whatsapp
-  setTimeout(mostrarPopup, 60000);
+  const popup = document.getElementById("popup-overlay");
+  const fab = document.getElementById("fab");
+  const whatsapp = document.querySelector(".whatsapp-float");
+
+  if (popup) popup.style.display = "none";
+  if (fab) fab.style.display = "flex";
+  if (whatsapp) whatsapp.style.display = "flex";
+
+  //  Limpia timer anterior
+  clearTimeout(popupTimer);
+
+  // Vuelve a programar popup (60s)
+  popupTimer = setTimeout(mostrarPopup, 60000);
 };
 
+// 🔹 Verificar sesión
 const { data: { session } } = await supabase.auth.getSession();
 
-if (session) {
-  // sesión manejada por header.js
-} else {
-  setTimeout(mostrarPopup, 60000)
+if (!session) {
+  popupTimer = setTimeout(mostrarPopup, 60000);
 }
 
-document.getElementById("popup-btnLogin").addEventListener("click", async () => {
+//  LOGIN
+document.getElementById("popup-btnLogin")?.addEventListener("click", async () => {
   const email = document.getElementById("popup-email").value;
   const password = document.getElementById("popup-password").value;
+
   const { error } = await supabase.auth.signInWithPassword({ email, password });
+
+  const mensaje = document.getElementById("popup-mensaje");
+
   if (error) {
-    document.getElementById("popup-mensaje").style.color = "red";
-    document.getElementById("popup-mensaje").textContent = "Correo o contraseña incorrectos";
+    if (mensaje) {
+      mensaje.style.color = "red";
+      mensaje.textContent = "Correo o contraseña incorrectos";
+    }
   } else {
     window.location.reload();
   }
 });
 
-document.getElementById("popup-btnRegister").addEventListener("click", async () => {
+//  REGISTRO
+document.getElementById("popup-btnRegister")?.addEventListener("click", async () => {
   const email = document.getElementById("popup-email").value;
   const password = document.getElementById("popup-password").value;
+
   const { error } = await supabase.auth.signUp({ email, password });
+
+  const mensaje = document.getElementById("popup-mensaje");
+
   if (error) {
-    document.getElementById("popup-mensaje").style.color = "red";
-    document.getElementById("popup-mensaje").textContent = "Error: " + error.message;
+    if (mensaje) {
+      mensaje.style.color = "red";
+      mensaje.textContent = "Error: " + error.message;
+    }
   } else {
+    //  Enviar a Brevo
     await fetch("https://pcjqvqscarltpztdrrfp.supabase.co/functions/v1/agregar-contacto-brevo", {
       method: "POST",
       headers: {
@@ -53,7 +90,10 @@ document.getElementById("popup-btnRegister").addEventListener("click", async () 
       },
       body: JSON.stringify({ email: email })
     });
-    document.getElementById("popup-mensaje").style.color = "green";
-    document.getElementById("popup-mensaje").textContent = "Cuenta creada! Ya puedes iniciar sesion.";
+
+    if (mensaje) {
+      mensaje.style.color = "green";
+      mensaje.textContent = "Cuenta creada! Ya puedes iniciar sesión.";
+    }
   }
 });
