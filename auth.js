@@ -7,23 +7,26 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 // 🔴 control del timer
 let popupTimer;
 
-// 🔹 ocultar botones
+// 🔹 ocultar botones flotantes y botón de sesión
 function ocultarBotones() {
   const fab = document.getElementById("fab");
   const whatsapp = document.querySelector(".whatsapp-float");
-
+  const btnSesion = document.getElementById("btn-iniciar-sesion");
   if (fab) fab.style.display = "none";
   if (whatsapp) whatsapp.style.display = "none";
+  if (btnSesion) btnSesion.style.display = "none";
 }
 
 // 🔹 mostrar popup
 function mostrarPopup() {
   const popup = document.getElementById("popup-overlay");
 
-  if (popup && popup.style.display === "flex") return;
+  if (!popup) return;
 
-  if (popup) popup.style.display = "flex";
+  // evitar duplicados
+  if (popup.style.display === "flex") return;
 
+  popup.style.display = "flex";
   ocultarBotones();
 }
 
@@ -32,13 +35,15 @@ window.cerrarPopup = function () {
   const popup = document.getElementById("popup-overlay");
   const fab = document.getElementById("fab");
   const whatsapp = document.querySelector(".whatsapp-float");
-
+  const btnSesion = document.getElementById("btn-iniciar-sesion");
   if (popup) popup.style.display = "none";
   if (fab) fab.style.display = "flex";
   if (whatsapp) whatsapp.style.display = "flex";
+  if (btnSesion) btnSesion.style.display = "";
+  sessionStorage.removeItem("popupAbierto");
 };
 
-// 🔹 iniciar popup automático
+// 🔹 popup automático cada 60s
 function iniciarPopupAutomatico() {
   clearInterval(popupTimer);
 
@@ -54,9 +59,18 @@ if (!session) {
   iniciarPopupAutomatico();
 }
 
+// 🔹 mantener popup después de reload
+window.addEventListener("load", () => {
+  if (sessionStorage.getItem("popupAbierto") === "true") {
+    mostrarPopup();
+  }
+});
+
+//
 // 🔐 LOGIN
+//
 document.getElementById("popup-btnLogin")?.addEventListener("click", async () => {
-  ocultarBotones(); // 👈 CLAVE
+  ocultarBotones();
 
   const email = document.getElementById("popup-email").value;
   const password = document.getElementById("popup-password").value;
@@ -71,13 +85,17 @@ document.getElementById("popup-btnLogin")?.addEventListener("click", async () =>
       mensaje.textContent = "Correo o contraseña incorrectos";
     }
   } else {
+    // 🔴 guardar estado antes del reload
     sessionStorage.setItem("popupAbierto", "true");
     window.location.reload();
+  }
 });
 
+//
 // 📝 REGISTRO
+//
 document.getElementById("popup-btnRegister")?.addEventListener("click", async () => {
-  ocultarBotones(); // 👈 también aquí
+  ocultarBotones();
 
   const email = document.getElementById("popup-email").value;
   const password = document.getElementById("popup-password").value;
@@ -105,10 +123,5 @@ document.getElementById("popup-btnRegister")?.addEventListener("click", async ()
       mensaje.style.color = "green";
       mensaje.textContent = "Cuenta creada! Ya puedes iniciar sesión.";
     }
-  }
-});
-window.addEventListener("load", () => {
-  if (sessionStorage.getItem("popupAbierto") === "true") {
-    mostrarPopup();
   }
 });
