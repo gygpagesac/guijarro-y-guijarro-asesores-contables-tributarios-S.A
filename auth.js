@@ -71,8 +71,8 @@ document.getElementById("popup-btnLogin")?.addEventListener("click", async () =>
       mensaje.textContent = "Correo o contraseña incorrectos";
     }
   } else {
+    sessionStorage.setItem("popupAbierto", "true");
     window.location.reload();
-  }
 });
 
 // 📝 REGISTRO
@@ -105,5 +105,10 @@ document.getElementById("popup-btnRegister")?.addEventListener("click", async ()
       mensaje.style.color = "green";
       mensaje.textContent = "Cuenta creada! Ya puedes iniciar sesión.";
     }
+  }
+});
+window.addEventListener("load", () => {
+  if (sessionStorage.getItem("popupAbierto") === "true") {
+    mostrarPopup();
   }
 });
