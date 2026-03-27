@@ -10,8 +10,10 @@ let popupTimer;
 // 🔹 función para mostrar popup
 function mostrarPopup() {
   const popup = document.getElementById("popup-overlay");
-  const fab = document.getElementById("fab");
-  const whatsapp = document.querySelector(".whatsapp-float");
+  if (popup && popup.style.display === "flex") return;
+  if (popup) popup.style.display = "flex";
+  ocultarBotones(); // 👈 IMPORTANTE
+}
 
   // 🛑 evita abrirlo si ya está visible
   if (popup && popup.style.display === "flex") return;
@@ -100,4 +102,14 @@ document.getElementById("popup-btnRegister")?.addEventListener("click", async ()
       mensaje.textContent = "Cuenta creada! Ya puedes iniciar sesión.";
     }
   }
+  function ocultarBotones() {
+  const fab = document.getElementById("fab");
+  const whatsapp = document.querySelector(".whatsapp-float");
+
+  if (fab) fab.style.display = "none";
+  if (whatsapp) whatsapp.style.display = "none";
+}
+  document.getElementById("popup-btnLogin")?.addEventListener("click", () => {
+  ocultarBotones();
+});
 });
