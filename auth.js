@@ -4,26 +4,24 @@ const SUPABASE_URL = "https://pcjqvqscarltpztdrrfp.supabase.co";
 const SUPABASE_KEY = "sb_publishable_DYnjwiSWoiKabr-6WNlbFg_sncdthhO";
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-//  Control del timer
+// 🔴 control del timer
 let popupTimer;
 
-//  Mostrar popup
+// 🔹 función para mostrar popup
 function mostrarPopup() {
-  //  Evita que se repita en la misma sesión
-  if (sessionStorage.getItem("popupShown")) return;
-
-  sessionStorage.setItem("popupShown", "true");
-
   const popup = document.getElementById("popup-overlay");
   const fab = document.getElementById("fab");
   const whatsapp = document.querySelector(".whatsapp-float");
+
+  // 🛑 evita abrirlo si ya está visible
+  if (popup && popup.style.display === "flex") return;
 
   if (popup) popup.style.display = "flex";
   if (fab) fab.style.display = "none";
   if (whatsapp) whatsapp.style.display = "none";
 }
 
-// 🔹 Cerrar popup
+// 🔹 cerrar popup
 window.cerrarPopup = function () {
   const popup = document.getElementById("popup-overlay");
   const fab = document.getElementById("fab");
@@ -32,22 +30,27 @@ window.cerrarPopup = function () {
   if (popup) popup.style.display = "none";
   if (fab) fab.style.display = "flex";
   if (whatsapp) whatsapp.style.display = "flex";
-
-  //  Limpia timer anterior
-  clearTimeout(popupTimer);
-
-  // Vuelve a programar popup (60s)
-  popupTimer = setTimeout(mostrarPopup, 60000);
 };
 
-// 🔹 Verificar sesión
+// 🔹 iniciar ciclo automático cada 60s
+function iniciarPopupAutomatico() {
+  clearInterval(popupTimer);
+
+  popupTimer = setInterval(() => {
+    mostrarPopup();
+  }, 60000);
+}
+
+// 🔹 verificar sesión
 const { data: { session } } = await supabase.auth.getSession();
 
 if (!session) {
-  popupTimer = setTimeout(mostrarPopup, 60000);
+  iniciarPopupAutomatico();
 }
 
-//  LOGIN
+//
+// 🔐 LOGIN
+//
 document.getElementById("popup-btnLogin")?.addEventListener("click", async () => {
   const email = document.getElementById("popup-email").value;
   const password = document.getElementById("popup-password").value;
@@ -66,7 +69,9 @@ document.getElementById("popup-btnLogin")?.addEventListener("click", async () =>
   }
 });
 
-//  REGISTRO
+//
+// 📝 REGISTRO
+//
 document.getElementById("popup-btnRegister")?.addEventListener("click", async () => {
   const email = document.getElementById("popup-email").value;
   const password = document.getElementById("popup-password").value;
@@ -81,7 +86,6 @@ document.getElementById("popup-btnRegister")?.addEventListener("click", async ()
       mensaje.textContent = "Error: " + error.message;
     }
   } else {
-    //  Enviar a Brevo
     await fetch("https://pcjqvqscarltpztdrrfp.supabase.co/functions/v1/agregar-contacto-brevo", {
       method: "POST",
       headers: {
