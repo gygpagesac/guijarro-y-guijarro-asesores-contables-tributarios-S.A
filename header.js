@@ -153,14 +153,20 @@ if (headerContainer) {
         👤 Iniciar Sesión
       </button>
     `;
-    headerContainer.appendChild(menuDiv);
-
-    document.getElementById("btnIniciarSesion").addEventListener("click", () => {
-      const popup = document.getElementById("popup-overlay");
-      if (popup) {
-        popup.style.display = "flex";
-      } else {
-        window.location.href = "index.html";
+    headerContainer.appendChild(menuDiv);  
+    document.getElementById("btnIniciarSesion").addEventListener("click", () => {  
+      const popup = document.getElementById("popup-overlay");  
+      if (popup) {    
+        popup.style.display = "flex";    
+        // Ocultar botones flotantes y el propio botón    
+        const fab = document.getElementById("fab");    
+        const whatsapp = document.querySelector(".whatsapp-float");
+        const btnSesion = document.getElementById("btnIniciarSesion"); 
+        if (fab) fab.style.display = "none";
+        if (whatsapp) whatsapp.style.display = "none";
+        if (btnSesion) btnSesion.style.display = "none";
+      } else {   
+        window.location.href = "index.html"; 
       }
     });
   }
