@@ -60,8 +60,6 @@ window.addEventListener("load", () => {
 });
 
 //
-// 🔐 LOGIN
-//
 document.getElementById("popup-btnLogin")?.addEventListener("click", async () => {
   ocultarBotones();
   const email = document.getElementById("popup-email").value;
@@ -79,8 +77,6 @@ document.getElementById("popup-btnLogin")?.addEventListener("click", async () =>
   }
 });
 
-//
-// 📝 REGISTRO
 //
 document.getElementById("popup-btnRegister")?.addEventListener("click", async () => {
   ocultarBotones();
