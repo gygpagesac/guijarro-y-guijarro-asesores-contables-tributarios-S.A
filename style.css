@@ -3025,6 +3025,175 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* Configuración General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+body {
+    background-color: #f4f4f4; /* Un gris muy claro para que resalte el blanco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor Principal */
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.auth-box {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-top: 8px solid #f8b700; /* Detalle en Dorado */
+    text-align: center;
+}
+
+/* Variación para el registro (más ancho) */
+.auth-box.wide {
+    max-width: 600px;
+}
+
+/* Títulos */
+h1 {
+    color: #0e3d92; /* Azul Corporativo */
+    font-size: 24px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+h2 {
+    color: #0e3d92;
+    margin-bottom: 20px;
+}
+
+/* Formularios e Inputs */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    color: #0e3d92;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #0e3d92;
+}
+
+/* Filas para RUC y Teléfono */
+.row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.row .input-group {
+    flex: 1;
+}
+
+/* Botones */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background-color: #0e3d92;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0a2d6e;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    color: #0e3d92;
+    border: 2px solid #f8b700; /* Borde Dorado */
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #f8b700;
+    color: #ffffff;
+}
+
+.btn-success {
+    width: 100%;
+    padding: 14px;
+    background-color: #f8b700; /* Botón de acción principal en Dorado */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.btn-success:hover {
+    background-color: #e0a600;
+}
+
+/* Mensajes de Error */
+.error-msg {
+    color: #d32f2f;
+    background-color: #ffebee;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 15px;
+    display: none; /* Se activa con JS */
+}
+
+hr {
+    margin: 25px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.divider {
+    margin: 15px 0;
+    color: #999;
+    font-size: 12px;
+}
 
 
