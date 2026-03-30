@@ -41,7 +41,7 @@ serve(async (req) => {
       body: JSON.stringify({
         sender: {
           name: "Guijarro & Guijarro Asesores Tributarios",
-          email: "tucorreo@tudominio.com" // ⚠️ Debe estar verificado en Brevo
+          email: "guijarroyguijarrotk@gmail.com" // ⚠️ Debe estar verificado en Brevo
         },
         to: [{ email: email }],
         subject: "¡Bienvenido a GYG ASESORES!",
