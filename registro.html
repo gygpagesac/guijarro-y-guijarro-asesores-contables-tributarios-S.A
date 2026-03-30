@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - GYG ASESORES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box wide">
+            <h2>Registro de Nuevo Cliente</h2>
+            <p>Complete sus datos para la vinculación contable</p>
+
+            <form id="registro-completo-form">
+                <div class="row">
+                    <input type="email" id="reg-email" placeholder="Correo electrónico" required>
+                    <input type="password" id="reg-password" placeholder="Contraseña segura" required>
+                </div>
+
+                <hr>
+
+                <div class="input-group">
+                    <label>Nombres Completos / Razón Social</label>
+                    <input type="text" id="reg-nombre" required>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>RUC / Cédula</label>
+                        <input type="text" id="reg-id" placeholder="Validaremos si ya existe" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Teléfono Celular</label>
+                        <input type="tel" id="reg-tel" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Dirección de Domicilio</label>
+                    <input type="text" id="reg-dir" required>
+                </div>
+
+                <button type="submit" class="btn-success">Finalizar y Validar Registro</button>
+                <button type="button" onclick="window.location.href='login.html'" class="btn-link">Ya tengo cuenta, volver al login</button>
+            </form>
+            
+            <div id="reg-message" class="status-box"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
