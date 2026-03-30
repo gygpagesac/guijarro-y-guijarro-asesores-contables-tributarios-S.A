@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GYG ASESORES</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1>GYG ASESORES</h1>
+            <h3>Contables Tributarios S.A.</h3>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" id="login-email" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="login-password" placeholder="********" required>
+                </div>
+                
+                <button type="submit" class="btn-primary">Entrar</button>
+                <p class="divider">ó</p>
+                <button type="button" onclick="window.location.href='registro.html'" class="btn-secondary">Crear Nueva Cuenta</button>
+            </form>
+            <p id="message" class="error-msg"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
