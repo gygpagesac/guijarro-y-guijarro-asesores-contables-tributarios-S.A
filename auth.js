@@ -1,132 +1,110 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+const SUPABASE_URL = "https://pcjqvqscarltpztdrrfp.supabase.co";
+const SUPABASE_KEY = "sb_publishable_DYnjwiSWoiKabr-6WNlbFg_sncdthhO";
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// 🔐 Leer API KEY desde Secrets
-const BREVO_API_KEY = Deno.env.get("BREVO_API_KEY");
+// 🔴 control del timer
+let popupTimer;
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
+// 🔹 ocultar botones flotantes y botón de sesión
+function ocultarBotones() {
+  const fab = document.getElementById("fab");
+  const whatsapp = document.querySelector(".whatsapp-float");
+  const btnSesion = document.getElementById("btnIniciarSesion");
+  if (fab) fab.style.display = "none";
+  if (whatsapp) whatsapp.style.display = "none";
+  if (btnSesion) btnSesion.style.display = "none";
+}
+
+// 🔹 mostrar popup
+function mostrarPopup() {
+  const popup = document.getElementById("popup-overlay");
+  if (!popup) return;
+  if (popup.style.display === "flex") return;
+  popup.style.display = "flex";
+  ocultarBotones();
+}
+
+// 🔹 cerrar popup
+window.cerrarPopup = function () {
+  const popup = document.getElementById("popup-overlay");
+  const fab = document.getElementById("fab");
+  const whatsapp = document.querySelector(".whatsapp-float");
+  const btnSesion = document.getElementById("btnIniciarSesion");
+  if (popup) popup.style.display = "none";
+  if (fab) fab.style.display = "flex";
+  if (whatsapp) whatsapp.style.display = "flex";
+  if (btnSesion) btnSesion.style.display = "flex";
+  sessionStorage.removeItem("popupAbierto");
 };
 
-serve(async (req) => {
-  if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: corsHeaders });
+// 🔹 popup automático cada 60s
+function iniciarPopupAutomatico() {
+  clearInterval(popupTimer);
+  popupTimer = setInterval(() => {
+    mostrarPopup();
+  }, 60000);
+}
+
+// 🔹 verificar sesión
+const { data: { session } } = await supabase.auth.getSession();
+if (!session) {
+  iniciarPopupAutomatico();
+}
+
+// 🔹 mantener popup después de reload
+window.addEventListener("load", () => {
+  if (sessionStorage.getItem("popupAbierto") === "true") {
+    mostrarPopup();
   }
+});
 
-  try {
-    const { email } = await req.json();
+//
+// 🔐 LOGIN
+//
+document.getElementById("popup-btnLogin")?.addEventListener("click", async () => {
+  ocultarBotones();
+  const email = document.getElementById("popup-email").value;
+  const password = document.getElementById("popup-password").value;
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const mensaje = document.getElementById("popup-mensaje");
+  if (error) {
+    if (mensaje) {
+      mensaje.style.color = "red";
+      mensaje.textContent = "Correo o contraseña incorrectos";
+    }
+  } else {
+    sessionStorage.setItem("popupAbierto", "true");
+    window.location.reload();
+  }
+});
 
-    // 🔹 1. GUARDAR CONTACTO EN BREVO
-    await fetch("https://api.brevo.com/v3/contacts", {
+//
+// 📝 REGISTRO
+//
+document.getElementById("popup-btnRegister")?.addEventListener("click", async () => {
+  ocultarBotones();
+  const email = document.getElementById("popup-email").value;
+  const password = document.getElementById("popup-password").value;
+  const { error } = await supabase.auth.signUp({ email, password });
+  const mensaje = document.getElementById("popup-mensaje");
+  if (error) {
+    if (mensaje) {
+      mensaje.style.color = "red";
+      mensaje.textContent = "Error: " + error.message;
+    }
+  } else {
+    await fetch("https://pcjqvqscarltpztdrrfp.supabase.co/functions/v1/agregar-contacto-brevo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "api-key": BREVO_API_KEY
+        "Authorization": `Bearer ${SUPABASE_KEY}`
       },
-      body: JSON.stringify({
-        email: email,
-        listIds: [2],
-        updateEnabled: true
-      })
+      body: JSON.stringify({ email: email })
     });
-
-    // 🔹 2. ENVIAR CORREO DE BIENVENIDA
-    await fetch("https://api.brevo.com/v3/smtp/email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": BREVO_API_KEY
-      },
-      body: JSON.stringify({
-        sender: {
-          name: "Guijarro & Guijarro Asesores Tributarios",
-          email: "guijarroyguijarrotk@gmail.com" // ⚠️ Debe estar verificado en Brevo
-        },
-        to: [{ email: email }],
-        subject: "¡Bienvenido a GYG ASESORES!",
-        htmlContent: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="UTF-8">
-        </head>
-        <body style="margin:0; padding:0; font-family: Arial, sans-serif; background:#f4f4f4;">
-          
-          <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
-              <td align="center">
-                
-                <table width="500" style="background:#ffffff; border-radius:10px; overflow:hidden;">
-                  
-                  <!-- HEADER -->
-                  <tr style="background:#0e3d92;">
-                    <td align="center" style="padding:20px;">
-                      <img src="logo.png" width="150">
-                    </td>
-                  </tr>
-
-                  <!-- CONTENIDO -->
-                  <tr>
-                    <td style="padding:30px; text-align:center;">
-                      
-                      <h1 style="color:#0e3d92;">¡Felicidades!</h1>
-                      
-                      <p style="font-size:16px; color:#333;">
-                        Te has registrado exitosamente en
-                      </p>
-
-                      <p style="font-weight:bold; color:#0e3d92;">
-                        Guijarro & Guijarro Asesores Tributarios S.A.
-                      </p>
-
-                      <p style="color:#555;">
-                        Ahora puedes acceder a nuestros servicios y recibir asesoría especializada.
-                      </p>
-
-                      <a href="#" style="
-                        display:inline-block;
-                        margin-top:20px;
-                        padding:12px 25px;
-                        background:#f8b700;
-                        color:#000;
-                        text-decoration:none;
-                        border-radius:5px;
-                        font-weight:bold;
-                      ">
-                        Ir al sitio web
-                      </a>
-
-                    </td>
-                  </tr>
-
-                  <!-- FOOTER -->
-                  <tr>
-                    <td style="background:#f8b700; text-align:center; padding:15px; font-size:12px;">
-                      © 2025 Guijarro & Guijarro Asesores Tributarios
-                    </td>
-                  </tr>
-
-                </table>
-
-              </td>
-            </tr>
-          </table>
-
-        </body>
-        </html>
-        `
-      })
-    });
-
-    return new Response(JSON.stringify({ success: true }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" }
-    });
-
-  } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-      status: 500
-    });
+    if (mensaje) {
+      mensaje.style.color = "green";
+      mensaje.textContent = "¡Cuenta creada! Ya puedes iniciar sesión.";
+    }
   }
 });
