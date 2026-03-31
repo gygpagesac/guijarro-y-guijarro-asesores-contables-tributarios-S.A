@@ -4,17 +4,13 @@
 
   <meta charset="UTF-8">
   <title>Inicio</title>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>G & G Asesores Tributarios</title>
-
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,29 +18,99 @@
 
   <link rel="icon" type="image/png" href="IMAGENES/logo.png">
 </head>
-  
 <body>
-  <!-- POPUP LOGIN -->
- <div id="popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
-    <div style="background:white; padding:2.5rem; border-radius:12px; width:100%; max-width:360px; position:relative; margin:1rem;">
-      <!-- Botón cerrar -->   
-      <button onclick="cerrarPopup()" style="position:absolute; top:12px; right:14px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:#888;">✕</button> 
-      <div style="text-align:center; margin-bottom:1.2rem;">  
-        <img src="IMAGENES/logo.png" style="width:45px; margin-bottom:8px;">   
-        <h3 style="font-family:Montserrat,sans-serif; font-size:1.1rem; color:#1c1c1c;">Únete a G & G Asesores</h3>    
-        <p style="font-size:0.85rem; color:#666; margin-top:5px;">Regístrate para recibir novedades y contenido exclusivo</p>  
-      </div>
-      <input type="email" id="popup-email" placeholder="Correo electrónico" style="width:100%; padding:11px 14px; margin:6px 0; border:1px solid #ddd; border-radius:6px; font-size:0.95rem; box-sizing:border-box;">
-      <input type="password" id="popup-password" placeholder="Contraseña" style="width:100%; padding:11px 14px; margin:6px 0; border:1px solid #ddd; border-radius:6px; font-size:0.95rem; box-sizing:border-box;"> 
-       <button id="popup-btnRegister" style="width:100%; padding:11px; margin:6px 0; background:#1c1c1c; color:white; border:none; border-radius:6px; font-size:0.95rem; font-weight:600; cursor:pointer;">Registrarse</button>
-      <button id="popup-btnLogin" style="width:100%; padding:11px; margin:6px 0; background:#3ecf8e; color:white; border:none; border-radius:6px; font-size:0.95rem; font-weight:600; cursor:pointer;">Entrar</button>  
-      <p id="popup-mensaje" style="font-size:0.85rem; text-align:center; margin-top:8px;"></p>
-      <!-- Enlace volver -->
-      <div style="text-align:center; margin-top:10px;">
-        <a href="index.html" onclick="cerrarPopup(); return false;" style="color:#0e3d92; font-size:0.85rem; text-decoration:none; font-family:Montserrat,sans-serif;">← Volver y seguir navegando</a>
-      </div>
+      <button onclick="cerrarPopup()" style="position:absolute; top:14px; right:16px; background:rgba(255,255,255,0.2); border:none; border-radius:50%; width:30px; height:30px; font-size:1rem; cursor:pointer; color:white; display:flex; align-items:center; justify-content:center;">✕</button>
+      <!-- FORMULARIO LOGIN -->
+  <div id="form-login" style="padding:28px 28px 20px;">
+    <div style="margin-bottom:14px;">
+      <label style="font-size:0.75rem; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:0.04em;">Correo electrónico</label>
+      <input type="email" id="popup-email" placeholder="tucorreo@ejemplo.com"
+        style="width:100%; padding:11px 14px; margin-top:5px; border:1.5px solid #ddd; border-radius:8px; font-size:0.9rem; font-family:Montserrat,sans-serif; box-sizing:border-box;"
+        onfocus="this.style.borderColor='#0e3d92'" onblur="this.style.borderColor='#ddd'">
+    </div>
+    <div style="margin-bottom:18px;">
+      <label style="font-size:0.75rem; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:0.04em;">Contraseña</label>
+      <input type="password" id="popup-password" placeholder="••••••••"
+        style="width:100%; padding:11px 14px; margin-top:5px; border:1.5px solid #ddd; border-radius:8px; font-size:0.9rem; font-family:Montserrat,sans-serif; box-sizing:border-box;"        
+        onfocus="this.style.borderColor='#0e3d92'" onblur="this.style.borderColor='#ddd'">
+    </div>
+    <button id="popup-btnLogin"
+      style="width:100%; padding:12px; background:linear-gradient(135deg,#0e3d92,#1b78c1); color:white; border:none; border-radius:8px; font-size:0.95rem; font-weight:700; cursor:pointer; font-family:Montserrat,sans-serif;">      
+      Iniciar Sesión
+    </button>
+    <p id="popup-mensaje" style="font-size:0.83rem; text-align:center; margin:10px 0 0;"></p>
+    <div style="text-align:center; margin-top:16px;">
+      <span style="font-size:0.83rem; color:#888;">¿No tienes cuenta?</span>
+      <button onclick="mostrarRegistro()" style="background:none; border:none; color:#0e3d92; font-weight:700; font-size:0.83rem; cursor:pointer; font-family:Montserrat,sans-serif; margin-left:4px;">Regístrate aquí</button>
+    </div>
+    <div style="text-align:center; margin-top:10px;">
+      <a href="index.html" onclick="cerrarPopup(); return false;" style="color:#aaa; font-size:0.8rem; text-decoration:none;">← Volver y seguir navegando</a>      
     </div>
   </div>
+      <!-- FORMULARIO REGISTRO -->
+  <div id="form-registro" style="display:none; padding:24px 28px 20px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+      <div>
+        <label style="font-size:0.72rem; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:0.03em;">Nombres</label>
+        <input type="text" id="reg-nombres" placeholder="Juan"
+          style="width:100%; padding:10px 12px; margin-top:4px; border:1.5px solid #ddd; border-radius:8px; font-size:0.85rem; font-family:Montserrat,sans-serif; box-sizing:border-box;"
+          onfocus="this.style.borderColor='#0e3d92'" onblur="this.style.borderColor='#ddd'">
+      </div>
+      <div>
+        <label style="font-size:0.72rem; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:0.03em;">Apellidos</label>
+        <input type="text" id="reg-apellidos" placeholder="Pérez"
+          style="width:100%; padding:10px 12px; margin-top:4px; border:1.5px solid #ddd; border-radius:8px; font-size:0.85rem; font-family:Montserrat,sans-serif; box-sizing:border-box;"
+          onfocus="this.style.borderColor='#0e3d92'" onblur="this.style.borderColor='#ddd'">
+      </div>
+    </div>
+    <div style="margin-bottom:12px;">
+      <label style="font-size:0.72rem; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:0.03em;">Correo electrónico</label>
+      <input type="email" id="reg-email" placeholder="tucorreo@ejemplo.com"
+        style="width:100%; padding:10px 12px; margin-top:4px; border:1.5px solid #ddd; border-radius:8px; font-size:0.85rem; font-family:Montserrat,sans-serif; box-sizing:border-box;"
+        onfocus="this.style.borderColor='#0e3d92'" onblur="this.style.borderColor='#ddd'">
+    </div>
+    <div style="margin-bottom:12px;">
+      <label style="font-size:0.72rem; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:0.03em;">Contraseña</label>
+      <input type="password" id="reg-password" placeholder="Mínimo 6 caracteres"
+        style="width:100%; padding:10px 12px; margin-top:4px; border:1.5px solid #ddd; border-radius:8px; font-size:0.85rem; font-family:Montserrat,sans-serif; box-sizing:border-box;"
+        onfocus="this.style.borderColor='#0e3d92'" onblur="this.style.borderColor='#ddd'">
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+      <div>
+        <label style="font-size:0.72rem; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:0.03em;">Cédula o RUC</label>
+        <input type="text" id="reg-ruc" placeholder="1712345678"        
+          style="width:100%; padding:10px 12px; margin-top:4px; border:1.5px solid #ddd; border-radius:8px; font-size:0.85rem; font-family:Montserrat,sans-serif; box-sizing:border-box;"
+          onfocus="this.style.borderColor='#0e3d92'" onblur="this.style.borderColor='#ddd'">
+      </div>
+      <div>
+        <label style="font-size:0.72rem; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:0.03em;">Teléfono</label>
+        <input type="tel" id="reg-telefono" placeholder="0991234567"
+          style="width:100%; padding:10px 12px; margin-top:4px; border:1.5px solid #ddd; border-radius:8px; font-size:0.85rem; font-family:Montserrat,sans-serif; box-sizing:border-box;"
+          onfocus="this.style.borderColor='#0e3d92'" onblur="this.style.borderColor='#ddd'">
+      </div>
+    </div>
+    <div style="margin-bottom:18px;">
+      <label style="font-size:0.72rem; font-weight:600; color:#555; text-transform:uppercase; letter-spacing:0.03em;">Ciudad</label>
+      <input type="text" id="reg-ciudad" placeholder="Lago Agrio"
+        style="width:100%; padding:10px 12px; margin-top:4px; border:1.5px solid #ddd; border-radius:8px; font-size:0.85rem; font-family:Montserrat,sans-serif; box-sizing:border-box;"
+        onfocus="this.style.borderColor='#0e3d92'" onblur="this.style.borderColor='#ddd'">
+    </div>
+    <button id="popup-btnRegister"
+      style="width:100%; padding:12px; background:linear-gradient(135deg,#f8b700,#e0a500); color:#0e3d92; border:none; border-radius:8px; font-size:0.95rem; font-weight:700; cursor:pointer; font-family:Montserrat,sans-serif;">
+      Crear Cuenta
+    </button>
+    <p id="popup-mensaje-reg" style="font-size:0.83rem; text-align:center; margin:10px 0 0;"></p>
+    <div style="text-align:center; margin-top:14px;">
+      <span style="font-size:0.83rem; color:#888;">¿Ya tienes cuenta?</span>
+      <button onclick="mostrarLogin()" style="background:none; border:none; color:#0e3d92; font-weight:700; font-size:0.83rem; cursor:pointer; font-family:Montserrat,sans-serif; margin-left:4px;">Inicia sesión</button>
+    </div>    
+    <div style="text-align:center; margin-top:8px;">
+      <a href="index.html" onclick="cerrarPopup(); return false;" style="color:#aaa; font-size:0.8rem; text-decoration:none;">← Volver y seguir navegando</a>
+    </div>
+  </div>
+</div>
+
+</div>
 <!-- ===== HEADER ===== -->
 <header class="header-new">
   <div class="header-new-container">
