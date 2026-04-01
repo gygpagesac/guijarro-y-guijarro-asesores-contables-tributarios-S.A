@@ -3461,3 +3461,22 @@ body {
   }
 
 }
+@media (max-width: 768px) {
+  .menu-new {
+    display: none !important;
+    flex-direction: column;
+    background: linear-gradient(90deg, #0a4fa3, #1b78c1);
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 998;
+    padding: 10px 0 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+
+  .menu-new.active {
+    display: flex !important;
+  }
+}
