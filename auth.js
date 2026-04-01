@@ -52,14 +52,15 @@ function iniciarPopupAutomatico() {
 const { data: { session } } = await supabase.auth.getSession();
 if (!session) {
   iniciarPopupAutomatico();
-}
-
-if (sessionStorage.getItem("popupAbierto") === "true") {
-  const popup = document.getElementById("popup-overlay");
-  if (popup) {
-    popup.style.display = "flex";
-    ocultarBotones();
+  if (sessionStorage.getItem("popupAbierto") === "true") {
+    const popup = document.getElementById("popup-overlay");
+    if (popup) {
+      popup.style.display = "flex";
+      ocultarBotones();
+    }
   }
+} else {
+  sessionStorage.removeItem("popupAbierto");
 }
 
 document.getElementById("popup-btnLogin").addEventListener("click", async function() {
