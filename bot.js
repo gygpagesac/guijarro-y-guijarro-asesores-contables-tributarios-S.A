@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '593991361449'; // ← Cambia este número
+const WHATSAPP_NUMBER = '593991361449';
 
 let chatOpen = false;
 let userName = '';
