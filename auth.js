@@ -1,7 +1,4 @@
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
-const SUPABASE_URL = "https://pcjqvqscarltpztdrrfp.supabase.co";
-const SUPABASE_KEY = "sb_publishable_DYnjwiSWoiKabr-6WNlbFg_sncdthhO";
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+import { supabase } from "./supabase-client.js";
 
 let popupTimer;
 
