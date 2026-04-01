@@ -63,7 +63,7 @@ if (sessionStorage.getItem("popupAbierto") === "true") {
   }
 }
 
-// 🔐 LOGIN
+// LOGIN
 document.getElementById("popup-btnLogin")?.addEventListener("click", async () => {
   const email = document.getElementById("popup-email").value.trim();
   const password = document.getElementById("popup-password").value;
@@ -88,7 +88,7 @@ document.getElementById("popup-btnLogin")?.addEventListener("click", async () =>
   }
 });
 
-// 📝 REGISTRO
+// REGISTRO
 document.getElementById("popup-btnRegister")?.addEventListener("click", async () => {
   const nombres = document.getElementById("reg-nombres").value.trim();
   const apellidos = document.getElementById("reg-apellidos").value.trim();
@@ -149,6 +149,11 @@ document.getElementById("popup-btnRegister")?.addEventListener("click", async ()
   ["reg-nombres","reg-apellidos","reg-email","reg-password","reg-ruc","reg-telefono","reg-ciudad"]
     .forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
 
+  setTimeout(() => {
+    window.mostrarLogin();
+    document.getElementById("popup-mensaje-reg").textContent = "";
+  }, 2000);
+});
   setTimeout(() => {
     window.mostrarLogin();
     document.getElementById("popup-mensaje-reg").textContent = "";
