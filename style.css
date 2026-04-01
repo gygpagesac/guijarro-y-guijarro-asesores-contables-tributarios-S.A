@@ -3025,4 +3025,346 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* ========================================
+   RESPONSIVE MÓVIL — CORRECCIONES GENERALES
+   ======================================== */
 
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .header-new-container {
+    flex-wrap: wrap;
+    padding: 10px 15px;
+  }
+
+  .menu-new {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #0a4fa3;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    z-index: 999;
+    padding: 10px 0;
+  }
+
+  .menu-new.active {
+    display: flex;
+  }
+
+  .menu-new a {
+    margin: 0;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+  }
+
+  .menu-toggle-new {
+    display: block;
+  }
+
+  .dropdown-content-new {
+    position: static;
+    box-shadow: none;
+    background-color: rgba(0,0,0,0.15);
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .dropdown-content-new a {
+    color: #fff;
+    padding: 10px 30px;
+    font-size: 13px;
+  }
+
+  .dropdown-new:hover .dropdown-content-new {
+    display: none;
+  }
+
+  .dropdown-new.active .dropdown-content-new {
+    display: block;
+  }
+
+  /* BANNER */
+  .banner {
+    height: 200px;
+  }
+
+  /* SECCIONES GENERALES */
+  .services-hero {
+    padding: 40px 15px;
+  }
+
+  .services-hero h2 {
+    font-size: 22px;
+  }
+
+  .services-hero p {
+    font-size: 14px;
+  }
+
+  /* TAX SECTION */
+  .tax-section {
+    padding: 40px 15px;
+  }
+
+  .tax-section .title {
+    font-size: 22px;
+  }
+
+  .tax-section .subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 20px 15px;
+  }
+
+  .card h3 {
+    font-size: 17px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+
+  .image-wrapper {
+    height: 100px;
+  }
+
+  .image-wrapper i {
+    font-size: 60px !important;
+  }
+
+  /* VISIT SECTION */
+  .visit-section {
+    padding: 40px 15px;
+  }
+
+  .visit-container h2 {
+    font-size: 22px;
+  }
+
+  .visit-container p {
+    font-size: 14px;
+  }
+
+  .btn-visit {
+    padding: 12px 24px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* OFFICE SECTION */
+  .office-section {
+    padding: 50px 15px;
+  }
+
+  .office-title {
+    font-size: 22px;
+  }
+
+  .office-subtitle {
+    font-size: 14px;
+  }
+
+  .office-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .office-card {
+    padding: 28px 20px;
+    max-width: 100%;
+  }
+
+  .office-card h3 {
+    font-size: 18px;
+  }
+
+  .office-card p {
+    font-size: 14px;
+  }
+
+  /* LOCATION SECTION */
+  .location-section {
+    padding: 40px 15px;
+  }
+
+  .location-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .location-info h2 {
+    font-size: 22px;
+  }
+
+  .location-info p {
+    font-size: 14px;
+  }
+
+  .location-map iframe {
+    height: 240px;
+  }
+
+  /* CONTACT SECTION */
+  .contact-section {
+    padding: 40px 15px;
+  }
+
+  .contact-section .title {
+    font-size: 22px;
+  }
+
+  .contact-section .subtitle {
+    font-size: 14px;
+  }
+
+  .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+    font-size: 15px;
+    padding: 14px 20px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 30px 15px 15px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-item i {
+    font-size: 26px;
+  }
+
+  .footer-item h4 {
+    font-size: 15px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+
+  /* CHAT Y WHATSAPP FLOAT */
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+  }
+
+  #fab {
+    width: 50px;
+    height: 50px;
+    left: 16px;
+    bottom: 16px;
+  }
+
+  #chat-window {
+    left: 8px;
+    right: 8px;
+    width: auto;
+    bottom: 80px;
+  }
+
+  /* POPUP LOGIN */
+  #popup-overlay > div {
+    margin: 10px;
+    max-width: 100%;
+  }
+
+  #form-login,
+  #form-registro {
+    padding: 20px 18px;
+  }
+
+  #form-registro > div[style*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* INFO SECTION */
+  .info-section {
+    padding: 40px 15px;
+  }
+
+  .info-container {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .info-card {
+    padding: 24px 18px;
+  }
+
+  /* BUSINESS CARDS */
+  .business-cards-section {
+    padding: 40px 15px;
+  }
+
+  .business-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* SECCIONES EMPRESAS */
+  .tipos-grid,
+  .caract-grid,
+  .detail-grid,
+  .cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  /* VERTICAL CARDS */
+  .vertical-services {
+    padding: 40px 15px;
+  }
+
+  .vertical-card {
+    padding: 24px 18px;
+  }
+
+  /* INFO DOS CARDS */
+  .info-container.two-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* TABLETS */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .office-list {
+    gap: 24px;
+  }
+
+  .business-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
