@@ -35,12 +35,12 @@ window.mostrarRegistro = function () {
 window.mostrarLogin = function () {
   document.getElementById("form-registro").style.display = "none";
   document.getElementById("form-login").style.display = "block";
-  document.getElementById("popup-subtitulo").textContent = "Inicia sesión para continuar";
+  document.getElementById("popup-subtitulo").textContent = "Inicia sesion para continuar";
 };
 
 function iniciarPopupAutomatico() {
   clearInterval(popupTimer);
-  popupTimer = setInterval(() => {
+  popupTimer = setInterval(function() {
     const popup = document.getElementById("popup-overlay");
     if (!popup) return;
     if (popup.style.display === "flex") return;
@@ -49,7 +49,6 @@ function iniciarPopupAutomatico() {
   }, 60000);
 }
 
-// Verificar sesión
 const { data: { session } } = await supabase.auth.getSession();
 if (!session) {
   iniciarPopupAutomatico();
@@ -63,8 +62,7 @@ if (sessionStorage.getItem("popupAbierto") === "true") {
   }
 }
 
-// LOGIN
-document.getElementById("popup-btnLogin")?.addEventListener("click", async () => {
+document.getElementById("popup-btnLogin").addEventListener("click", async function() {
   const email = document.getElementById("popup-email").value.trim();
   const password = document.getElementById("popup-password").value;
   const mensaje = document.getElementById("popup-mensaje");
@@ -76,20 +74,19 @@ document.getElementById("popup-btnLogin")?.addEventListener("click", async () =>
   }
 
   mensaje.style.color = "#0e3d92";
-  mensaje.textContent = "Iniciando sesión...";
+  mensaje.textContent = "Iniciando sesion...";
 
   const { error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) {
     mensaje.style.color = "red";
-    mensaje.textContent = "Correo o contraseña incorrectos.";
+    mensaje.textContent = "Correo o contrasena incorrectos.";
   } else {
     sessionStorage.setItem("popupAbierto", "true");
     window.location.reload();
   }
 });
 
-// REGISTRO
-document.getElementById("popup-btnRegister")?.addEventListener("click", async () => {
+document.getElementById("popup-btnRegister").addEventListener("click", async function() {
   const nombres = document.getElementById("reg-nombres").value.trim();
   const apellidos = document.getElementById("reg-apellidos").value.trim();
   const email = document.getElementById("reg-email").value.trim();
@@ -101,12 +98,12 @@ document.getElementById("popup-btnRegister")?.addEventListener("click", async ()
 
   if (!nombres || !apellidos || !email || !password) {
     mensaje.style.color = "red";
-    mensaje.textContent = "Nombres, apellidos, correo y contraseña son obligatorios.";
+    mensaje.textContent = "Nombres, apellidos, correo y contrasena son obligatorios.";
     return;
   }
   if (password.length < 6) {
     mensaje.style.color = "red";
-    mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
+    mensaje.textContent = "La contrasena debe tener al menos 6 caracteres.";
     return;
   }
 
@@ -117,7 +114,7 @@ document.getElementById("popup-btnRegister")?.addEventListener("click", async ()
   if (error) {
     mensaje.style.color = "red";
     if (error.message.includes("already registered") || error.message.includes("already exists")) {
-      mensaje.textContent = "Este correo ya está registrado. Usa otro o inicia sesión.";
+      mensaje.textContent = "Este correo ya esta registrado. Usa otro o inicia sesion.";
     } else {
       mensaje.textContent = "Error: " + error.message;
     }
@@ -138,23 +135,22 @@ document.getElementById("popup-btnRegister")?.addEventListener("click", async ()
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${SUPABASE_KEY}`
+        "Authorization": "Bearer " + SUPABASE_KEY
       },
-      body: JSON.stringify({ email, nombre: nombres })
+      body: JSON.stringify({ email: email, nombre: nombres })
     });
   }
 
   mensaje.style.color = "green";
-  mensaje.textContent = "✅ ¡Cuenta creada! Ya puedes iniciar sesión.";
-  ["reg-nombres","reg-apellidos","reg-email","reg-password","reg-ruc","reg-telefono","reg-ciudad"]
-    .forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
+  mensaje.textContent = "Cuenta creada! Ya puedes iniciar sesion.";
 
-  setTimeout(() => {
-    window.mostrarLogin();
-    document.getElementById("popup-mensaje-reg").textContent = "";
-  }, 2000);
-});
-  setTimeout(() => {
+  var ids = ["reg-nombres","reg-apellidos","reg-email","reg-password","reg-ruc","reg-telefono","reg-ciudad"];
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.value = "";
+  });
+
+  setTimeout(function() {
     window.mostrarLogin();
     document.getElementById("popup-mensaje-reg").textContent = "";
   }, 2000);
