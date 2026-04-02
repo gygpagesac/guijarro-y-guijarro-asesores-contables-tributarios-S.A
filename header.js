@@ -7,26 +7,25 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const { data: { session } } = await supabase.auth.getSession();
 
-// Estilos
 const estilos = document.createElement("style");
 estilos.textContent = `
   .user-menu-container { position: relative; z-index: 9999; font-family: Montserrat, sans-serif; }
   .user-avatar-btn {
-  background: #0e3d92;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 7px 10px;
-  max-width: 120px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
+    background: #0e3d92;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 7px 10px;
+    max-width: 120px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
   }
   .user-avatar-btn .avatar-circle {
     width: 26px;
@@ -97,12 +96,24 @@ estilos.textContent = `
     display: flex;
     align-items: center;
     gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   .btn-iniciar-sesion:hover { background: #e0a500; }
+  @media (max-width: 480px) {
+    .btn-iniciar-sesion {
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      justify-content: center;
+    }
+    .btn-sesion-texto { display: none; }
+    .btn-sesion-icono { width: 18px; height: 18px; }
+  }
 `;
 document.head.appendChild(estilos);
 
-// Buscar el header
 const headerContainer = document.querySelector(".header-new-container");
 if (headerContainer) {
   const menuDiv = document.createElement("div");
@@ -154,23 +165,25 @@ if (headerContainer) {
   } else {
     menuDiv.innerHTML = `
       <button class="btn-iniciar-sesion" id="btnIniciarSesion">
-        👤 Iniciar Sesión
+        <svg class="btn-sesion-icono" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+        </svg>
+        <span class="btn-sesion-texto">Iniciar Sesión</span>
       </button>
     `;
-    headerContainer.appendChild(menuDiv);  
-    document.getElementById("btnIniciarSesion").addEventListener("click", () => {  
-      const popup = document.getElementById("popup-overlay");  
-      if (popup) {    
-        popup.style.display = "flex";    
-        // Ocultar botones flotantes y el propio botón    
-        const fab = document.getElementById("fab");    
+    headerContainer.appendChild(menuDiv);
+    document.getElementById("btnIniciarSesion").addEventListener("click", () => {
+      const popup = document.getElementById("popup-overlay");
+      if (popup) {
+        popup.style.display = "flex";
+        const fab = document.getElementById("fab");
         const whatsapp = document.querySelector(".whatsapp-float");
-        const btnSesion = document.getElementById("btnIniciarSesion"); 
+        const btnSesion = document.getElementById("btnIniciarSesion");
         if (fab) fab.style.display = "none";
         if (whatsapp) whatsapp.style.display = "none";
         if (btnSesion) btnSesion.style.display = "none";
-      } else {   
-        window.location.href = "index.html"; 
+      } else {
+        window.location.href = "index.html";
       }
     });
   }
