@@ -3,205 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <title>Capacitaciones | G & G Asesores Tributarios</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Google Fonts -->
+  <!-- FUENTES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
+  <!-- ICONOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <link rel="icon" type="image/png" href="IMAGENES/logo.png">
-  
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; color: #333; }
+
+    /* HERO */
+    .sw-hero {
+      background: linear-gradient(135deg, #0e3d92 0%, #1b78c1 100%);
+      padding: 70px 20px 60px;
+      text-align: center;
+      color: white;
+    }
+    .hero-icon { font-size: 3rem; margin-bottom: 16px; }
+    .sw-hero h1 { font-size: 2.2rem; margin-bottom: 14px; }
+    .sw-hero p { max-width: 700px; margin: auto; line-height: 1.7; }
+    .hero-badge {
+      display: inline-block;
+      background: #f8b700;
+      color: #0e3d92;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    /* INTRO */
+    .intro-section { background: #f8faff; padding: 50px 20px; text-align: center; }
+    .intro-section h2 { color: #0e3d92; margin-bottom: 10px; }
+    .intro-section p { max-width: 700px; margin: auto; color: #555; }
+    .intro-divider { width: 60px; height: 4px; background: #f8b700; margin: 15px auto; }
+
+    /* CARDS */
+    .cards-section { padding: 60px 20px; text-align: center; }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .service-card {
+      background: #f8faff;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #e0e8f5;
+      transition: 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .card-icon {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+    }
+
+    /* GALERÍA */
+    .gallery { background: #f0f4fb; padding: 60px 20px; text-align: center; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .gallery img { width: 100%; border-radius: 10px; }
+
+    /* CTA */
+    .compromiso-section {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .btn {
+      background: #f8b700;
+      color: #0e3d92;
+      padding: 12px 25px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .cards-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .cards-grid, .gallery-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- ===== HEADER ===== -->
-     <header class="header-new">
-        <div class="header-new-container">   
-            <div class="logo-new"> 
-                <img src="../IMAGENES/logo.png" alt="Logo G&G">
-                <span>G & G ASESORES TRIBUTARIOS</span>   
-            </div>  
-            <div class="menu-toggle-new" id="menu-toggle-new">☰</div> 
-               <nav class="menu-new" id="menu-new">
-                <a href="index.html">Inicio</a>
-                <!-- SERVICIOS CONTABLES --> 
-                <div class="dropdown-new">   
-                  <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>  
-                  <div class="dropdown-content-new">   
-                    <a href="personas-naturales.html">Personas Naturales</a>   
-                    <a href="personas-juridicas.html">Empresas</a>   
-                    <a href="anexos tributarios.html">Anexos</a>        
-                    <a href="otros anexos.html">Otros Anexos</a>    
-                    <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>
-                    <a href="Softwarecontable.html">Software Contable</a>
-                  </div>
-                </div>
-                <!-- SERVICIOS LABORALES -->     
-                <div class="dropdown-new">  
-                  <a href="#" class="dropbtn-new">Servicios Laborales</a>  
-                 
-                  <div class="dropdown-content-new">    
-                    <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>    
-                  </div>
-                </div>
-                <!-- OTROS SERVICIOS -->
-                <div class="dropdown-new">   
-                  <a href="#" class="dropbtn-new">Otros Servicios</a>   
-                  <div class="dropdown-content-new">
-                    <a href="asesorialegal.html">Asesoría Legal</a>
-                    <a href="capacitaciones.html">Capacitaciones</a>         
-                    <a href="uafe.html">UAFE</a>          
-                    <a href="sercop.html">SERCOP</a>        
-                  </div>
-                </div>
-      
-                <a href="contacto.html">Contacto</a>
-              </nav>
-            </nav>
-        </div>
-    </header>
-    <!-- HERO -->
-    <section class="cap-hero">
-        <div class="cap-hero-content"> 
-            <h1>Capacitaciones Contables y Tributarias</h1>
-            <p>
-                En Guijarro & Guijarro Asesores brindamos capacitaciones especializadas
-                en temas contables, tributarios y actualización normativa.
-            </p>
-            <p class="cap-highlight">
-                Las capacitaciones se realizan todos los sábados.   
-            </p> 
-        </div>
-    </section>
-    <!-- INFORMACIÓN -->
-    <section class="cap-info">
-        <h2>¿Qué enseñamos?</h2>
-        <div class="cap-grid">
-            <div class="cap-card">
-                <h3>Actualización del SRI</h3>
-                <p>
-                    Cambios en declaraciones, anexos, facturación electrónica,
-                    reformas tributarias y nuevas disposiciones del SRI.    
-                </p>
-            </div>
-            <div class="cap-card">   
-                <h3>Normativas Contables</h3>
-                <p>
-                    Cambios en normativas contables, obligaciones para personas
-                    naturales y jurídicas, manejo correcto de información financiera.
-                </p>
-            </div>
-            <div class="cap-card">
-                <h3>Software Contable</h3>
-                <p>
-                    Capacitación práctica sobre el programa contable que comercializamos,
-                    configuración, reportes, facturación y control financiero.
-                </p>
-            </div>
-        </div>
-    </section>
-    <!-- CARRUSEL -->    
-    <section class="cap-gallery">    
-        <h2>Galería de Nuestras Capacitaciones</h2>    
-        <div class="carousel">              
-            <div class="carousel-track" id="carousel-track">         
-                <img src="IMAGENES/imagen1.png">          
-                <img src="IMAGENES/imagen2.jpg">           
-                <img src="IMAGENES/imagen3.jpg">
-                <img src="IMAGENES/imagen4.jpg">
-                <img src="IMAGENES/imagen5.jpg">
-                <img src="IMAGENES/imagen6.jpg">    
-                <img src="IMAGENES/imagen7.jpg"> 
-                <img src="IMAGENES/imagen8.jpg">
-                <img src="IMAGENES/imagen9.jpg">
-                <img src="IMAGENES/imagen10.jpg"> 
-                <img src="IMAGENES/imagen11.jpg">  
-            </div>       
-        </div>
-    </section>
-    <section class="visit-section"> 
-        <div class="visit-container">  
-            <h2>Agenda una Visita con Nuestros Asesores</h2>  
-            <p>
-                ¿Necesitas orientación contable, tributaria o laboral y no sabes por dónde empezar?
-                En <strong>Guijarro & Guijarro Asesores Tributarios</strong>  te escuchamos, analizamos tu situación y te guiamos paso a paso.
-                Agenda una visita y recibe una asesoría clara, personalizada y adaptada a tus necesidades.
-            </p>
-            <p class="visit-highlight">
 
-                Personas naturales, empresas y emprendedores: estamos listos para ayudarte.
-            </p>
-            <a href="https://wa.link/7a1xme" target="_blank" class="btn-visit">
-                Agendar visita por WhatsApp
-            </a>
-        </div>
-    </section>
-    <section class="location-section"> 
-        <div class="location-container">  
-            <!-- TEXTO -->   
-            <div class="location-info">    
-                <h2>Nuestra Ubicación</h2>    
-                <p>     
-                    Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de     
-                    fácil acceso para quienes buscan asesoría contable y tributaria confiable.    
-                    Visítanos para recibir atención personalizada, resolver tus dudas y obtener el    
-                    apoyo profesional que tu gestión necesita. ¡Estaremos encantados de ayudarte!
-                </p>
-                <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6"target="_blank"class="btn-location">Ver ubicación en Google Maps</a>
-            </div>
-            <!-- MAPA -->
-             <div class="location-map"> 
-                <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </section>
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="footer-container">       
-            <div class="footer-item">         
-                <i class="fa-brands fa-whatsapp"></i>         
-                <h4>WhatsApp</h4>       
-                <a href="https://wa.me/5939XXXXXXXX" target="_blank">Escríbenos</a>      
-            </div>    
-            <div class="footer-item">         
-                <i class="fa-solid fa-envelope"></i>        
-                <h4>Gmail</h4>         
-                <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a> 
-            </div>      
-            <div class="footer-item">
-                <i class="fa-solid fa-location-dot"></i>           
-                <h4>Maps</h4>  
-                <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">ver ubicación</a>     
-            </div>
-        </div>
-        <div class="footer-bottom"> 
-            © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
-        </div>
-    </footer>
-  
-  <!-- JS -->
-  <script src="script.js"></script>
-  <script type="module" src="header.js"></script>
+<!-- HERO -->
+<section class="sw-hero">
+  <div class="hero-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+  <span class="hero-badge">Formación Profesional</span>
+  <h1>Capacitaciones Contables y Tributarias</h1>
+  <p>Capacítate con expertos en normativa tributaria y contable en Ecuador.</p>
+  <p style="margin-top:10px; color:#f8b700; font-weight:600;">
+    Todos los sábados disponibles
+  </p>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <h2>Aprende con expertos</h2>
+  <p>Capacitaciones prácticas, actualizadas y aplicables a tu realidad profesional.</p>
+  <div class="intro-divider"></div>
+</section>
+
+<!-- CARDS -->
+<section class="cards-section">
+  <h2>Áreas de Capacitación</h2>
+
+  <div class="cards-grid">
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-file-invoice"></i></div>
+      <h3>SRI</h3>
+      <p>Actualización tributaria y declaraciones.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+      <h3>Contabilidad</h3>
+      <p>Normativas y estados financieros.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+      <h3>Software</h3>
+      <p>Manejo de sistemas contables.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="gallery">
+  <h2>Galería</h2>
+
+  <div class="gallery-grid">
+    <img src="IMAGENES/imagen1.png">
+    <img src="IMAGENES/imagen2.jpg">
+    <img src="IMAGENES/imagen3.jpg">
+    <img src="IMAGENES/imagen4.jpg">
+    <img src="IMAGENES/imagen5.jpg">
+    <img src="IMAGENES/imagen6.jpg">
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="compromiso-section">
+  <h2>Agenda tu capacitación</h2>
+  <p>Contáctanos y reserva tu cupo.</p>
+  <a href="https://wa.link/7a1xme" target="_blank" class="btn">
+    WhatsApp
+  </a>
+</section>
+
 </body>
 </html>
-
-
-
-
-
