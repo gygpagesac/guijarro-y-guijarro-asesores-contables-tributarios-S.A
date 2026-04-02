@@ -127,11 +127,11 @@ if (headerContainer) {
           ${nombre}
           <span>${session.user.email}</span>
         </div>
-        <a href="index.html">🏠 Página Principal</a>
-        <a href="perfil.html">👤 Mi Perfil</a>
-        ${ADMINS.includes(session.user.email) ? '<a href="admin.html">🛡️ Panel Admin</a>' : ''}
+        <a href="index.html"> Página Principal</a>
+        <a href="perfil.html"> Mi Perfil</a>
+        ${ADMINS.includes(session.user.email) ? '<a href="admin.html"> Panel Admin</a>' : ''}
         <hr>
-        <button class="btn-cerrar-sesion" id="btnCerrarSesion">🚪 Cerrar Sesión</button>
+        <button class="btn-cerrar-sesion" id="btnCerrarSesion"> Cerrar Sesión</button>
       </div>
     `;
 
