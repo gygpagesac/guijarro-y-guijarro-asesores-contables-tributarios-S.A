@@ -5,101 +5,194 @@
   <title>SERCOP | G & G Asesores Tributarios</title>
   <link rel="icon" href="IMAGENES/logo.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- ICONOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Montserrat',sans-serif;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; color: #333; }
 
     /* HERO */
-    .sw-hero{
-      background:linear-gradient(135deg,#0e3d92,#1b78c1);
-      color:#fff;
-      text-align:center;
-      padding:70px 20px;
+    .page-hero {
+      background: linear-gradient(135deg, #0e3d92 0%, #1b78c1 100%);
+      padding: 70px 20px 60px;
+      text-align: center;
+      color: white;
     }
-    .hero-icon{font-size:3rem;margin-bottom:15px;}
-    .hero-badge{
-      background:#f8b700;
-      color:#0e3d92;
-      padding:5px 15px;
-      border-radius:20px;
-      display:inline-block;
-      margin-bottom:15px;
-      font-weight:bold;
+    .page-hero .hero-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.9; }
+    .page-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 14px; }
+    .page-hero p { font-size: 1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.7; }
+    .hero-badge {
+      display: inline-block;
+      background: #f8b700;
+      color: #0e3d92;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     /* INTRO */
-    .intro-section{
-      background:#f8faff;
-      padding:50px 20px;
-      text-align:center;
-    }
-    .intro-divider{
-      width:60px;height:4px;background:#f8b700;margin:15px auto;
-    }
+    .intro-section { background: #f8faff; padding: 55px 20px; text-align: center; }
+    .intro-section h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .intro-section p { max-width: 800px; margin: 0 auto 12px; color: #555; line-height: 1.8; font-size: 0.95rem; }
+    .intro-divider { width: 60px; height: 4px; background: #f8b700; border-radius: 4px; margin: 18px auto 0; }
 
-    /* CARDS */
-    .cards-section{padding:60px 20px;text-align:center;}
-    .cards-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:25px;
-      max-width:1100px;
-      margin:auto;
+    /* CARDS SECTION */
+    .cards-section { padding: 60px 20px; background: white; }
+    .cards-section.alt { background: #f0f4fb; }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-header h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+    .section-header .section-sub { color: #777; font-size: 0.88rem; }
+
+    /* CARDS GRID 3x2 */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1050px;
+      margin: 0 auto;
     }
-    .service-card{
-      background:#f8faff;
-      padding:25px;
-      border-radius:12px;
-      border:1px solid #e0e8f5;
-      transition:.3s;
+    .service-card {
+      background: #f8faff;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 30px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
     }
-    .service-card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    .cards-section.alt .service-card { background: white; }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
     }
-    .card-icon{
-      background:linear-gradient(135deg,#0e3d92,#1b78c1);
-      color:white;
-      width:50px;height:50px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:10px;
-      margin:0 auto 15px;
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(14,61,146,0.12); }
+    .card-icon {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.4rem; color: white;
     }
-    /* CTA */
-    .compromiso-section{
-      background:linear-gradient(135deg,#0e3d92,#1b78c1);
-      color:white;
-      text-align:center;
-      padding:60px 20px;
+    .service-card h3 { color: #0e3d92; font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { color: #666; font-size: 0.85rem; line-height: 1.7; }
+
+    /* DETAIL GRID 4x2 */
+    .detail-section { background: #f0f4fb; padding: 60px 20px; }
+    .detail-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .detail-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .btn{
-      background:#f8b700;
-      color:#0e3d92;
-      padding:12px 25px;
-      border-radius:30px;
-      display:inline-block;
-      margin-top:20px;
-      text-decoration:none;
-      font-weight:bold;
+    .detail-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .detail-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .detail-card-header i { color: #f8b700; font-size: 1.4rem; flex-shrink: 0; }
+    .detail-card h3 { color: #0e3d92; font-size: 0.88rem; font-weight: 700; line-height: 1.4; }
+    .detail-card ul { list-style: none; padding: 0; }
+    .detail-card ul li {
+      font-size: 0.82rem; color: #555;
+      padding: 6px 0;
+      border-bottom: 1px dashed #eee;
+      display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
     }
+    .detail-card ul li:last-child { border-bottom: none; }
+    .detail-card ul li::before { content: '✓'; color: #0e3d92; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* USUARIOS — cards sin ícono grandes */
+    .usuarios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .usuario-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      display: flex; align-items: center; gap: 14px;
+      transition: transform 0.2s;
+    }
+    .usuario-card:hover { transform: translateY(-3px); }
+    .usuario-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: white; flex-shrink: 0;
+    }
+    .usuario-card h3 { color: #0e3d92; font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; }
+    .usuario-card p { color: #666; font-size: 0.82rem; line-height: 1.5; }
+
+    /* PROCESO — pasos numerados */
+    .proceso-section { background: white; padding: 60px 20px; }
+    .proceso-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .proceso-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .proceso-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .paso-card {
+      background: #f8faff;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 28px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .paso-numero {
+      width: 42px; height: 42px;
+      background: #f8b700;
+      color: #0e3d92;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700;
+      margin: 0 auto 14px;
+    }
+    .paso-card h3 { color: #0e3d92; font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+    .paso-card p { color: #666; font-size: 0.82rem; line-height: 1.6; }
+
+    /* COMPROMISO */
+    .compromiso-section {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      padding: 55px 20px; text-align: center; color: white;
+    }
+    .compromiso-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .compromiso-section p { max-width: 650px; margin: 0 auto 10px; opacity: 0.92; line-height: 1.8; font-size: 0.95rem; }
+    .compromiso-section .highlight { font-weight: 700; color: #f8b700; font-size: 1rem; margin-top: 14px; display: block; }
+
     /* RESPONSIVE */
-    @media(max-width:900px){
-      .cards-grid{grid-template-columns:repeat(2,1fr);}
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .detail-grid { grid-template-columns: repeat(2, 1fr); }
+      .usuarios-grid { grid-template-columns: repeat(2, 1fr); }
+      .proceso-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media(max-width:500px){
-      .cards-grid{grid-template-columns:1fr;}
+    @media (max-width: 500px) {
+      .page-hero h1 { font-size: 1.6rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .usuarios-grid { grid-template-columns: 1fr; }
+      .proceso-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -109,7 +202,7 @@
 <header class="header-new">
   <div class="header-new-container">
     <div class="logo-new">
-      <img src="IMAGENES/logo.png">
+      <img src="IMAGENES/logo.png" alt="Logo G&G">
       <span>G & G ASESORES TRIBUTARIOS</span>
     </div>
     <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
@@ -122,14 +215,14 @@
           <a href="personas-juridicas.html">Empresas</a>
           <a href="anexos tributarios.html">Anexos</a>
           <a href="otros anexos.html">Otros Anexos</a>
-          <a href="firmas-electronicas.html">Facturación</a>
+          <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>
           <a href="Softwarecontable.html">Software Contable</a>
         </div>
       </div>
       <div class="dropdown-new">
         <a href="#" class="dropbtn-new">Servicios Laborales</a>
         <div class="dropdown-content-new">
-          <a href="trabajo.html">Asesoría IESS</a>
+          <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
         </div>
       </div>
       <div class="dropdown-new">
@@ -147,78 +240,292 @@
 </header>
 
 <!-- HERO -->
-<section class="sw-hero">
+<section class="page-hero">
   <div class="hero-icon"><i class="fa-solid fa-building-columns"></i></div>
   <span class="hero-badge">Contratación Pública</span>
-  <h1>SERCOP: Vende al Estado</h1>
-  <p>Te ayudamos a registrarte, participar y ganar contratos públicos de forma legal y segura.</p>
+  <h1>SERCOP: Vende al Estado Ecuatoriano</h1>
+  <p>Te ayudamos a registrarte, cumplir requisitos y participar en procesos de contratación pública de forma legal, ordenada y competitiva.</p>
 </section>
+
 <!-- INTRO -->
 <section class="intro-section">
   <h2>¿Qué es el SERCOP?</h2>
-  <p>
-    Es el sistema donde el Estado ecuatoriano publica oportunidades de compra
-    para proveedores de bienes, servicios y obras.
-  </p>
+  <p>El Servicio Nacional de Contratación Pública (SERCOP) es el organismo técnico rector del Sistema Nacional de Contratación Pública del Ecuador. Es la plataforma donde el Estado publica todas sus necesidades de compra: bienes, servicios, consultorías y obras de construcción.</p>
+  <p>Para participar como proveedor del Estado, toda persona natural o jurídica debe estar registrada en el Registro Único de Proveedores (RUP) y cumplir con requisitos tributarios, laborales y legales vigentes.</p>
   <div class="intro-divider"></div>
 </section>
-<!-- BENEFICIOS -->
+
+<!-- PARA QUÉ SIRVE -->
 <section class="cards-section">
-  <h2>¿Para qué sirve?</h2>
+  <div class="section-header">
+    <h2>¿Para qué sirve el SERCOP?</h2>
+    <p class="section-sub">Beneficios de participar en la contratación pública</p>
+  </div>
   <div class="cards-grid">
+
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
       <h3>Transparencia</h3>
-      <p>Procesos claros y auditables.</p>
+      <p>Todos los procesos son públicos, auditables y trazables. Cualquier ciudadano puede verificar cómo el Estado gasta sus recursos.</p>
     </div>
+
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-      <h3>Legalidad</h3>
-      <p>Compras públicas reguladas.</p>
+      <h3>Legalidad y Seguridad</h3>
+      <p>Las compras públicas están reguladas por la LOSNCP. Los contratos firmados con el Estado tienen respaldo legal y garantía de pago.</p>
     </div>
+
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-      <h3>Oportunidades</h3>
-      <p>Acceso a contratos con el Estado.</p>
+      <h3>Oportunidades de Negocio</h3>
+      <p>El Estado es el mayor comprador del Ecuador. Registrarte abre acceso a cientos de procesos de compra activos cada mes en todo el país.</p>
     </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+      <h3>Igualdad de Condiciones</h3>
+      <p>El sistema garantiza que todos los proveedores habilitados compitan en igualdad de condiciones, sin favoritismos ni discriminación.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+      <h3>Pagos Garantizados</h3>
+      <p>Los contratos públicos están respaldados por presupuesto aprobado. Los pagos están sujetos a plazos legales establecidos en la normativa.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+      <h3>Acceso Nacional</h3>
+      <p>Desde una sola cuenta en el portal puedes participar en procesos de cualquier entidad pública del Ecuador, sin importar tu ubicación.</p>
+    </div>
+
   </div>
 </section>
-<!-- USUARIOS -->
-<section class="cards-section">
-  <h2>¿Quiénes lo usan?</h2>
-  <div class="cards-grid">
-    <div class="service-card"><h3>Personas Naturales</h3></div>
-    <div class="service-card"><h3>Emprendedores</h3></div>
-    <div class="service-card"><h3>MIPYMES</h3></div>
-    <div class="service-card"><h3>Construcción</h3></div>
-    <div class="service-card"><h3>Proveedores</h3></div>
-    <div class="service-card"><h3>Profesionales</h3></div>
+
+<!-- QUIÉNES PUEDEN PARTICIPAR -->
+<section class="cards-section alt">
+  <div class="section-header">
+    <h2>¿Quiénes pueden participar?</h2>
+    <p class="section-sub">Cualquier proveedor habilitado puede vender al Estado</p>
+  </div>
+  <div class="usuarios-grid">
+
+    <div class="usuario-card">
+      <div class="usuario-icon"><i class="fa-solid fa-user"></i></div>
+      <div>
+        <h3>Personas Naturales</h3>
+        <p>Con RUC activo, obligaciones tributarias al día y RUP habilitado.</p>
+      </div>
+    </div>
+
+    <div class="usuario-card">
+      <div class="usuario-icon"><i class="fa-solid fa-seedling"></i></div>
+      <div>
+        <h3>Emprendedores</h3>
+        <p>Negocios nuevos que quieren acceder a su primer contrato con el Estado.</p>
+      </div>
+    </div>
+
+    <div class="usuario-card">
+      <div class="usuario-icon"><i class="fa-solid fa-store"></i></div>
+      <div>
+        <h3>MIPYMES</h3>
+        <p>Micro, pequeñas y medianas empresas con preferencia en ciertos procesos.</p>
+      </div>
+    </div>
+
+    <div class="usuario-card">
+      <div class="usuario-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+      <div>
+        <h3>Constructoras</h3>
+        <p>Empresas de construcción, obras civiles e ingeniería habilitadas.</p>
+      </div>
+    </div>
+
+    <div class="usuario-card">
+      <div class="usuario-icon"><i class="fa-solid fa-truck"></i></div>
+      <div>
+        <h3>Proveedores de Bienes</h3>
+        <p>Comerciantes, importadores y distribuidores de productos y materiales.</p>
+      </div>
+    </div>
+
+    <div class="usuario-card">
+      <div class="usuario-icon"><i class="fa-solid fa-user-tie"></i></div>
+      <div>
+        <h3>Profesionales Independientes</h3>
+        <p>Consultores, asesores y técnicos que ofrecen servicios especializados.</p>
+      </div>
+    </div>
+
   </div>
 </section>
-<!-- SERVICIOS -->
-<section class="cards-section">
-  <h2>Servicios SERCOP</h2>
-  <div class="cards-grid">
-    <div class="service-card"><h3>Registro RUP</h3></div>
-    <div class="service-card"><h3>Cumplimiento Tributario</h3></div>
-    <div class="service-card"><h3>Uso del Portal</h3></div>
-    <div class="service-card"><h3>Contratación</h3></div>
-    <div class="service-card"><h3>Soporte Financiero</h3></div>
-    <div class="service-card"><h3>Acompañamiento</h3></div>
+
+<!-- PROCESO PASO A PASO -->
+<section class="proceso-section">
+  <h2>¿Cómo funciona el proceso?</h2>
+  <p class="section-sub">Pasos para participar en una contratación pública</p>
+  <div class="proceso-grid">
+
+    <div class="paso-card">
+      <div class="paso-numero">1</div>
+      <h3>Registro en el RUP</h3>
+      <p>Inscripción en el Registro Único de Proveedores con RUC activo y documentos en regla.</p>
+    </div>
+
+    <div class="paso-card">
+      <div class="paso-numero">2</div>
+      <h3>Habilitación</h3>
+      <p>Verificación de cumplimiento tributario, laboral y legal para activar tu perfil de proveedor.</p>
+    </div>
+
+    <div class="paso-card">
+      <div class="paso-numero">3</div>
+      <h3>Búsqueda de Procesos</h3>
+      <p>Acceso al portal COMPRASPUBLICAS para encontrar oportunidades de compra activas.</p>
+    </div>
+
+    <div class="paso-card">
+      <div class="paso-numero">4</div>
+      <h3>Presentación de Oferta</h3>
+      <p>Preparación y envío de la oferta técnica y económica dentro del plazo del proceso.</p>
+    </div>
+
+    <div class="paso-card">
+      <div class="paso-numero">5</div>
+      <h3>Calificación</h3>
+      <p>La entidad contratante evalúa las ofertas según los criterios establecidos en las bases.</p>
+    </div>
+
+    <div class="paso-card">
+      <div class="paso-numero">6</div>
+      <h3>Adjudicación</h3>
+      <p>Si resultas ganador, se firma el contrato y se fijan las condiciones de entrega y pago.</p>
+    </div>
+
+    <div class="paso-card">
+      <div class="paso-numero">7</div>
+      <h3>Ejecución</h3>
+      <p>Cumplimiento del contrato: entrega de bienes, prestación del servicio u obra contratada.</p>
+    </div>
+
+    <div class="paso-card">
+      <div class="paso-numero">8</div>
+      <h3>Cobro y Cierre</h3>
+      <p>Recepción del pago, liquidación del contrato y actualización de tu historial de proveedor.</p>
+    </div>
+
   </div>
 </section>
-<!-- CTA -->
+
+<!-- SERVICIOS QUE OFRECEMOS -->
+<section class="detail-section">
+  <h2>Servicios que Ofrecemos en SERCOP</h2>
+  <p class="section-sub">Acompañamiento integral para que vendas al Estado con éxito</p>
+  <div class="detail-grid">
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-id-card"></i>
+        <h3>Registro RUP</h3>
+      </div>
+      <ul>
+        <li>Inscripción inicial en el RUP</li>
+        <li>Actualización anual obligatoria</li>
+        <li>Revisión de documentos habilitantes</li>
+        <li>Corrección de inconsistencias</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-file-circle-check"></i>
+        <h3>Cumplimiento Tributario</h3>
+      </div>
+      <ul>
+        <li>Verificación de RUC activo y al día</li>
+        <li>Declaraciones tributarias al día</li>
+        <li>Certificado de cumplimiento SRI</li>
+        <li>Regularización de obligaciones</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-laptop"></i>
+        <h3>Uso del Portal</h3>
+      </div>
+      <ul>
+        <li>Capacitación en COMPRASPUBLICAS</li>
+        <li>Búsqueda de procesos activos</li>
+        <li>Gestión de cuenta y perfil</li>
+        <li>Carga de documentos en línea</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-file-signature"></i>
+        <h3>Preparación de Ofertas</h3>
+      </div>
+      <ul>
+        <li>Revisión de pliegos y bases</li>
+        <li>Elaboración de oferta técnica</li>
+        <li>Cálculo de oferta económica</li>
+        <li>Envío dentro de plazos legales</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-users-gear"></i>
+        <h3>Soporte Laboral y Legal</h3>
+      </div>
+      <ul>
+        <li>Certificado de cumplimiento IESS</li>
+        <li>Nómina y contratos al día</li>
+        <li>Revisión de impedimentos legales</li>
+        <li>Asesoría en garantías contractuales</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-card-header">
+        <i class="fa-solid fa-handshake-angle"></i>
+        <h3>Acompañamiento Continuo</h3>
+      </div>
+      <ul>
+        <li>Monitoreo de procesos activos</li>
+        <li>Alertas de vencimiento y plazos</li>
+        <li>Respuesta a preguntas y aclaraciones</li>
+        <li>Soporte durante ejecución del contrato</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPROMISO -->
 <section class="compromiso-section">
-  <h2>Empieza a vender al Estado</h2>
-  <p>Te acompañamos en todo el proceso SERCOP.</p>
-  <a href="https://wa.link/7a1xme" class="btn">WhatsApp</a>
+  <h2><i class="fa-solid fa-circle-check" style="margin-right:10px;"></i>¿Por qué gestionar el SERCOP con nosotros?</h2>
+  <p>En G & G Asesores Tributarios conocemos los requisitos, plazos y procedimientos del sistema de contratación pública. Te ayudamos a habilitarte correctamente y a preparar ofertas competitivas que cumplan con todos los criterios de calificación.</p>
+  <p>Muchos proveedores pierden procesos por errores en documentos, incumplimientos tributarios o desconocimiento de las bases. Con nuestro acompañamiento, eso no te pasará.</p>
+  <span class="highlight">Con G & G Asesores, estás listo para ganar contratos con el Estado ecuatoriano.</span>
 </section>
+
+<!-- CONTACTO -->
+<section class="contact-section">
+  <h2 class="title">Contáctanos</h2>
+  <p class="subtitle">¿Quieres registrarte en el SERCOP o participar en un proceso? Escríbenos y te asesoramos.</p>
+  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">Escríbenos por WhatsApp</a>
+</section>
+
 <!-- UBICACIÓN -->
 <section class="location-section">
   <div class="location-container">
     <div class="location-info">
       <h2>Nuestra Ubicación</h2>
-      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable y tributaria confiable. Visítanos y recibe atención personalizada de nuestro equipo profesional.</p>
+      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable, tributaria y de contratación pública confiable. Visítanos y recibe atención personalizada.</p>
       <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación en Google Maps</a>
     </div>
     <div class="location-map">
@@ -229,8 +536,8 @@
   </div>
 </section>
 
-<!-- WHATSAPP -->
-<a href="https://wa.link/7a1xme" class="whatsapp-float">
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
   <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -240,7 +547,7 @@
     <div class="footer-item">
       <i class="fa-brands fa-whatsapp"></i>
       <h4>WhatsApp</h4>
-      <a href="https://wa.link/7a1xme">Escríbenos</a>
+      <a href="https://wa.link/7a1xme" target="_blank">Escríbenos</a>
     </div>
     <div class="footer-item">
       <i class="fa-solid fa-envelope"></i>
@@ -250,13 +557,14 @@
     <div class="footer-item">
       <i class="fa-solid fa-location-dot"></i>
       <h4>Maps</h4>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6">Ver ubicación</a>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">Ver ubicación</a>
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 Guijarro Guijarro & Asesores Tributarios
+    © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
   </div>
 </footer>
+
 <script src="script.js"></script>
 <script type="module" src="header.js"></script>
 </body>
