@@ -27,18 +27,39 @@ estilos.textContent = `
     font-size: 0.82rem;
     font-weight: 600;
   }
-  .user-avatar-btn .avatar-circle {
-    width: 26px;
-    height: 26px;
-    background: #f8b700;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #0e3d92;
+ .user-avatar-btn {
+  background: #0e3d92;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 7px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  max-width: none;
+  overflow: visible;
+}
+
+@media (max-width: 480px) {
+  .user-avatar-btn {
+    padding: 0;
+    background: transparent;
+    gap: 0;
   }
+  .user-avatar-btn .avatar-nombre {
+    display: none;
+  }
+  .user-avatar-btn .avatar-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+}
   .user-dropdown {
     display: none;
     position: absolute;
@@ -128,12 +149,13 @@ if (headerContainer) {
 
     const nombre = perfil?.nombres || session.user.email.split("@")[0];
 
+  
     menuDiv.innerHTML = `
-      <button class="user-avatar-btn" id="avatarBtn">
-        <div class="avatar-circle">${nombre.charAt(0).toUpperCase()}</div>
-        ${nombre}
-      </button>
-      <div class="user-dropdown" id="userDropdown">
+    <button class="user-avatar-btn" id="avatarBtn">
+    <div class="avatar-circle">${nombre.charAt(0).toUpperCase()}</div>
+    <span class="avatar-nombre">${nombre}</span>
+    </button>
+  <div class="user-dropdown" id="userDropdown">
         <div class="user-dropdown-header">
           ${nombre}
           <span>${session.user.email}</span>
