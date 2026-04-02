@@ -2,38 +2,163 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Contacto | G & G Asesores Tributarios</title>
-
+  <title> Reportes y Anexos | G & G Asesores Tributarios</title>
   <link rel="icon" href="IMAGENES/logo.png" type="image/png">
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
-  
-</head>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; color: #333; }
 
+    /* HERO */
+    .page-hero {
+      background: linear-gradient(135deg, #0e3d92 0%, #1b78c1 100%);
+      padding: 70px 20px 60px;
+      text-align: center;
+      color: white;
+    }
+    .page-hero .hero-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.9; }
+    .page-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 14px; }
+    .page-hero p { font-size: 1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.7; }
+    .hero-badge {
+      display: inline-block;
+      background: #f8b700;
+      color: #0e3d92;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* INTRO */
+    .intro-section { background: #f8faff; padding: 55px 20px; text-align: center; }
+    .intro-section h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .intro-section p { max-width: 750px; margin: 0 auto; color: #555; line-height: 1.8; font-size: 0.95rem; }
+    .intro-divider { width: 60px; height: 4px; background: #f8b700; border-radius: 4px; margin: 18px auto 0; }
+
+    /* SECCIÓN DE CARDS */
+    .cards-section { padding: 60px 20px; background: white; }
+    .cards-section.alt { background: #f0f4fb; }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-header h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+    .section-header .section-sub { color: #777; font-size: 0.88rem; }
+
+    /* GRUPO TÍTULO */
+    .group-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 1050px;
+      margin: 0 auto 28px;
+    }
+    .group-label-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: white; flex-shrink: 0;
+    }
+    .group-label h3 { color: #0e3d92; font-size: 1.1rem; font-weight: 700; }
+
+    /* CARDS GRID */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1050px;
+      margin: 0 auto 50px;
+    }
+    .report-card {
+      background: #f8faff;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 26px 22px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .report-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
+    }
+    .report-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(14,61,146,0.12); }
+    .report-card h4 { color: #0e3d92; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .report-card p { color: #666; font-size: 0.83rem; line-height: 1.6; }
+    .report-card p strong { color: #0e3d92; }
+
+    /* FECHA BADGE */
+    .fecha-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e8f0fb;
+      color: #0e3d92;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-top: 4px;
+      width: fit-content;
+    }
+    .fecha-badge i { font-size: 0.72rem; }
+
+    /* WHATSAPP LINK */
+    .card-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: auto;
+      padding-top: 14px;
+      color: #25d366;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-top: 1px dashed #e0e8f5;
+    }
+    .card-whatsapp:hover { color: #1aa851; }
+
+    /* COMPROMISO */
+    .compromiso-section {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      padding: 55px 20px; text-align: center; color: white;
+    }
+    .compromiso-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .compromiso-section p { max-width: 650px; margin: 0 auto 10px; opacity: 0.92; line-height: 1.8; font-size: 0.95rem; }
+    .compromiso-section .highlight { font-weight: 700; color: #f8b700; font-size: 1rem; margin-top: 14px; display: block; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .page-hero h1 { font-size: 1.6rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- HEADER -->
 <header class="header-new">
   <div class="header-new-container">
-
     <div class="logo-new">
       <img src="IMAGENES/logo.png" alt="Logo G&G">
       <span>G & G ASESORES TRIBUTARIOS</span>
     </div>
-
     <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
     <nav class="menu-new" id="menu-new">
       <a href="index.html">Inicio</a>
@@ -48,266 +173,251 @@
           <a href="Softwarecontable.html">Software Contable</a>
         </div>
       </div>
-
-      <!-- SERVICIOS LABORALES --> 
-      <div class="dropdown-new"> 
-        <a href="#" class="dropbtn-new">Servicios Laborales</a> 
-        <div class="dropdown-content-new">  
+      <div class="dropdown-new">
+        <a href="#" class="dropbtn-new">Servicios Laborales</a>
+        <div class="dropdown-content-new">
           <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
         </div>
       </div>
-
-      <!-- OTROS SERVICIOS -->
       <div class="dropdown-new">
         <a href="#" class="dropbtn-new">Otros Servicios</a>
-        <div class="dropdown-content-new"> 
+        <div class="dropdown-content-new">
           <a href="asesorialegal.html">Asesoría Legal</a>
-          <a href="Capacitaciones.html">Capacitaciones</a>          
+          <a href="capacitaciones.html">Capacitaciones</a>
           <a href="uafe.html">UAFE</a>
           <a href="sercop.html">SERCOP</a>
         </div>
       </div>
       <a href="contacto.html">Contacto</a>
-
+    </nav>
   </div>
 </header>
-<section class="reports-section">
-  <h2>Reportes y Anexos Obligatorios</h2>
-  <p class="section-desc">
-    Cumple a tiempo con tus obligaciones laborales y tributarias.
-    Te ayudamos con la elaboración y presentación de cada reporte.
-  </p>
 
-  <!-- ===== MINISTERIO DEL TRABAJO ===== -->
-  <h3 class="group-title">Ministerio del Trabajo</h3>
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-icon"><i class="fa-solid fa-file-contract"></i></div>
+  <span class="hero-badge">Obligaciones Laborales y Tributarias</span>
+  <h1>Reportes y Anexos Obligatorios</h1>
+  <p>Cumple a tiempo con todas tus obligaciones laborales y tributarias. Te ayudamos con la elaboración y presentación correcta de cada reporte ante los organismos competentes.</p>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <h2>¿Por qué es importante cumplir con estos reportes?</h2>
+  <p>El incumplimiento en la presentación de reportes y anexos puede generar multas, sanciones y clausuras. En G & G Asesores Tributarios te acompañamos en cada obligación, garantizando precisión en los plazos y formatos exigidos por el Ministerio del Trabajo y el SRI.</p>
+  <div class="intro-divider"></div>
+</section>
+
+<!-- MINISTERIO DEL TRABAJO -->
+<section class="cards-section">
+  <div class="section-header">
+    <h2>Ministerio del Trabajo</h2>
+    <p class="section-sub">Obligaciones laborales con fechas y requisitos específicos</p>
+  </div>
+
+  <div class="group-label">
+    <div class="group-label-icon"><i class="fa-solid fa-briefcase"></i></div>
+    <h3>Reportes Laborales</h3>
+  </div>
+
   <div class="cards-grid">
 
     <div class="report-card">
       <h4>13ra Remuneración</h4>
       <p><strong>¿Qué es?</strong> Registro del pago del décimo tercer sueldo.</p>
       <p><strong>¿Por qué?</strong> Evidencia el cumplimiento del derecho laboral.</p>
-      <p><strong>Fecha:</strong> Hasta el 24 de diciembre.</p>
-        <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Hasta el 24 de diciembre</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
     <div class="report-card">
       <h4>14ta Remuneración</h4>
       <p><strong>¿Qué es?</strong> Registro del pago del décimo cuarto sueldo.</p>
       <p><strong>¿Por qué?</strong> Acredita el cumplimiento legal.</p>
-      <p><strong>Fecha:</strong> Costa: 15 marzo · Sierra: 15 agosto.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Costa: 15 mar · Sierra: 15 ago</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
     <div class="report-card">
       <h4>Pago de Utilidades (15%)</h4>
-      <p><strong>¿Qué es?</strong> Registro de utilidades distribuidas.</p>
-      <p><strong>¿Por qué?</strong> Control del reparto conforme a ley.</p>
-      <p><strong>Fecha:</strong> Hasta el 15 de abril.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <p><strong>¿Qué es?</strong> Registro de utilidades distribuidas a empleados.</p>
+      <p><strong>¿Por qué?</strong> Control del reparto conforme a la ley.</p>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Hasta el 15 de abril</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
     <div class="report-card">
       <h4>Contratos de Trabajo</h4>
-      <p><strong>¿Qué es?</strong> Inscripción de contratos laborales.</p>
-      <p><strong>¿Por qué?</strong> Legaliza la relación laboral.</p>
-      <p><strong>Fecha:</strong> Dentro de 15 días de la firma.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <p><strong>¿Qué es?</strong> Inscripción de contratos laborales en el sistema.</p>
+      <p><strong>¿Por qué?</strong> Legaliza la relación laboral del trabajador.</p>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Dentro de 15 días de la firma</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
     <div class="report-card">
       <h4>Actas de Finiquito</h4>
-      <p><strong>¿Qué es?</strong> Registro de liquidación laboral.</p>
-      <p><strong>¿Por qué?</strong> Constancia del pago final.</p>
-      <p><strong>Fecha:</strong> Dentro de 15 días de la terminación.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <p><strong>¿Qué es?</strong> Registro de liquidación laboral al terminar contrato.</p>
+      <p><strong>¿Por qué?</strong> Constancia del pago final al trabajador.</p>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Dentro de 15 días de la terminación</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
     <div class="report-card">
       <h4>Planificación de Vacaciones</h4>
-      <p><strong>¿Qué es?</strong> Plan anual de vacaciones.</p>
-      <p><strong>¿Por qué?</strong> Control del derecho al descanso.</p>
-      <p><strong>Fecha:</strong> Inicio del año o según requerimiento.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <p><strong>¿Qué es?</strong> Plan anual de vacaciones del personal.</p>
+      <p><strong>¿Por qué?</strong> Control del derecho al descanso obligatorio.</p>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Inicio del año o según requerimiento</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
   </div>
+</section>
 
-  <!-- ===== OTROS ANEXOS ===== -->
-  <h3 class="group-title">Otros Anexos y Reportes</h3>
+<!-- OTROS ANEXOS -->
+<section class="cards-section alt">
+  <div class="section-header">
+    <h2>Otros Anexos y Reportes</h2>
+    <p class="section-sub">Obligaciones tributarias adicionales ante el SRI y otros organismos</p>
+  </div>
+
+  <div class="group-label">
+    <div class="group-label-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+    <h3>Anexos Tributarios</h3>
+  </div>
+
   <div class="cards-grid">
 
     <div class="report-card">
       <h4>Anexo OPR</h4>
-      <p>Transacciones con partes relacionadas.</p>
-      <p><strong>Presentación:</strong> Junio, según RUC.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <p>Reporte de transacciones realizadas con partes relacionadas dentro y fuera del país.</p>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Junio, según dígito del RUC</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
     <div class="report-card">
       <h4>Anexo AMD</h4>
-      <p>Ingresos y salidas de divisas del exterior.</p>
-      <p><strong>Presentación:</strong> Mensual.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <p>Reporte de ingresos y salidas de divisas hacia o desde el exterior.</p>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Presentación mensual</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
     <div class="report-card">
       <h4>Anexo de Activos y Pasivos</h4>
-      <p>Detalle patrimonial del contribuyente.</p>
-      <p><strong>Presentación:</strong> Cuando lo solicita el SRI.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <p>Detalle patrimonial completo del contribuyente solicitado por el SRI.</p>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Cuando lo solicita el SRI</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
     <div class="report-card">
       <h4>Anexo ICE</h4>
-      <p>Operaciones gravadas con ICE.</p>
-      <p><strong>Presentación:</strong> Mensual.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <p>Reporte de operaciones gravadas con el Impuesto a los Consumos Especiales.</p>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Presentación mensual</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
     <div class="report-card">
       <h4>Informe ICT</h4>
-      <p>Informe de auditoría tributaria externa.</p>
-      <p><strong>Presentación:</strong> Hasta 30 de junio.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <p>Informe de cumplimiento tributario emitido por auditoría externa.</p>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Hasta el 30 de junio</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
     <div class="report-card">
       <h4>Ventas a Crédito (DINARDAP)</h4>
-      <p>Reporte de ventas realizadas a crédito.</p>
-      <p><strong>Presentación:</strong> Según requerimiento.</p>
-       <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
-           <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
-        </a>
+      <p>Reporte de ventas realizadas a crédito reportadas a la DINARDAP.</p>
+      <span class="fecha-badge"><i class="fa-solid fa-calendar"></i> Según requerimiento</span>
+      <a href="https://wa.link/7a1xme" target="_blank" class="card-whatsapp">
+        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+      </a>
     </div>
 
   </div>
 </section>
 
-<section class="contact-section">
- 
-      <h2 class="title">Contáctanos</h2>
- 
-      <p class="subtitle">
- 
-        Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.
- 
-      </p>
+<!-- COMPROMISO -->
+<section class="compromiso-section">
+  <h2><i class="fa-solid fa-circle-check" style="margin-right:10px;"></i>Tu tranquilidad es nuestra prioridad</h2>
+  <p>En G & G Asesores Tributarios nos encargamos de que ninguna obligación quede pendiente. Monitoreamos las fechas, elaboramos los reportes y te avisamos con anticipación para que no incurras en multas ni sanciones.</p>
+  <p>Contamos con experiencia en el manejo de reportes ante el Ministerio del Trabajo, el SRI y otros organismos reguladores del Ecuador.</p>
+  <span class="highlight">Con nosotros, tus obligaciones siempre estarán presentadas a tiempo y en forma correcta.</span>
+</section>
 
-      <a href="https://wa.link/7a1xme"
-           class="btn btn-whatsapp"
-           target="_blank">
-           Escríbenos por WhatsApp
-      </a>
-    </section>
-    
+<!-- CONTACTO -->
+<section class="contact-section">
+  <h2 class="title">Contáctanos</h2>
+  <p class="subtitle">Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.</p>
+  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">Escríbenos por WhatsApp</a>
+</section>
+
+<!-- UBICACIÓN -->
 <section class="location-section">
   <div class="location-container">
-
-    <!-- TEXTO -->
     <div class="location-info">
       <h2>Nuestra Ubicación</h2>
-      <p>
-        Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de
-        fácil acceso para quienes buscan asesoría contable y tributaria confiable.
-        Visítanos para recibir atención personalizada, resolver tus dudas y obtener el
-        apoyo profesional que tu gestión necesita. ¡Estaremos encantados de ayudarte!
-      </p>
-
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6"
-         target="_blank"
-         class="btn-location">
-        Ver ubicación en Google Maps
-      </a>
+      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable y tributaria confiable. Visítanos para recibir atención personalizada.</p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación en Google Maps</a>
     </div>
-
-    <!-- MAPA -->
     <div class="location-map">
       <iframe
-        width="100%"
-        height="400"
-        style="border:0;"
-        loading="lazy"
-        allowfullscreen=""
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5640259090364!2d-76.8916587!3d0.0846226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20%26%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses!2sec!4v1707000000000">
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
-
   </div>
 </section>
-<!-- BOTÓN FLOTANTE WHATSAPP -->
 
+<!-- WHATSAPP FLOAT -->
 <a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-item">
       <i class="fa-brands fa-whatsapp"></i>
       <h4>WhatsApp</h4>
-      <a href="https://wa.me/5939XXXXXXXX" target="_blank">Escríbenos</a>
+      <a href="https://wa.link/7a1xme" target="_blank">Escríbenos</a>
     </div>
-
     <div class="footer-item">
       <i class="fa-solid fa-envelope"></i>
       <h4>Gmail</h4>
       <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a>
     </div>
-
     <div class="footer-item">
       <i class="fa-solid fa-location-dot"></i>
       <h4>Maps</h4>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">
-        Ver ubicación
-      </a>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">Ver ubicación</a>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
   </div>
 </footer>
 
-<!-- JS -->
 <script src="script.js"></script>
-  <script type="module" src="header.js"></script>
-
+<script type="module" src="header.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
