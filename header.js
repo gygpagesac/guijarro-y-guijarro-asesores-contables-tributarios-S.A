@@ -12,17 +12,21 @@ const estilos = document.createElement("style");
 estilos.textContent = `
   .user-menu-container { position: relative; z-index: 9999; font-family: Montserrat, sans-serif; }
   .user-avatar-btn {
-    background: #0e3d92;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 7px 14px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.82rem;
-    font-weight: 600;
+  background: #0e3d92;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 7px 10px;
+  max-width: 120px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
   }
   .user-avatar-btn .avatar-circle {
     width: 26px;
