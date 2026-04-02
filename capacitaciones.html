@@ -5,9 +5,10 @@
   <title>Capacitaciones | G & G Asesores Tributarios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- CSS GLOBAL -->
+  <link rel="stylesheet" href="style.css">
+
   <!-- FUENTES -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- ICONOS -->
@@ -17,41 +18,45 @@
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Montserrat', sans-serif; color: #333; }
+    body { font-family: 'Montserrat', sans-serif; }
 
     /* HERO */
     .sw-hero {
-      background: linear-gradient(135deg, #0e3d92 0%, #1b78c1 100%);
-      padding: 70px 20px 60px;
-      text-align: center;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
       color: white;
+      text-align: center;
+      padding: 70px 20px;
     }
-    .hero-icon { font-size: 3rem; margin-bottom: 16px; }
-    .sw-hero h1 { font-size: 2.2rem; margin-bottom: 14px; }
-    .sw-hero p { max-width: 700px; margin: auto; line-height: 1.7; }
+    .hero-icon { font-size: 3rem; margin-bottom: 15px; }
     .hero-badge {
-      display: inline-block;
       background: #f8b700;
       color: #0e3d92;
-      padding: 5px 16px;
+      padding: 5px 15px;
       border-radius: 20px;
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 15px;
+      font-weight: bold;
     }
 
     /* INTRO */
-    .intro-section { background: #f8faff; padding: 50px 20px; text-align: center; }
-    .intro-section h2 { color: #0e3d92; margin-bottom: 10px; }
-    .intro-section p { max-width: 700px; margin: auto; color: #555; }
-    .intro-divider { width: 60px; height: 4px; background: #f8b700; margin: 15px auto; }
+    .intro-section {
+      background: #f8faff;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .intro-divider {
+      width: 60px;
+      height: 4px;
+      background: #f8b700;
+      margin: 15px auto;
+    }
 
     /* CARDS */
     .cards-section { padding: 60px 20px; text-align: center; }
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 25px;
       max-width: 1000px;
       margin: auto;
     }
@@ -64,22 +69,26 @@
     }
     .service-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
     .card-icon {
       background: linear-gradient(135deg, #0e3d92, #1b78c1);
       color: white;
       width: 50px;
       height: 50px;
-      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 10px;
       margin: 0 auto 15px;
     }
 
     /* GALERÍA */
-    .gallery { background: #f0f4fb; padding: 60px 20px; text-align: center; }
+    .gallery {
+      background: #f0f4fb;
+      padding: 60px 20px;
+      text-align: center;
+    }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -118,15 +127,22 @@
 </head>
 
 <body>
+
+<!-- ===== HEADER (CORREGIDO) ===== -->
 <header class="header-new">
   <div class="header-new-container">
+
     <div class="logo-new">
       <img src="IMAGENES/logo.png" alt="Logo G&G">
       <span>G & G ASESORES TRIBUTARIOS</span>
     </div>
+
     <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
+
     <nav class="menu-new" id="menu-new">
+
       <a href="index.html">Inicio</a>
+
       <div class="dropdown-new">
         <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>
         <div class="dropdown-content-new">
@@ -134,16 +150,18 @@
           <a href="personas-juridicas.html">Empresas</a>
           <a href="anexos tributarios.html">Anexos</a>
           <a href="otros anexos.html">Otros Anexos</a>
-          <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>
+          <a href="firmas-electronicas.html">Facturación</a>
           <a href="Softwarecontable.html">Software Contable</a>
         </div>
       </div>
+
       <div class="dropdown-new">
         <a href="#" class="dropbtn-new">Servicios Laborales</a>
         <div class="dropdown-content-new">
-          <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
+          <a href="trabajo.html">Asesoría IESS</a>
         </div>
       </div>
+
       <div class="dropdown-new">
         <a href="#" class="dropbtn-new">Otros Servicios</a>
         <div class="dropdown-content-new">
@@ -153,11 +171,13 @@
           <a href="sercop.html">SERCOP</a>
         </div>
       </div>
+
       <a href="contacto.html">Contacto</a>
+
     </nav>
   </div>
 </header>
-  
+
 <!-- HERO -->
 <section class="sw-hero">
   <div class="hero-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
@@ -184,7 +204,7 @@
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-file-invoice"></i></div>
       <h3>SRI</h3>
-      <p>Actualización tributaria y declaraciones.</p>
+      <p>Actualización tributaria.</p>
     </div>
 
     <div class="service-card">
@@ -219,10 +239,63 @@
 <section class="compromiso-section">
   <h2>Agenda tu capacitación</h2>
   <p>Contáctanos y reserva tu cupo.</p>
-  <a href="https://wa.link/7a1xme" target="_blank" class="btn">
-    WhatsApp
-  </a>
+  <a href="https://wa.link/7a1xme" target="_blank" class="btn">WhatsApp</a>
 </section>
+
+<!-- UBICACIÓN -->
+<section class="location-section">
+  <div class="location-container">
+    <div class="location-info">
+      <h2>Nuestra Ubicación</h2>
+      <p>Visítanos en Lago Agrio para recibir asesoría personalizada.</p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">
+        Ver ubicación
+      </a>
+    </div>
+
+    <div class="location-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
+        loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-item">
+      <i class="fa-brands fa-whatsapp"></i>
+      <h4>WhatsApp</h4>
+      <a href="https://wa.link/7a1xme">Escríbenos</a>
+    </div>
+
+    <div class="footer-item">
+      <i class="fa-solid fa-envelope"></i>
+      <h4>Gmail</h4>
+      <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a>
+    </div>
+
+    <div class="footer-item">
+      <i class="fa-solid fa-location-dot"></i>
+      <h4>Maps</h4>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6">Ver ubicación</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Guijarro Guijarro & Asesores Tributarios
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script type="module" src="header.js"></script>
 
 </body>
 </html>
