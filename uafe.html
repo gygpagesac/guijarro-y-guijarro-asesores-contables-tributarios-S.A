@@ -4,242 +4,436 @@
   <meta charset="UTF-8">
   <title>UAFE | G & G Asesores Tributarios</title>
   <link rel="icon" href="IMAGENES/logo.png" type="image/png">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
 
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; color: #333; }
+
+    /* HERO */
+    .uafe-hero {
+      background: linear-gradient(135deg, #0e3d92 0%, #1b78c1 100%);
+      padding: 70px 20px 60px;
+      text-align: center;
+      color: white;
+    }
+    .uafe-hero .hero-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.9; }
+    .uafe-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 14px; }
+    .uafe-hero p { font-size: 1rem; max-width: 750px; margin: 0 auto; opacity: 0.9; line-height: 1.7; }
+    .hero-badge {
+      display: inline-block;
+      background: #f8b700;
+      color: #0e3d92;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* INTRO */
+    .intro-section { background: #f8faff; padding: 55px 20px; text-align: center; }
+    .intro-section h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .intro-section p { max-width: 800px; margin: 0 auto 12px; color: #555; line-height: 1.8; font-size: 0.95rem; }
+    .intro-divider { width: 60px; height: 4px; background: #f8b700; border-radius: 4px; margin: 18px auto 0; }
+
+    /* SECCIÓN POR QUÉ — 2 columnas de listas */
+    .porque-section { padding: 60px 20px; background: white; }
+    .porque-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .porque-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .porque-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .porque-card {
+      background: #f8faff;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 30px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .porque-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
+    }
+    .porque-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .porque-card-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: white; flex-shrink: 0;
+    }
+    .porque-card h3 { color: #0e3d92; font-size: 0.95rem; font-weight: 700; }
+    .porque-card ul { list-style: none; padding: 0; }
+    .porque-card ul li {
+      font-size: 0.85rem; color: #555;
+      padding: 7px 0;
+      border-bottom: 1px dashed #eee;
+      display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+    }
+    .porque-card ul li:last-child { border-bottom: none; }
+    .porque-card ul li::before { content: '✓'; color: #0e3d92; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* QUIÉNES — cards 3x2 */
+    .quienes-section { padding: 60px 20px; background: #f0f4fb; }
+    .quienes-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .quienes-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .quienes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .quienes-card {
+      background: white;
+      border-radius: 14px;
+      padding: 26px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .quienes-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(14,61,146,0.12); }
+    .quienes-card-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: white;
+      margin-bottom: 14px;
+    }
+    .quienes-card h3 { color: #0e3d92; font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+    .quienes-card p { color: #666; font-size: 0.84rem; line-height: 1.7; }
+
+    /* SERVICIOS — cards 3x2 */
+    .servicios-section { padding: 60px 20px; background: white; }
+    .servicios-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+    .servicios-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: #f8faff;
+      border: 1.5px solid #e0e8f5;
+      border-radius: 14px;
+      padding: 30px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #f8b700;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(14,61,146,0.12); }
+    .card-icon {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.4rem; color: white;
+    }
+    .service-card h3 { color: #0e3d92; font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { color: #666; font-size: 0.85rem; line-height: 1.7; }
+
+    /* COMPROMISO */
+    .compromiso-section {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      padding: 55px 20px; text-align: center; color: white;
+    }
+    .compromiso-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
+    .compromiso-section p { max-width: 650px; margin: 0 auto 10px; opacity: 0.92; line-height: 1.8; font-size: 0.95rem; }
+    .compromiso-section .highlight { font-weight: 700; color: #f8b700; font-size: 1rem; margin-top: 14px; display: block; }
+
+    /* NOTA */
+    .nota-section { background: #fff8e1; border-left: 4px solid #f8b700; margin: 40px auto; max-width: 800px; padding: 18px 24px; border-radius: 8px; }
+    .nota-section p { color: #7a5c00; font-size: 0.88rem; line-height: 1.7; }
+    .nota-section i { margin-right: 8px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .quienes-grid { grid-template-columns: repeat(2, 1fr); }
+      .servicios-grid { grid-template-columns: repeat(2, 1fr); }
+      .porque-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 500px) {
+      .uafe-hero h1 { font-size: 1.6rem; }
+      .quienes-grid { grid-template-columns: 1fr; }
+      .servicios-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
 <body>
-    <!-- ===== HEADER ===== -->
-     <header class="header-new">
-        <div class="header-new-container">   
-            <div class="logo-new"> 
-              
-              <img src="IMAGENES/logo.png" alt="Logo G&G">
-              <span>G & G ASESORES TRIBUTARIOS</span>   
-            </div>  
-            <div class="menu-toggle-new" id="menu-toggle-new">☰</div> 
-            <nav class="menu-new" id="menu-new">
-            <a href="index.html">Inicio</a>
-            <!-- SERVICIOS CONTABLES -->
-            <div class="dropdown-new">   
-              <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>  
-              <div class="dropdown-content-new">  
-                <a href="personas-naturales.html">Personas Naturales</a>  
-                <a href="personas-juridicas.html">Empresas</a> 
-                <a href="anexos tributarios.html">Anexos</a>     
-                <a href="otros anexos.html">Otros Anexos</a>       
-                <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>   
-                <a href="Softwarecontable.html">Software Contable</a>   
-              </div>
-            </div>
-            <!-- SERVICIOS LABORALES --> 
-            <div class="dropdown-new">   
-              <a href="#" class="dropbtn-new">Servicios Laborales</a>  
-              <div class="dropdown-content-new">  
-                <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
-              </div>
-            </div>
-            <!-- OTROS SERVICIOS -->
-            <div class="dropdown-new"> 
-              <a href="#" class="dropbtn-new">Otros Servicios</a> 
-              <div class="dropdown-content-new">  
-                <a href="asesorialegal.html">Asesoría Legal</a>
-                <a href="capacitaciones.html">Capacitaciones</a>      
-                <a href="uafe.html">UAFE</a>
-                <a href="sercop.html">SERCOP</a>
-              </div>
-            </div>
-            <a href="contacto.html">Contacto</a>
-          </nav>
+
+<!-- HEADER -->
+<header class="header-new">
+  <div class="header-new-container">
+    <div class="logo-new">
+      <img src="IMAGENES/logo.png" alt="Logo G&G">
+      <span>G & G ASESORES TRIBUTARIOS</span>
+    </div>
+    <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
+    <nav class="menu-new" id="menu-new">
+      <a href="index.html">Inicio</a>
+      <div class="dropdown-new">
+        <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>
+        <div class="dropdown-content-new">
+          <a href="personas-naturales.html">Personas Naturales</a>
+          <a href="personas-juridicas.html">Empresas</a>
+          <a href="anexos tributarios.html">Anexos</a>
+          <a href="otros anexos.html">Otros Anexos</a>
+          <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>
+          <a href="Softwarecontable.html">Software Contable</a>
         </div>
-    </header>
-    <section class="uafe-section">
-           <div class="uafe-hero">
-            <div class="uafe-text">
-                <h2>UAFE: Cumplimiento y Prevención de Lavado de Activos</h2>
-                <p>      
-                  La <strong>UAFE (Unidad de Análisis Financiero y Económico)</strong> es el organismo
-                  técnico del Estado ecuatoriano responsable de prevenir, detectar y erradicar el lavado 
-                  de activos y el financiamiento de delitos. Su labor principal consiste en centralizar 
-                  y analizar información sobre transacciones económicas que podrían ser inusuales o
-                  injustificadas, actuando como un filtro crítico para identificar actividades ilícitas 
-                  que afecten la transparencia del sistema financiero.
-                </p>
-                <p> 
-                  A través de la recopilación de reportes enviados por diversos sectores económicos, 
-                  la entidad genera inteligencia financiera que es posteriormente remitida a la Fiscalía 
-                  General del Estado para las investigaciones penales pertinentes, garantizando así un 
-                  entorno económico más seguro y confiable.
-                </p>
-            </div>
-            <div class="uafe-image">
-                <img src="IMAGENES/uafe.jpg" alt="Prevención de lavado de activos en Ecuador">
-            </div>
+      </div>
+      <div class="dropdown-new">
+        <a href="#" class="dropbtn-new">Servicios Laborales</a>
+        <div class="dropdown-content-new">
+          <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
         </div>
-    </section> 
-    <section class="uafe-content">
-        <h3>¿Por qué existe la UAFE?</h3>  
-        <ul class="uafe-list">   
-            <li>Evitar el uso del sistema financiero para actividades ilícitas</li> 
-            <li>Prevenir el lavado de dinero</li>     
-            <li>Proteger la economía del país</li>   
-            <li>Cumplir compromisos internacionales de control financiero</li>   
-        </ul>
+      </div>
+      <div class="dropdown-new">
+        <a href="#" class="dropbtn-new">Otros Servicios</a>
+        <div class="dropdown-content-new">
+          <a href="asesorialegal.html">Asesoría Legal</a>
+          <a href="capacitaciones.html">Capacitaciones</a>
+          <a href="uafe.html">UAFE</a>
+          <a href="sercop.html">SERCOP</a>
+        </div>
+      </div>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="uafe-hero">
+  <div class="hero-icon"><i class="fa-solid fa-shield-halved"></i></div>
+  <span class="hero-badge">Prevención Financiera</span>
+  <h1>UAFE: Cumplimiento y Prevención de Lavado de Activos</h1>
+  <p>La Unidad de Análisis Financiero y Económico es el organismo técnico del Estado ecuatoriano responsable de prevenir, detectar y erradicar el lavado de activos y el financiamiento de delitos en el sistema financiero.</p>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <h2>¿Qué es la UAFE?</h2>
+  <p>La UAFE centraliza y analiza información sobre transacciones económicas inusuales o injustificadas, actuando como un filtro crítico para identificar actividades ilícitas que afecten la transparencia del sistema financiero.</p>
+  <p>A través de la recopilación de reportes de diversos sectores económicos, genera inteligencia financiera remitida a la Fiscalía General del Estado para las investigaciones penales pertinentes, garantizando un entorno económico más seguro y confiable.</p>
+  <div class="intro-divider"></div>
+</section>
+
+<!-- POR QUÉ EXISTE / QUÉ EXIGE -->
+<section class="porque-section">
+  <h2>Marco Legal y Obligaciones</h2>
+  <p class="section-sub">Lo que debes conocer sobre la regulación UAFE</p>
+  <div class="porque-grid">
+
+    <div class="porque-card">
+      <div class="porque-card-header">
+        <div class="porque-card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+        <h3>¿Por qué existe la UAFE?</h3>
+      </div>
+      <ul>
+        <li>Evitar el uso del sistema financiero para actividades ilícitas</li>
+        <li>Prevenir el lavado de dinero proveniente de delitos</li>
+        <li>Proteger la economía y estabilidad del país</li>
+        <li>Cumplir compromisos internacionales de control financiero</li>
+      </ul>
+    </div>
+
+    <div class="porque-card">
+      <div class="porque-card-header">
+        <div class="porque-card-icon"><i class="fa-solid fa-clipboard-list"></i></div>
         <h3>¿Qué exige la UAFE?</h3>
-        <ul class="uafe-list">
-            <li>Registro como sujetos obligados</li>
-            <li>Reporte de operaciones económicas relevantes</li> 
-            <li>Mantenimiento de controles internos</li>  
-            <li>Colaboración con el sistema de prevención</li>
-        </ul>
-        <p class="uafe-note">
-            No todas las personas están obligadas; solo quienes realizan actividades consideradas de riesgo.
-        </p>
-    </section>
-    <section class="uafe-users">
-        <h3>Personas que deben usar la UAFE</h3>
-        <div class="uafe-cards">
-            <div class="card">
-                <h4>Instituciones Financieras</h4>
-                <p>Bancos, cooperativas de ahorro y crédito y mutualistas. Son los principales sujetos obligados.</p>
-            </div>
-            <div class="card">
-                <h4>Contadores y Asesores Tributarios</h4>
-                <p>Preparan información financiera, apoyan en reportes y asesoran a sujetos obligados.</p>
-            </div>
-            <div class="card">
-                <h4>Empresas con Alto Movimiento de Dinero</h4>
-                <p>Comercializadoras, importadoras, exportadoras y empresas con grandes flujos financieros.</p>
-            </div>
-            <div class="card">
-                <h4>Actividades Específicas</h4>
-                <p>Inmobiliarias, constructoras, notarías, casinos y comercializadores de vehículos.</p>
-            </div>
-            <div class="card"> 
-                <h4>Personas Naturales Reguladas</h4>
-                <p>Comerciantes de alto volumen y personas con movimientos económicos relevantes.</p>
-            </div>
-            <div class="card">   
-                <h4>Empresas Notificadas por la UAFE</h4>   
-                <p>Sujetos obligados recurrentes con controles periódicos.</p>   
-            </div>   
-        </div>
-    </section>
-  <section class="uafe-services">
-    <h3>Servicios que Ofrecemos en UAFE</h3>
-    <div class="uafe-cards">      
-      <div class="card">       
-        <h4>Identificación de Sujetos Obligados</h4>   
-        <p>Análisis de la actividad económica y determinación de obligación ante la UAFE.</p>
-        <a href="#" class="btn">Conocer más</a>
-      </div>     
-      <div class="card">     
-        <h4>Registro y Habilitación</h4>    
-        <p>Inscripción en la UAFE, creación de usuario y actualización de información.</p>  
-        <a href="#" class="btn">Conocer más</a>
       </div>
-      <div class="card">
-       
-        <h4>Reportes Obligatorios</h4>
-        <p>ROTE, ROII, reportes en cero y validación de plazos y formatos.</p>
-        <a href="#" class="btn">Conocer más</a>
-      </div>
-      <div class="card">
-        <h4>Políticas de Prevención</h4>
-        <p>Manuales PLAFT, políticas “Conozca a su cliente” y controles internos.</p>
-        <a href="#" class="btn">Conocer más</a>
+      <ul>
+        <li>Registro como sujetos obligados ante la entidad</li>
+        <li>Reporte de operaciones económicas relevantes</li>
+        <li>Mantenimiento de controles internos adecuados</li>
+        <li>Colaboración activa con el sistema de prevención</li>
+      </ul>
     </div>
-      <div class="card">
-        <h4>Capacitación y Acompañamiento</h4>
-        <p>Capacitación, explicación de sanciones y acompañamiento mensual o anual.</p>
-        <a href="#" class="btn">Conocer más</a>
-    </div>   
-      <div class="card">  
-      <h4>Regularización</h4> 
-      <p>Corrección de errores, revisión de omisiones y respuesta a notificaciones.</p> 
-        <a href="#" class="btn">Conocer más</a>
+
+  </div>
+
+  <div class="nota-section" style="margin-top: 32px;">
+    <p><i class="fa-solid fa-circle-info"></i><strong>Importante:</strong> No todas las personas están obligadas a reportar ante la UAFE; solo quienes realizan actividades consideradas de riesgo según la normativa vigente.</p>
+  </div>
+</section>
+
+<!-- QUIÉNES DEBEN REPORTAR -->
+<section class="quienes-section">
+  <h2>¿Quiénes deben cumplir con la UAFE?</h2>
+  <p class="section-sub">Sujetos obligados según la normativa ecuatoriana</p>
+  <div class="quienes-grid">
+
+    <div class="quienes-card">
+      <div class="quienes-card-icon"><i class="fa-solid fa-building-columns"></i></div>
+      <h3>Instituciones Financieras</h3>
+      <p>Bancos, cooperativas de ahorro y crédito y mutualistas. Son los principales sujetos obligados dentro del sistema.</p>
     </div>
+
+    <div class="quienes-card">
+      <div class="quienes-card-icon"><i class="fa-solid fa-calculator"></i></div>
+      <h3>Contadores y Asesores Tributarios</h3>
+      <p>Preparan información financiera, apoyan en reportes y asesoran a sujetos obligados ante la UAFE.</p>
     </div>
-  </section>
-  <section class="visit-section"> 
-    <div class="visit-container">       
-      <h2>Agenda una Visita con Nuestros Asesores</h2>         
-      <p>     
-        ¿Necesitas orientación contable, tributaria o laboral y no sabes por dónde empezar?        
-        En <strong>Guijarro & Guijarro Asesores Tributarios</strong>  te escuchamos, analizamos tu situación y te guiamos paso a paso.
-        Agenda una visita y recibe una asesoría clara, personalizada y adaptada a tus necesidades.    
-      </p>     
-      <p class="visit-highlight">     
-        Personas naturales, empresas y emprendedores: estamos listos para ayudarte.   
-      </p>     
-      <a href="https://wa.link/7a1xme" target="_blank" class="btn-visit">     
-        Agendar visita por WhatsApp
-     </a>    
+
+    <div class="quienes-card">
+      <div class="quienes-card-icon"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+      <h3>Empresas con Alto Movimiento</h3>
+      <p>Comercializadoras, importadoras, exportadoras y empresas con grandes flujos financieros regulares.</p>
     </div>
-  </section>
-  <section class="location-section"> 
-    <div class="location-container">     
-      <!-- TEXTO -->    
-      <div class="location-info">            
-        <h2>Nuestra Ubicación</h2>      
-        <p>          
-          Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de         
-          fácil acceso para quienes buscan asesoría contable y tributaria confiable.           
-          Visítanos para recibir atención personalizada, resolver tus dudas y obtener el            
-          apoyo profesional que tu gestión necesita. ¡Estaremos encantados de ayudarte!      
-        </p>       
-        <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6"target="_blank"class="btn-location">Ver ubicación en Google Maps</a>           
-      </div>     
-      <!-- MAPA -->     
-      <div class="location-map">       
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"          
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"         
-          allowfullscreen>         
-        </iframe>   
-      </div>
-  </section>
-  <!-- BOTÓN FLOTANTE WHATSAPP -->  
-  <a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float"> 
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-container">         
-      <div class="footer-item">            
-        <i class="fa-brands fa-whatsapp"></i>             
-        <h4>WhatsApp</h4>       
-        <a href="https://wa.me/5939XXXXXXXX" target="_blank">Escríbenos</a>      
-      </div>      
-      <div class="footer-item">         
-        <i class="fa-solid fa-envelope"></i>        
-        <h4>Gmail</h4>        
-        <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a> 
-      </div>           
-      <div class="footer-item">       
-        <i class="fa-solid fa-location-dot"></i>                      
-        <h4>Maps</h4>            
-        <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">ver ubicación</a>            
-      </div>    
-    </div>    
-    <div class="footer-bottom"> 
-      © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.     
-    </div>  
-  </footer>    
-  <!-- JS --> 
-  <script src="script.js"></script>
-  <script type="module" src="header.js"></script>
+
+    <div class="quienes-card">
+      <div class="quienes-card-icon"><i class="fa-solid fa-city"></i></div>
+      <h3>Actividades Específicas</h3>
+      <p>Inmobiliarias, constructoras, notarías, casinos y comercializadores de vehículos regulados por ley.</p>
+    </div>
+
+    <div class="quienes-card">
+      <div class="quienes-card-icon"><i class="fa-solid fa-user-tie"></i></div>
+      <h3>Personas Naturales Reguladas</h3>
+      <p>Comerciantes de alto volumen y personas con movimientos económicos relevantes y recurrentes.</p>
+    </div>
+
+    <div class="quienes-card">
+      <div class="quienes-card-icon"><i class="fa-solid fa-bell"></i></div>
+      <h3>Empresas Notificadas por la UAFE</h3>
+      <p>Sujetos obligados recurrentes sometidos a controles periódicos por parte de la entidad reguladora.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="servicios-section">
+  <h2>Servicios que Ofrecemos en UAFE</h2>
+  <p class="section-sub">Acompañamiento integral para el cumplimiento de tus obligaciones</p>
+  <div class="servicios-grid">
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+      <h3>Identificación de Sujetos Obligados</h3>
+      <p>Análisis de tu actividad económica y determinación precisa de tu condición como sujeto obligado ante la UAFE.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-id-card"></i></div>
+      <h3>Registro y Habilitación</h3>
+      <p>Inscripción en la plataforma UAFE, creación de usuario y actualización periódica de información institucional.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-file-circle-check"></i></div>
+      <h3>Reportes Obligatorios</h3>
+      <p>Elaboración de ROTE, ROII, reportes en cero y validación de plazos y formatos exigidos por la entidad.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
+      <h3>Políticas de Prevención</h3>
+      <p>Diseño de manuales PLAFT, políticas "Conozca a su cliente" y controles internos adaptados a tu empresa.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+      <h3>Capacitación y Acompañamiento</h3>
+      <p>Formación a tu equipo, explicación de sanciones vigentes y acompañamiento mensual o anual continuo.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-rotate-left"></i></div>
+      <h3>Regularización</h3>
+      <p>Corrección de errores previos, revisión de omisiones y respuesta profesional a notificaciones de la UAFE.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPROMISO -->
+<section class="compromiso-section">
+  <h2><i class="fa-solid fa-circle-check" style="margin-right:10px;"></i>¿Por qué gestionar la UAFE con nosotros?</h2>
+  <p>En G & G Asesores Tributarios te acompañamos en cada paso del proceso de cumplimiento ante la UAFE: desde la identificación de tu condición como sujeto obligado hasta la presentación de reportes y la implementación de políticas internas.</p>
+  <p>No solo tramitamos los documentos: te asesoramos, capacitamos a tu equipo y nos mantenemos al tanto de cualquier cambio normativo para que tu empresa siempre esté en regla.</p>
+  <span class="highlight">Con nuestro equipo, el cumplimiento ante la UAFE deja de ser una carga y se convierte en una ventaja para tu negocio.</span>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact-section">
+  <h2 class="title">Contáctanos</h2>
+  <p class="subtitle">¿Necesitas asesoría sobre tus obligaciones ante la UAFE? Escríbenos y te orientamos.</p>
+  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">Escríbenos por WhatsApp</a>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="location-section">
+  <div class="location-container">
+    <div class="location-info">
+      <h2>Nuestra Ubicación</h2>
+      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable, tributaria y de cumplimiento confiable. Visítanos y recibe atención personalizada.</p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación en Google Maps</a>
+    </div>
+    <div class="location-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-item">
+      <i class="fa-brands fa-whatsapp"></i>
+      <h4>WhatsApp</h4>
+      <a href="https://wa.link/7a1xme" target="_blank">Escríbenos</a>
+    </div>
+    <div class="footer-item">
+      <i class="fa-solid fa-envelope"></i>
+      <h4>Gmail</h4>
+      <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a>
+    </div>
+    <div class="footer-item">
+      <i class="fa-solid fa-location-dot"></i>
+      <h4>Maps</h4>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">Ver ubicación</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script type="module" src="header.js"></script>
 </body>
 </html>
