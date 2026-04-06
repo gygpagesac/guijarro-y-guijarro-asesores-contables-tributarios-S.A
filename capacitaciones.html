@@ -96,8 +96,12 @@
       max-width: 1000px;
       margin: auto;
     }
-    .gallery img { width: 100%; border-radius: 10px; }
-
+    .gallery img {
+      width: 100%;
+      height: 220px; /* altura fija para todas */
+      object-fit: cover; /* recorta sin deformar */
+      border-radius: 10px;
+    }
     /* CTA */
     .compromiso-section {
       background: linear-gradient(135deg, #0e3d92, #1b78c1);
