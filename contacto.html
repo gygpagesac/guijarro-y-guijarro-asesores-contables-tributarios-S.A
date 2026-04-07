@@ -122,10 +122,34 @@
       transform: translateY(-2px);
     }
 
-    /* TIKTOK */
-    .tiktok-section { text-align: center; padding: 60px 20px; background: #f0f4fb; }
-    .tiktok-section h2 { margin-bottom: 30px; color: #0e3d92; }
-    .tiktok-container { display: flex; justify-content: center; }
+    /* REDES SOCIALES */
+    .social-section { text-align: center; padding: 60px 20px; background: #f0f4fb; }
+    .social-section h2 { margin-bottom: 10px; color: #0e3d92; }
+    .social-section .subtitle { color: #555; margin-bottom: 40px; }
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 900px;
+      margin: auto;
+      align-items: start;
+    }
+    .social-block h3 {
+      color: #0e3d92;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .social-block iframe {
+      border-radius: 12px;
+      width: 100%;
+    }
+    @media (max-width: 700px) {
+      .social-grid { grid-template-columns: 1fr; }
+    }
 
     /* CTA */
     .compromiso-section {
@@ -250,20 +274,21 @@
 
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-key"></i></div>
-      <h3>Ingeniero Oscar Guijarro</h3>
+      <h3> Ingeniero </h3>
       <p>
-        Se enfoca en la optimización y automatización de procesos contables, mejorando la eficiencia, 
-        el control y la organización de la información financiera para una gestión más ágil y confiable.
+        Se enfoca en la optimización y automatización de procesos contables, mejorando 
+        la eficiencia, el control y la organización de la información financiera para 
+        una gestión más ágil y confiable.
       </p>
       <a href="https://wa.link/7a1xme" class="btn" style="margin-top:15px;">Contactar por WhatsApp</a>
     </div>
 
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-user"></i></div>
-      <h3>Economista Amanda Guijarro</h3>
+      <h3> Economista </h3>
       <p>
-        Se especializa en el análisis financiero y la asesoría tributaria, brindando soluciones estratégicas
-        que aseguran el cumplimiento fiscal y contribuyen al crecimiento sostenible.
+        Se especializa en el análisis financiero y la asesoría tributaria, brindando soluciones 
+        estratégicas que aseguran el cumplimiento fiscal y contribuyen al crecimiento sostenible.
       </p>
       <a href="https://wa.link/7a1xme" class="btn" style="margin-top:15px;">Contactar por WhatsApp</a>
     </div>
@@ -288,14 +313,37 @@
   </form>
 </div>
 
-<!-- TIKTOK -->
-<section class="tiktok-section">
-  <h2>Síguenos en TikTok</h2>
-  <div class="tiktok-container">
-    <blockquote class="tiktok-embed"
-      cite="https://www.tiktok.com/@gygasesorestribuatarios/video/7576679536092384524"
-      data-video-id="7576679536092384524">
-    </blockquote>
+<!-- REDES SOCIALES -->
+<section class="social-section">
+  <h2>Síguenos en redes sociales</h2>
+  <p class="subtitle">Mantente al día con nuestros consejos y novedades tributarias</p>
+
+  <div class="social-grid">
+
+    <!-- TIKTOK -->
+    <div class="social-block">
+      <h3><i class="fa-brands fa-tiktok"></i> TikTok</h3>
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@gygasesorestribuatarios/video/7576679536092384524"
+        data-video-id="7576679536092384524">
+      </blockquote>
+    </div>
+
+    <!-- FACEBOOK -->
+    <div class="social-block">
+      <h3><i class="fa-brands fa-facebook"></i> Facebook</h3>
+      <iframe
+        src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F875856031733774&show_text=false&width=380&height=620"
+        width="380"
+        height="620"
+        style="border:none;overflow:hidden;border-radius:12px;"
+        scrolling="no"
+        frameborder="0"
+        allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+      </iframe>
+    </div>
+
   </div>
 </section>
 
@@ -360,4 +408,4 @@
   </div>
 
   <div class="footer-bottom">
-    © 2026 Guijarro Guijarro Asesores Tributarios
+    © 2026 Guijarro & Guijarro Asesores Tributarios
