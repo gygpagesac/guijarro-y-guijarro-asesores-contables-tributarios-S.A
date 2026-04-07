@@ -201,7 +201,29 @@
       .cards-grid { grid-template-columns: 1fr; }
     }
 
+    .social-block {
+      display: flex; 
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .social-block iframe {
+      width: 100%; 
+      max-width: 380px;
+      height: 620px;
+      border-radius: 12px;
+    }
+
+    /* Opcional: mejora visual */
+    .social-block {
+      background: white;
+      padding: 15px; 
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+ 
   </style>
+
 </head>
 
 <body>
@@ -319,18 +341,16 @@
   <h2>Síguenos en redes sociales</h2>
   <p class="subtitle">Mantente al día con nuestros consejos y novedades tributarias</p>
   <div class="social-grid">
+    
     <!-- TIKTOK -->
-    <div class="social-block">
-      <h3><i class="fa-brands fa-tiktok"></i> TikTok</h3>
-      <iframe  
-        src="https://www.tiktok.com/embed/7572641018500123911"
-        width="380"  
-        height="620"  
-        style="border:none;overflow:hidden;border-radius:12px;"
-          frameborder="0"  
-        allowfullscreen> 
-      </iframe>
-    </div>
+   <div class="social-block">  
+     <h3><i class="fa-brands fa-tiktok"></i> TikTok</h3>  
+     <iframe    
+       src="https://www.tiktok.com/embed/7572641018500123911" 
+       frameborder="0"  
+       allowfullscreen>
+     </iframe>
+   </div>
     
     <!-- FACEBOOK -->
     <div class="social-block">
