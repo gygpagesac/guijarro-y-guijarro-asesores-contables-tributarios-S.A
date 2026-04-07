@@ -11,120 +11,241 @@
 <link rel="icon" type="image/png" href="IMAGENES/logo.png">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Montserrat',sans-serif;}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Montserrat', sans-serif; }
 
-/* HERO */
-.sw-hero{
-  background:linear-gradient(135deg,#0e3d92,#1b78c1);
-  color:white;
-  text-align:center;
-  padding:70px 20px;
-}
+  /* ── HERO ── */
+  .sw-hero {
+    background: linear-gradient(135deg, #0e3d92, #1b78c1);
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+  }
+  .hero-icon { font-size: 3rem; margin-bottom: 15px; }
+  .hero-badge {
+    background: #f8b700;
+    color: #0e3d92;
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
 
-/* CARDS */
-.cards-section{padding:60px 20px;text-align:center;}
-.cards-grid{
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  max-width:1100px;
-  margin:auto;
-  flex-wrap:wrap;
-}
-.service-card{
-  width:320px;
-  background:#f8faff;
-  padding:25px;
-  border-radius:12px;
-  border:1px solid #e0e8f5;
-  transition:.3s;
-}
-.service-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 10px 25px rgba(0,0,0,.1);
-}
+  /* ── INTRO ── */
+  .intro-section {
+    background: #f8faff;
+    text-align: center;
+    padding: 50px 20px;
+  }
+  .intro-section p {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .intro-divider {
+    width: 60px;
+    height: 4px;
+    background: #f8b700;
+    margin: 15px auto;
+  }
 
-/* CONTACTO */
-.contact-section-horizontal{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  padding:60px 20px;
-  max-width:1100px;
-  margin:auto;
-}
+  /* ── CARDS EQUIPO ── */
+  .cards-section { padding: 60px 20px; text-align: center; }
+  .cards-section h2 { margin-bottom: 30px; }
+  .cards-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+  .service-card {
+    width: 320px;
+    background: #f8faff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e0e8f5;
+    transition: 0.3s;
+  }
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  .card-icon {
+    background: linear-gradient(135deg, #0e3d92, #1b78c1);
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 0 auto 15px;
+    font-size: 1.3rem;
+  }
+  .service-card h3 { margin-bottom: 10px; }
+  .service-card p { margin-bottom: 15px; color: #555; font-size: 0.95rem; }
 
-.contact-form input,
-.contact-form textarea{
-  width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
+  /* ── BTN GENERAL ── */
+  .btn {
+    background: #f8b700;
+    color: #0e3d92;
+    padding: 10px 22px;
+    border-radius: 30px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .btn:hover { background: #e0a600; }
 
-.contact-form button{
-  background:#0e3d92;
-  color:white;
-  padding:12px;
-  border:none;
-  border-radius:30px;
-  cursor:pointer;
-}
+  /* ── FORMULARIO DE CONTACTO ── */
+  .contact-section {
+    padding: 60px 20px;
+    background: #f0f4fb;
+  }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: auto;
+    align-items: start;
+  }
+  .contact-info h2 { color: #0e3d92; margin-bottom: 15px; }
+  .contact-info p { color: #555; line-height: 1.7; margin-bottom: 20px; }
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #333;
+  }
+  .contact-detail i {
+    color: #0e3d92;
+    font-size: 1.2rem;
+    width: 24px;
+  }
+  .contact-form { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+  .contact-form h3 { color: #0e3d92; margin-bottom: 20px; }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: border 0.3s;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: #0e3d92;
+  }
+  .contact-form textarea { height: 130px; resize: vertical; }
+  .contact-form button {
+    width: 100%;
+    background: #0e3d92;
+    color: white;
+    padding: 13px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  .contact-form button:hover { background: #0b2f72; }
 
-/* REDES */
-.social-section{
-  padding:60px 20px;
-  text-align:center;
-  background:#f0f4fb;
-}
+  /* ── REDES SOCIALES ── */
+  .social-section {
+    padding: 60px 20px;
+    text-align: center;
+    background: #fff;
+  }
+  .social-section h2 { margin-bottom: 10px; }
+  .social-section > p { color: #666; margin-bottom: 30px; }
+  .social-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: auto;
+  }
+  .social-block {
+    background: #f8faff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #e0e8f5;
+  }
+  .social-block h3 {
+    margin-bottom: 15px;
+    color: #0e3d92;
+    font-size: 1.1rem;
+  }
+  .social-block iframe {
+    width: 100%;
+    max-width: 380px;
+    height: 500px;
+    border-radius: 12px;
+    border: none;
+  }
 
-.social-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  max-width:900px;
-  margin:auto;
-}
+  /* ── WHATSAPP FLOTANTE ── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    z-index: 999;
+    text-decoration: none;
+    transition: transform 0.3s;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); }
 
-.social-block{
-  background:white;
-  padding:15px;
-  border-radius:15px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.social-block iframe{
-  width:100%;
-  max-width:380px;
-  height:620px;
-  border-radius:12px;
-}
-
-/* RESPONSIVE */
-@media(max-width:700px){
-  .social-grid{grid-template-columns:1fr;}
-  .contact-section-horizontal{grid-template-columns:1fr;}
-}
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .social-grid { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER (tu diseño original) -->
+<!-- ===== HEADER ===== -->
 <header class="header-new">
   <div class="header-new-container">
+
     <div class="logo-new">
       <img src="IMAGENES/logo.png" alt="Logo G&G">
       <span>G & G ASESORES TRIBUTARIOS</span>
     </div>
+
     <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
+
     <nav class="menu-new" id="menu-new">
+
       <a href="index.html">Inicio</a>
+
       <div class="dropdown-new">
         <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>
         <div class="dropdown-content-new">
@@ -136,12 +257,14 @@ body{font-family:'Montserrat',sans-serif;}
           <a href="Softwarecontable.html">Software Contable</a>
         </div>
       </div>
+
       <div class="dropdown-new">
         <a href="#" class="dropbtn-new">Servicios Laborales</a>
         <div class="dropdown-content-new">
           <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
         </div>
       </div>
+
       <div class="dropdown-new">
         <a href="#" class="dropbtn-new">Otros Servicios</a>
         <div class="dropdown-content-new">
@@ -151,149 +274,217 @@ body{font-family:'Montserrat',sans-serif;}
           <a href="sercop.html">SERCOP</a>
         </div>
       </div>
+
       <a href="contacto.html">Contacto</a>
+
     </nav>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <section class="sw-hero">
-<h1>Contáctanos</h1>
-<p>Estamos listos para ayudarte</p>
+  <div class="hero-icon"><i class="fa-solid fa-headset"></i></div>
+  <span class="hero-badge">Atención Personalizada</span>
+  <h1>Contáctanos</h1>
+  <p>Estamos listos para ayudarte con asesoría contable y tributaria.</p>
+  <p style="margin-top:10px; color:#f8b700; font-weight:600;">
+    Respuesta rápida y profesional
+  </p>
 </section>
 
-<!-- EQUIPO -->
-<section class="cards-section">
+<!-- ===== INTRO ===== -->
+<section class="intro-section">
   <h2>Nuestro equipo está listo para ayudarte</h2>
+  <div class="intro-divider"></div>
+  <p>
+    Contamos con profesionales especializados en contabilidad, tributación y asesoría legal.
+    Escríbenos, llámanos o visítanos en nuestra oficina. Estaremos encantados de atenderte.
+  </p>
+</section>
+
+<!-- ===== EQUIPO ===== -->
+<section class="cards-section">
+  <h2>Nuestros Profesionales</h2>
 
   <div class="cards-grid">
 
     <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
       <h3>Ingeniero</h3>
-      <p>Optimización y automatización de procesos contables.</p>
-      <a href="https://wa.link/7a1xme" class="btn">WhatsApp</a>
+      <p>Optimización y automatización de procesos contables y tributarios.</p>
+      <a href="https://wa.link/7a1xme" target="_blank" class="btn">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
     </div>
 
     <div class="service-card">
+      <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
       <h3>Economista</h3>
-      <p>Análisis financiero y asesoría tributaria.</p>
-      <a href="https://wa.link/7a1xme" class="btn">WhatsApp</a>
+      <p>Análisis financiero, asesoría tributaria y planificación empresarial.</p>
+      <a href="https://wa.link/7a1xme" target="_blank" class="btn">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
     </div>
 
   </div>
 </section>
 
-<!-- CONTACTO -->
-<div class="contact-section-horizontal">
+<!-- ===== FORMULARIO DE CONTACTO ===== -->
+<section class="contact-section">
+  <div class="contact-inner">
 
-<div>
-<h2>Contáctanos</h2>
-<p>Estamos listos para ayudarte con asesoría contable.</p>
-</div>
+    <!-- INFO -->
+    <div class="contact-info">
+      <h2>Contáctanos</h2>
+      <p>
+        Completa el formulario y nos pondremos en contacto contigo a la brevedad posible.
+        También puedes escribirnos directamente por WhatsApp o enviarnos un correo.
+      </p>
 
-<form class="contact-form">
-<input type="text" name="name" placeholder="Tu nombre" required>
-<input type="email" name="email" placeholder="Tu correo" required>
-<textarea name="message" placeholder="Mensaje" required></textarea>
-<button type="submit">Enviar</button>
-</form>
+      <div class="contact-detail">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp disponible</span>
+      </div>
+      <div class="contact-detail">
+        <i class="fa-solid fa-envelope"></i>
+        <span>gygasesores1@gmail.com</span>
+      </div>
+      <div class="contact-detail">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Calle Eloy Alfaro S/N y Progreso, Lago Agrio</span>
+      </div>
+      <div class="contact-detail">
+        <i class="fa-solid fa-clock"></i>
+        <span>Lunes a Viernes · 8:00 – 17:00</span>
+      </div>
+    </div>
 
-</div>
+    <!-- FORM -->
+    <div class="contact-form">
+      <h3>Envíanos un mensaje</h3>
+      <input type="text" name="name" placeholder="Tu nombre completo" required>
+      <input type="email" name="email" placeholder="Tu correo electrónico" required>
+      <input type="text" name="subject" placeholder="Asunto">
+      <textarea name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+      <button type="submit">
+        <i class="fa-solid fa-paper-plane"></i> Enviar Mensaje
+      </button>
+    </div>
 
-<!-- REDES -->
-<section class="social-section">
-<h2>Síguenos en redes</h2>
-
-<div class="social-grid">
-
-<!-- TIKTOK -->
-<div class="social-block">
-<h3><i class="fa-brands fa-tiktok"></i> TikTok</h3>
-<iframe src="https://www.tiktok.com/embed/7572641018500123911" frameborder="0" allowfullscreen></iframe>
-</div>
-
-<!-- FACEBOOK -->
-<div class="social-block">
-<h3><i class="fa-brands fa-facebook"></i> Facebook</h3>
-<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F875856031733774&show_text=false" frameborder="0" allowfullscreen></iframe>
-</div>
-
-</div>
+  </div>
 </section>
 
-<!-- UBICACIÓN -->
+<!-- ===== REDES SOCIALES ===== -->
+<section class="social-section">
+  <h2>Síguenos en Redes Sociales</h2>
+  <p>Contenido de valor sobre contabilidad y tributación</p>
+
+  <div class="social-grid">
+
+    <div class="social-block">
+      <h3><i class="fa-brands fa-tiktok"></i> TikTok</h3>
+      <iframe src="https://www.tiktok.com/embed/7572641018500123911" allowfullscreen></iframe>
+    </div>
+
+    <div class="social-block">
+      <h3><i class="fa-brands fa-facebook"></i> Facebook</h3>
+      <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F875856031733774&show_text=false" allowfullscreen></iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== UBICACIÓN ===== -->
 <section class="location-section">
   <div class="location-container">
     <div class="location-info">
       <h2>Nuestra Ubicación</h2>
-      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable y tributaria confiable. Visítanos y recibe atención personalizada de nuestro equipo profesional.</p>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación en Google Maps</a>
+      <p>
+        Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio,
+        un punto de fácil acceso para quienes buscan asesoría contable y tributaria confiable.
+        Visítanos y recibe atención personalizada de nuestro equipo profesional.
+      </p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">
+        Ver ubicación en Google Maps
+      </a>
     </div>
     <div class="location-map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
         loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer style="text-align:center;padding:20px;">
+<!-- ===== WHATSAPP FLOTANTE ===== -->
+<a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
   <div class="footer-container">
+
     <div class="footer-item">
       <i class="fa-brands fa-whatsapp"></i>
       <h4>WhatsApp</h4>
-      <a href="https://wa.me/5939XXXXXXXX?text=Hola%20deseo%20recibir%20información%20sobre%20sus%20servicios" target="_blank">Escríbenos</a>
+      <a href="https://wa.link/7a1xme" target="_blank">Escríbenos</a>
     </div>
+
     <div class="footer-item">
       <i class="fa-solid fa-envelope"></i>
       <h4>Gmail</h4>
       <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a>
     </div>
+
     <div class="footer-item">
       <i class="fa-solid fa-location-dot"></i>
-      <h4>Ubicacion</h4>
+      <h4>Ubicación</h4>
       <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">Ver ubicación</a>
     </div>
+
   </div>
+
   <div class="footer-bottom">
     © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
   </div>
 </footer>
 
-<!-- EMAILJS -->
+<!-- ===== EMAILJS ===== -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-(function(){
-  emailjs.init("xynip590u3fLL8eHU");
-})();
+  (function(){
+    emailjs.init("xynip590u3fLL8eHU");
+  })();
 
-document.querySelector(".contact-form").addEventListener("submit", function(e){
-  e.preventDefault();
+  document.querySelector(".contact-form").addEventListener("submit", function(e){
+    e.preventDefault();
 
-  const btn = this.querySelector("button");
-  btn.textContent = "Enviando...";
-  btn.disabled = true;
+    const btn = this.querySelector("button");
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+    btn.disabled = true;
 
-  emailjs.send("service_mrb3u79","template_tq7xavd",{
-    from_name: this.name.value,
-    from_email: this.email.value,
-    message: this.message.value
-  })
-  .then(()=>{
-    alert("✅ Mensaje enviado correctamente");
-    this.reset();
-    btn.textContent = "Enviar";
-    btn.disabled = false;
-  })
-  .catch(()=>{
-    alert("❌ Error al enviar");
-    btn.textContent = "Enviar";
-    btn.disabled = false;
+    emailjs.send("service_mrb3u79", "template_tq7xavd", {
+      from_name:  this.name.value,
+      from_email: this.email.value,
+      message:    this.message.value
+    })
+    .then(() => {
+      alert("✅ Mensaje enviado correctamente. ¡Gracias por contactarnos!");
+      this.reset();
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviar Mensaje';
+      btn.disabled = false;
+    })
+    .catch(() => {
+      alert("❌ Error al enviar. Por favor intenta nuevamente.");
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviar Mensaje';
+      btn.disabled = false;
+    });
   });
-});
 </script>
-
+<script src="script.js"></script>
+<script type="module" src="header.js"></script>
 </body>
 </html>
