@@ -1,443 +1,193 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Contacto | G & G Asesores Tributarios</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Contacto | G & G Asesores Tributarios</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-  <!-- FUENTES -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- ICONOS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;}
 
-  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
+/* HERO */
+.sw-hero{
+  background:linear-gradient(135deg,#0e3d92,#1b78c1);
+  color:white;
+  text-align:center;
+  padding:70px 20px;
+}
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Montserrat', sans-serif; }
+/* CARDS */
+.cards-section{padding:60px 20px;text-align:center;}
+.cards-grid{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;}
+.service-card{
+  width:320px;
+  background:#f8faff;
+  padding:25px;
+  border-radius:12px;
+  border:1px solid #e0e8f5;
+  transition:.3s;
+}
+.service-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
 
-    /* HERO */
-    .sw-hero {
-      background: linear-gradient(135deg, #0e3d92, #1b78c1);
-      color: white;
-      text-align: center;
-      padding: 70px 20px;
-    }
-    .hero-icon { font-size: 3rem; margin-bottom: 15px; }
-    .hero-badge {
-      background: #f8b700;
-      color: #0e3d92;
-      padding: 5px 15px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-bottom: 15px;
-      font-weight: bold;
-    }
+/* CONTACTO */
+.contact-section-horizontal{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
 
-    /* CARDS */
-    .cards-section { padding: 60px 20px; text-align: center; }
-    .cards-grid {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      max-width: 1100px;
-      margin: auto;
-      flex-wrap: wrap;
-    }
-    .cards-grid .service-card {
-      width: 320px;
-    }
-    .service-card {
-      background: #f8faff;
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #e0e8f5;
-      transition: 0.3s;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    .card-icon {
-      background: linear-gradient(135deg, #0e3d92, #1b78c1);
-      color: white;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      margin: 0 auto 15px;
-    }
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
 
-    /* TEXTO + FORM */
-    .contact-section-horizontal {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .contact-text h2 {
-      font-size: 1.6rem;
-      color: #0e3d92;
-      margin-bottom: 15px;
-    }
-    .contact-text p {
-      color: #444;
-      line-height: 1.7;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-    }
-    .contact-form textarea {
-      height: 130px;
-      resize: vertical;
-    }
-    .contact-form button {
-      background: linear-gradient(135deg, #0e3d92, #1b78c1);
-      color: white;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 30px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .contact-form button:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
+.contact-form button{
+  background:#0e3d92;
+  color:white;
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+}
 
-    /* REDES SOCIALES */
-    .social-section { text-align: center; padding: 60px 20px; background: #f0f4fb; }
-    .social-section h2 { margin-bottom: 10px; color: #0e3d92; }
-    .social-section .subtitle { color: #555; margin-bottom: 40px; }
-    .social-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      max-width: 900px;
-      margin: auto;
-      align-items: start;
-    }
-    .social-block h3 {
-      color: #0e3d92;
-      margin-bottom: 15px;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .social-block iframe {
-      border-radius: 12px;
-      width: 100%;
-    }
-    @media (max-width: 700px) {
-      .social-grid { grid-template-columns: 1fr; }
-    }
+/* REDES */
+.social-section{
+  padding:60px 20px;
+  text-align:center;
+  background:#f0f4fb;
+}
 
-    /* CTA */
-    .compromiso-section {
-      background: linear-gradient(135deg, #0e3d92, #1b78c1);
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .compromiso-section h2 { font-size: 1.8rem; margin-bottom: 10px; }
-    .compromiso-section p { margin-bottom: 5px; }
+.social-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  max-width:900px;
+  margin:auto;
+}
 
-    .btn {
-      background: #f8b700;
-      color: #0e3d92;
-      padding: 12px 25px;
-      border-radius: 30px;
-      display: inline-block;
-      margin-top: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #e6a800;
-      transform: translateY(-2px);
-    }
+.social-block{
+  background:white;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 
-    /* Títulos de sección */
-    .cards-section h2,
-    .contact-section-horizontal h2 {
-      font-size: 1.8rem;
-      color: #0e3d92;
-      margin-bottom: 10px;
-    }
-    .cards-section .subtitle {
-      color: #555;
-      margin-bottom: 30px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.social-block iframe{
+  width:100%;
+  max-width:380px;
+  height:620px;
+  border-radius:12px;
+}
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .cards-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-section-horizontal { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 500px) {
-      .cards-grid { grid-template-columns: 1fr; }
-    }
-
-    .social-block {
-      display: flex; 
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .social-block iframe {
-      width: 100%; 
-      max-width: 380px;
-      height: 620px;
-      border-radius: 12px;
-    }
-
-    /* Opcional: mejora visual */
-    .social-block {
-      background: white;
-      padding: 15px; 
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
- 
-  </style>
-
+@media(max-width:700px){
+  .social-grid{grid-template-columns:1fr;}
+  .contact-section-horizontal{grid-template-columns:1fr;}
+}
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="header-new">
-  <div class="header-new-container">
-
-    <div class="logo-new">
-      <img src="IMAGENES/logo.png" alt="Logo G&G">
-      <span>G & G ASESORES TRIBUTARIOS</span>
-    </div>
-
-    <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
-
-    <nav class="menu-new" id="menu-new">
-
-      <a href="index.html">Inicio</a>
-
-      <div class="dropdown-new">
-        <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>
-        <div class="dropdown-content-new">
-          <a href="personas-naturales.html">Personas Naturales</a>
-          <a href="anexos tributarios.html">Anexos</a>
-          <a href="otros anexos.html">Otros Anexos</a>
-          <a href="firmas-electronicas.html">Facturación</a>
-          <a href="Softwarecontable.html">Software Contable</a>
-        </div>
-      </div>
-
-      <div class="dropdown-new">
-        <a href="#" class="dropbtn-new">Servicios Laborales</a>
-        <div class="dropdown-content-new">
-          <a href="trabajo.html">Asesoría IESS</a>
-        </div>
-      </div>
-
-      <div class="dropdown-new">
-        <a href="#" class="dropbtn-new">Otros Servicios</a>
-        <div class="dropdown-content-new">
-          <a href="asesorialegal.html">Asesoría Legal</a>
-          <a href="capacitaciones.html">Capacitaciones</a>
-          <a href="uafe.html">UAFE</a>
-          <a href="sercop.html">SERCOP</a>
-        </div>
-      </div>
-
-      <a href="contacto.html">Contacto</a>
-
-    </nav>
-  </div>
-</header>
-
 <!-- HERO -->
 <section class="sw-hero">
-  <div class="hero-icon"><i class="fa-solid fa-headset"></i></div>
-  <span class="hero-badge">Atención Personalizada</span>
-  <h1>Contáctanos</h1>
-  <p>Estamos listos para ayudarte con asesoría contable, tributaria y legal.</p>
+<h1>Contáctanos</h1>
+<p>Estamos listos para ayudarte</p>
 </section>
 
-<!-- EQUIPO -->
-<section class="cards-section">
-  <h2 class="title">Nuestro equipo está listo para ayudarte</h2>
-  <p class="subtitle">
-    Contamos con profesionales capacitados para brindarte atención personalizada
-    según tu necesidad.
-  </p>
-
-  <div class="cards-grid">
-
-    <div class="service-card">
-      <div class="card-icon"><i class="fa-solid fa-key"></i></div>
-      <h3> Ingeniero </h3>
-      <p>
-        Se enfoca en la optimización y automatización de procesos contables, mejorando 
-        la eficiencia, el control y la organización de la información financiera para 
-        una gestión más ágil y confiable.
-      </p>
-      <a href="https://wa.link/7a1xme" class="btn" style="margin-top:15px;">Contactar por WhatsApp</a>
-    </div>
-
-    <div class="service-card">
-      <div class="card-icon"><i class="fa-solid fa-user"></i></div>
-      <h3> Economista </h3>
-      <p>
-        Se especializa en el análisis financiero y la asesoría tributaria, brindando soluciones 
-        estratégicas que aseguran el cumplimiento fiscal y contribuyen al crecimiento sostenible.
-      </p>
-      <a href="https://wa.link/7a1xme" class="btn" style="margin-top:15px;">Contactar por WhatsApp</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- TEXTO + FORM -->
+<!-- CONTACTO -->
 <div class="contact-section-horizontal">
-  <div class="contact-text">
-    <h2>Contáctanos</h2>
-    <p>
-      En Guijarro & Guijarro Asesores Tributarios, sabemos lo importante que es contar con el respaldo adecuado para gestionar tus obligaciones contables y tributarias. Nuestro equipo de profesionales está disponible para orientarte, resolver tus dudas y ofrecerte soluciones personalizadas que se adapten a tu situación. No importa si eres persona natural o empresa, estamos aquí para ayudarte.
-    </p>
-  </div>
 
-  <form class="contact-form">
-    <input type="text" placeholder="Tu nombre" required>
-    <input type="email" placeholder="Tu correo" required>
-    <textarea placeholder="Escribe tu mensaje" required></textarea>
-    <button type="submit">Enviar</button>
-  </form>
+<div>
+<h2>Contáctanos</h2>
+<p>Estamos listos para ayudarte con asesoría contable.</p>
 </div>
 
-<!-- REDES SOCIALES -->
+<form class="contact-form">
+<input type="text" name="name" placeholder="Tu nombre" required>
+<input type="email" name="email" placeholder="Tu correo" required>
+<textarea name="message" placeholder="Mensaje" required></textarea>
+<button type="submit">Enviar</button>
+</form>
+
+</div>
+
+<!-- REDES -->
 <section class="social-section">
-  <h2>Síguenos en redes sociales</h2>
-  <p class="subtitle">Mantente al día con nuestros consejos y novedades tributarias</p>
-  <div class="social-grid">
-    
-    <!-- TIKTOK -->
-   <div class="social-block">  
-     <h3><i class="fa-brands fa-tiktok"></i> TikTok</h3>  
-     <iframe    
-       src="https://www.tiktok.com/embed/7572641018500123911" 
-       frameborder="0"  
-       allowfullscreen>
-     </iframe>
-   </div>
-    
-    <!-- FACEBOOK -->
-    <div class="social-block">
-      <h3><i class="fa-brands fa-facebook"></i> Facebook</h3>
-      <iframe
-        src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F875856031733774&show_text=false&width=380&height=620"
-        width="380"
-        height="620"
-        style="border:none;overflow:hidden;border-radius:12px;"
-        scrolling="no"
-        frameborder="0"
-        allowfullscreen="true"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-      </iframe>
-    </div>
+<h2>Síguenos en redes</h2>
 
-  </div>
+<div class="social-grid">
+
+<!-- TIKTOK -->
+<div class="social-block">
+<h3><i class="fa-brands fa-tiktok"></i> TikTok</h3>
+<iframe src="https://www.tiktok.com/embed/7572641018500123911" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<!-- FACEBOOK -->
+<div class="social-block">
+<h3><i class="fa-brands fa-facebook"></i> Facebook</h3>
+<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F875856031733774&show_text=false" frameborder="0" allowfullscreen></iframe>
+</div>
+
+</div>
 </section>
-
-<script async src="https://www.tiktok.com/embed.js"></script>
-
-<!-- CTA -->
-<section class="compromiso-section">
-  <h2>Contáctanos</h2>
-  <p>Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.</p>
-  <a href="https://wa.link/7a1xme" target="_blank" class="btn">WhatsApp</a>
-</section>
-
-<!-- UBICACIÓN -->
-<section class="location-section">
-  <div class="location-container">
-    <div class="location-info">
-      <h2>Nuestra Ubicación</h2>
-      <p>
-        Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio,
-        un punto de fácil acceso para quienes buscan asesoría contable
-        y tributaria confiable. Visítanos para recibir atención personalizada,
-        resolver tus dudas y obtener el apoyo profesional que tu gestión necesita.
-        ¡Estaremos encantados de ayudarte!
-      </p>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación</a>
-    </div>
-
-    <div class="location-map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
-        loading="lazy"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- WHATSAPP -->
-<a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
-  <i class="fab fa-whatsapp"></i>
-</a>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-item">
-      <i class="fa-brands fa-whatsapp"></i>
-      <h4>WhatsApp</h4>
-      <a href="https://wa.link/7a1xme">Escríbenos</a>
-    </div>
-
-    <div class="footer-item">
-      <i class="fa-solid fa-envelope"></i>
-      <h4>Gmail</h4>
-      <a href="/cdn-cgi/l/email-protection#60071907011305130f1205135120070d01090c4e030f0d"><span class="__cf_email__" data-cfemail="c3a4baa4a2b0a6b0acb1a6b0f283a4aea2aaafeda0acae">[email&#160;protected]</span></a>
-    </div>
-
-    <div class="footer-item">
-      <i class="fa-solid fa-location-dot"></i>
-      <h4>Maps</h4>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6">Ver ubicación</a>
-    </div>
-
-  </div>
-  <div class="footer-bottom">
-    © 2026 Guijarro & Guijarro Asesores Tributarios
- 
-  </div>
-
+<footer style="text-align:center;padding:20px;">
+© 2026 Guijarro & Guijarro
 </footer>
 
-<!-- SCRIPT TIKTOK -->
-<script async src="https://www.tiktok.com/embed.js"></script>
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
+<script>
+(function(){
+  emailjs.init("xynip590u3fLL8eHU");
+})();
+
+document.querySelector(".contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const btn = this.querySelector("button");
+  btn.textContent = "Enviando...";
+  btn.disabled = true;
+
+  emailjs.send("service_mrb3u79","template_tq7xavd",{
+    from_name: this.name.value,
+    from_email: this.email.value,
+    message: this.message.value
+  })
+  .then(()=>{
+    alert("✅ Mensaje enviado correctamente");
+    this.reset();
+    btn.textContent = "Enviar";
+    btn.disabled = false;
+  })
+  .catch(()=>{
+    alert("❌ Error al enviar");
+    btn.textContent = "Enviar";
+    btn.disabled = false;
+  });
+});
+</script>
 </body>
 </html>
