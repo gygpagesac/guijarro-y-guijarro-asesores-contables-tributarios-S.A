@@ -1,490 +1,226 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Personas Naturales | G & G Asesores Tributarios</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="IMAGENES/logo.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<title>Contacto | G & G Asesores Tributarios</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Montserrat', sans-serif; color: #333; }
+<link rel="icon" type="image/png" href="IMAGENES/logo.png">
+<link rel="stylesheet" href="style.css">
 
-    /* HERO */
-    .pn-hero {
-      background: linear-gradient(135deg, #0e3d92 0%, #1b78c1 100%);
-      padding: 70px 20px 60px;
-      text-align: center;
-      color: white;
-    }
-    .pn-hero .hero-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.9; }
-    .pn-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 14px; }
-    .pn-hero p { font-size: 1rem; max-width: 700px; margin: 0 auto; opacity: 0.9; line-height: 1.7; }
-    .hero-badge {
-      display: inline-block;
-      background: #f8b700;
-      color: #0e3d92;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 5px 16px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    /* INTRO */
-    .intro-section { background: #f8faff; padding: 55px 20px; text-align: center; }
-    .intro-section h2 { color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
-    .intro-section p { max-width: 750px; margin: 0 auto; color: #555; line-height: 1.8; font-size: 0.95rem; }
-    .intro-divider { width: 60px; height: 4px; background: #f8b700; border-radius: 4px; margin: 18px auto 0; }
+<style>
+body{font-family:'Montserrat',sans-serif;margin:0}
 
-    /* OBLIGACIÓN CONTABLE — 2 tarjetas */
-    .obligacion-section { padding: 60px 20px; background: white; }
-    .obligacion-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
-    .obligacion-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
-    .obligacion-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .obligacion-card {
-      border-radius: 14px;
-      padding: 34px 28px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .obligacion-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(14,61,146,0.13); }
-    .obligacion-card.obligado {
-      background: linear-gradient(135deg, #0e3d92, #1b78c1);
-      color: white;
-    }
-    .obligacion-card.no-obligado {
-      background: #f8faff;
-      border: 1.5px solid #e0e8f5;
-    }
-    .obligacion-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: #f8b700;
-    }
-    .obligacion-icon {
-      font-size: 2.4rem;
-      margin-bottom: 16px;
-      opacity: 0.9;
-    }
-    .obligacion-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; }
-    .obligacion-card.obligado h3 { color: white; }
-    .obligacion-card.no-obligado h3 { color: #0e3d92; }
-    .obligacion-card p { font-size: 0.88rem; line-height: 1.7; }
-    .obligacion-card.obligado p { color: rgba(255,255,255,0.9); }
-    .obligacion-card.no-obligado p { color: #666; }
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#0e3d92,#1b78c1);
+  color:white;
+  text-align:center;
+  padding:70px 20px;
+}
 
-    /* SERVICIOS — 4x2 */
-    .cards-section { padding: 60px 20px; background: #f0f4fb; }
-    .cards-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
-    .cards-section .section-sub { text-align: center; color: #777; font-size: 0.88rem; margin-bottom: 40px; }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .service-card {
-      background: white;
-      border: 1.5px solid #e0e8f5;
-      border-radius: 14px;
-      padding: 26px 20px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: #f8b700;
-    }
-    .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(14,61,146,0.12); }
-    .card-icon {
-      width: 50px; height: 50px;
-      background: linear-gradient(135deg, #0e3d92, #1b78c1);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 14px;
-      font-size: 1.3rem; color: white;
-    }
-    .service-card h3 { color: #0e3d92; font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
-    .service-card p { color: #666; font-size: 0.82rem; line-height: 1.7; }
+/* CONTACTO */
+.contact-section{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+}
 
-    /* DETALLE — 4x2 */
-    .detail-section { background: white; padding: 60px 20px; }
-    .detail-section h2 { text-align: center; color: #0e3d92; font-size: 1.5rem; font-weight: 700; margin-bottom: 40px; }
-    .detail-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .detail-card { background: #f8faff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    .detail-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-    .detail-card-header i { color: #f8b700; font-size: 1.4rem; flex-shrink: 0; }
-    .detail-card h3 { color: #0e3d92; font-size: 0.88rem; font-weight: 700; line-height: 1.4; }
-    .detail-card ul { list-style: none; padding: 0; }
-    .detail-card ul li {
-      font-size: 0.82rem; color: #555;
-      padding: 6px 0;
-      border-bottom: 1px dashed #e0e8f5;
-      display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
-    }
-    .detail-card ul li:last-child { border-bottom: none; }
-    .detail-card ul li::before { content: '✓'; color: #0e3d92; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
 
-    /* COMPROMISO */
-    .compromiso-section {
-      background: linear-gradient(135deg, #0e3d92, #1b78c1);
-      padding: 55px 20px; text-align: center; color: white;
-    }
-    .compromiso-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; }
-    .compromiso-section p { max-width: 650px; margin: 0 auto 10px; opacity: 0.92; line-height: 1.8; font-size: 0.95rem; }
-    .compromiso-section .highlight { font-weight: 700; color: #f8b700; font-size: 1rem; margin-top: 14px; display: block; }
+.contact-form button{
+  background:#0e3d92;
+  color:white;
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+}
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .obligacion-grid { grid-template-columns: 1fr; }
-      .cards-grid { grid-template-columns: repeat(2, 1fr); }
-      .detail-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 500px) {
-      .pn-hero h1 { font-size: 1.6rem; }
-      .cards-grid { grid-template-columns: 1fr; }
-      .detail-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+/* REDES */
+.social-section{
+  padding:60px 20px;
+  text-align:center;
+  background:#f0f4fb;
+}
+
+.social-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  max-width:900px;
+  margin:auto;
+}
+
+.social-block{
+  background:white;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.social-block iframe{
+  width:100%;
+  max-width:380px;
+  height:620px;
+  border-radius:12px;
+}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .contact-section{grid-template-columns:1fr;}
+  .social-grid{grid-template-columns:1fr;}
+}
+</style>
+
 </head>
+
 <body>
 
 <!-- HEADER -->
 <header class="header-new">
   <div class="header-new-container">
     <div class="logo-new">
-      <img src="IMAGENES/logo.png" alt="Logo G&G">
+      <img src="IMAGENES/logo.png">
       <span>G & G ASESORES TRIBUTARIOS</span>
     </div>
-    <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
-    <nav class="menu-new" id="menu-new">
+
+    <nav class="menu-new">
       <a href="index.html">Inicio</a>
-      <div class="dropdown-new">
-        <a href="servicios.html" class="dropbtn-new">Servicios Contables</a>
-        <div class="dropdown-content-new">
-          <a href="personas-naturales.html">Personas Naturales</a>
-          <a href="personas-juridicas.html">Empresas</a>
-          <a href="anexos tributarios.html">Anexos</a>
-          <a href="otros anexos.html">Otros Anexos</a>
-          <a href="firmas-electronicas.html">Facturación y Firmas Electrónicas</a>
-          <a href="Softwarecontable.html">Software Contable</a>
-        </div>
-      </div>
-      <div class="dropdown-new">
-        <a href="#" class="dropbtn-new">Servicios Laborales</a>
-        <div class="dropdown-content-new">
-          <a href="trabajo.html">Asesoría IESS y Ministerio de Trabajo</a>
-        </div>
-      </div>
-      <div class="dropdown-new">
-        <a href="#" class="dropbtn-new">Otros Servicios</a>
-        <div class="dropdown-content-new">
-          <a href="asesorialegal.html">Asesoría Legal</a>
-          <a href="capacitaciones.html">Capacitaciones</a>
-          <a href="uafe.html">UAFE</a>
-          <a href="sercop.html">SERCOP</a>
-        </div>
-      </div>
+      <a href="servicios.html">Servicios</a>
       <a href="contacto.html">Contacto</a>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="pn-hero">
-  <div class="hero-icon"><i class="fa-solid fa-user"></i></div>
-  <span class="hero-badge">Servicios Tributarios</span>
-  <h1>Personas Naturales</h1>
-  <p>Te ayudamos a cumplir con tus obligaciones tributarias de forma correcta, oportuna y sin complicaciones, ya sea que estés obligado o no a llevar contabilidad.</p>
-</section>
-
-<!-- INTRO -->
-<section class="intro-section">
-  <h2>Todo lo que debes saber</h2>
-  <p>Las personas naturales son contribuyentes que realizan actividades económicas por cuenta propia o en relación de dependencia. Pueden estar obligados o no a llevar contabilidad según si sus ingresos, gastos o capital superan los montos establecidos en la normativa tributaria vigente.</p>
-  <div class="intro-divider"></div>
-</section>
-
-<!-- OBLIGACIÓN CONTABLE — 2 tarjetas -->
-<section class="obligacion-section">
-  <h2>Obligación Contable para Personas Naturales</h2>
-  <p class="section-sub">Información vigente para los períodos 2025 – 2026</p>
-  <div class="obligacion-grid">
-
-    <div class="obligacion-card obligado">
-      <div class="obligacion-icon"><i class="fa-solid fa-user-check"></i></div>
-      <h3>Obligados a llevar contabilidad</h3>
-      <p>Personas naturales cuyos ingresos, costos, gastos o capital superan los montos establecidos por la ley tributaria. Requieren registros contables formales y la firma de un contador autorizado.</p>
-    </div>
-
-    <div class="obligacion-card no-obligado">
-      <div class="obligacion-icon" style="color:#0e3d92;"><i class="fa-solid fa-user-slash"></i></div>
-      <h3>No obligados a llevar contabilidad</h3>
-      <p>Personas naturales con ingresos, gastos o capital inferiores a los montos establecidos en la ley. Deben declarar sus impuestos y mantener un registro básico de ingresos y gastos.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- SERVICIOS — 4x2 -->
-<section class="cards-section">
-  <h2>Servicios para Personas Naturales</h2>
-  <p class="section-sub">Cumplimiento tributario completo y personalizado para cada perfil de contribuyente</p>
-  <div class="cards-grid">
-
-    <div class="service-card">
-      <div class="card-icon"><i class="fa-solid fa-user-check"></i></div>
-      <h3>No Obligados a Contabilidad</h3>
-      <p>Te asesoramos para declarar correctamente, cumplir con el SRI y evitar errores o sanciones innecesarias en tu actividad económica.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="card-icon"><i class="fa-solid fa-book"></i></div>
-      <h3>Obligados a Contabilidad</h3>
-      <p>Gestión contable completa, declaraciones y anexos conforme a la normativa vigente con respaldo de contador autorizado.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-      <h3>Declaraciones y Anexos</h3>
-      <p>Elaboración y presentación oportuna de declaraciones de IVA, Renta y todos los anexos tributarios que te correspondan.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
-      <h3>Acompañamiento Continuo</h3>
-      <p>Asesoría clara, seguimiento permanente y respaldo profesional en cada obligación tributaria a lo largo del año.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-      <h3>Prevención de Multas</h3>
-      <p>Revisamos tus fechas de vencimiento y obligaciones para que nunca te llegue una multa o interés por declaración tardía.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
-      <h3>Gestión ante el IESS</h3>
-      <p>Evaluamos tu vinculación, aportes e ingresos reportados para asegurarnos de que tu cumplimiento con el IESS sea correcto.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="card-icon"><i class="fa-solid fa-rotate-left"></i></div>
-      <h3>Devolución de Impuestos</h3>
-      <p>Tramitamos la devolución de IVA para adultos mayores, personas con discapacidad y otros contribuyentes con derecho a reembolso.</p>
-    </div>
-
-    <div class="service-card">
-      <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-      <h3>Inicio de Actividad Económica</h3>
-      <p>Te orientamos desde el registro del RUC hasta la elección del régimen tributario más conveniente para tu actividad.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- DETALLE — 4x2 -->
-<section class="detail-section">
-  <h2>¿Qué incluye cada servicio?</h2>
-  <div class="detail-grid">
-
-    <div class="detail-card">
-      <div class="detail-card-header">
-        <i class="fa-solid fa-file-invoice-dollar"></i>
-        <h3>Declaración de IVA</h3>
-      </div>
-      <ul>
-        <li>Mensual o semestral según tu actividad</li>
-        <li>Revisión de facturas de compra y venta</li>
-        <li>Cálculo de crédito tributario</li>
-        <li>Presentación antes del vencimiento</li>
-      </ul>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-card-header">
-        <i class="fa-solid fa-calendar-check"></i>
-        <h3>Declaración de Renta</h3>
-      </div>
-      <ul>
-        <li>Impuesto a la Renta anual</li>
-        <li>Gastos personales deducibles</li>
-        <li>Conciliación tributaria</li>
-        <li>Presentación en formulario 102</li>
-      </ul>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-card-header">
-        <i class="fa-solid fa-paperclip"></i>
-        <h3>Anexos Tributarios</h3>
-      </div>
-      <ul>
-        <li>Anexo Transaccional Simplificado (ATS)</li>
-        <li>Anexo de Gastos Personales (AGP)</li>
-        <li>RDEP para empleados en relación de dependencia</li>
-        <li>Presentación dentro de plazos legales</li>
-      </ul>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-card-header">
-        <i class="fa-solid fa-book"></i>
-        <h3>Contabilidad Formal</h3>
-      </div>
-      <ul>
-        <li>Registro de ingresos y egresos</li>
-        <li>Estados financieros mensuales</li>
-        <li>Balance general y estado de resultados</li>
-        <li>Firma de contador autorizado</li>
-      </ul>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-card-header">
-        <i class="fa-solid fa-building-columns"></i>
-        <h3>Obligaciones con el IESS</h3>
-      </div>
-      <ul>
-        <li>Evaluación del tipo de vinculación</li>
-        <li>Revisión de aportes patronales y personales</li>
-        <li>Verificación de ingresos reportados</li>
-        <li>Cumplimiento de obligaciones laborales</li>
-      </ul>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-card-header">
-        <i class="fa-solid fa-store"></i>
-        <h3>Registro de Actividad (RUC)</h3>
-      </div>
-      <ul>
-        <li>Obtención y actualización del RUC</li>
-        <li>Elección del régimen tributario adecuado</li>
-        <li>Habilitación para emitir comprobantes</li>
-        <li>Asesoría en obligaciones iniciales</li>
-      </ul>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-card-header">
-        <i class="fa-solid fa-rotate-left"></i>
-        <h3>Devolución de IVA</h3>
-      </div>
-      <ul>
-        <li>Adultos mayores y personas con discapacidad</li>
-        <li>Recopilación de comprobantes válidos</li>
-        <li>Gestión del trámite ante el SRI</li>
-        <li>Seguimiento hasta el reembolso</li>
-      </ul>
-    </div>
-
-    <div class="detail-card">
-      <div class="detail-card-header">
-        <i class="fa-solid fa-shield-halved"></i>
-        <h3>Defensa ante el SRI</h3>
-      </div>
-      <ul>
-        <li>Atención de notificaciones y requerimientos</li>
-        <li>Respuesta a procesos de determinación</li>
-        <li>Revisión de glosas y multas</li>
-        <li>Presentación de recursos administrativos</li>
-      </ul>
-    </div>
-
-  </div>
+<section class="hero">
+  <h1>Contáctanos</h1>
+  <p>Estamos listos para ayudarte con asesoría contable y tributaria</p>
 </section>
 
 <!-- CONTACTO -->
 <section class="contact-section">
-  <h2 class="title">Contáctanos</h2>
-  <p class="subtitle">Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.</p>
-  <a href="https://wa.link/7a1xme" class="btn btn-whatsapp" target="_blank">Escríbenos por WhatsApp</a>
+
+<div>
+  <h2>Escríbenos</h2>
+  <p>Déjanos tu mensaje y te responderemos lo más pronto posible.</p>
+</div>
+
+<form class="contact-form">
+  <input type="text" name="name" placeholder="Tu nombre" required>
+  <input type="email" name="email" placeholder="Tu correo" required>
+  <textarea name="message" placeholder="Mensaje" required></textarea>
+  <button type="submit">Enviar</button>
+</form>
+
 </section>
-  
-<!-- COMPROMISO -->
-<section class="compromiso-section">
-  <h2><i class="fa-solid fa-handshake" style="margin-right:10px;"></i>Nuestro Compromiso Contigo</h2>
-  <p>No importa si apenas empiezas tu actividad económica o si llevas años declarando: en G & G Asesores Tributarios te atendemos con la misma dedicación y claridad en cada caso.</p>
-  <p>Te explicamos cada paso, te avisamos antes de cada vencimiento y nos aseguramos de que nunca enfrentes una multa por descuido.</p>
-  <span class="highlight">Contigo desde el primer día, con asesoría clara, puntual y completamente personalizada.</span>
+
+<!-- REDES -->
+<section class="social-section">
+<h2>Síguenos en redes</h2>
+
+<div class="social-grid">
+
+<!-- TIKTOK -->
+<div class="social-block">
+<h3><i class="fa-brands fa-tiktok"></i> TikTok</h3>
+<iframe src="https://www.tiktok.com/embed/7572641018500123911"></iframe>
+</div>
+
+<!-- FACEBOOK -->
+<div class="social-block">
+<h3><i class="fa-brands fa-facebook"></i> Facebook</h3>
+<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F875856031733774"></iframe>
+</div>
+
+</div>
 </section>
 
 <!-- UBICACIÓN -->
 <section class="location-section">
   <div class="location-container">
+
     <div class="location-info">
       <h2>Nuestra Ubicación</h2>
-      <p>Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio, un punto de fácil acceso para quienes buscan asesoría contable y tributaria confiable. Visítanos y recibe atención personalizada de nuestro equipo profesional.</p>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación en Google Maps</a>
+      <p>Estamos ubicados en Lago Agrio. Visítanos para recibir atención personalizada.</p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación</a>
     </div>
+
     <div class="location-map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
-        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149"></iframe>
     </div>
+
   </div>
 </section>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
-  <i class="fab fa-whatsapp"></i>
-</a>
 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
+
     <div class="footer-item">
       <i class="fa-brands fa-whatsapp"></i>
       <h4>WhatsApp</h4>
-      <a href="https://wa.link/7a1xme" target="_blank">Escríbenos</a>
+      <a href="https://wa.link/7a1xme">Escríbenos</a>
     </div>
+
     <div class="footer-item">
       <i class="fa-solid fa-envelope"></i>
-      <h4>Gmail</h4>
+      <h4>Correo</h4>
       <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a>
     </div>
+
     <div class="footer-item">
       <i class="fa-solid fa-location-dot"></i>
       <h4>Maps</h4>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank">Ver ubicación</a>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6">Ver ubicación</a>
     </div>
+
   </div>
+
   <div class="footer-bottom">
-    © 2026 Guijarro Guijarro & Asesores Tributarios. Todos los derechos reservados.
+    © 2026 Guijarro & Guijarro Asesores Tributarios
   </div>
 </footer>
 
-<script src="script.js"></script>
-<script type="module" src="header.js"></script>
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("xynip590u3fLL8eHU");
+})();
+
+document.querySelector(".contact-form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  emailjs.send("service_mrb3u79","template_tq7xavd",{
+    from_name: this.name.value,
+    from_email: this.email.value,
+    message: this.message.value
+  })
+  .then(()=>{
+    alert("✅ Mensaje enviado correctamente");
+    this.reset();
+  })
+  .catch(()=>{
+    alert("❌ Error al enviar");
+  });
+});
+</script>
+
 </body>
 </html>
-
