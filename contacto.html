@@ -200,6 +200,11 @@
     @media (max-width: 500px) {
       .cards-grid { grid-template-columns: 1fr; }
     }
+    .tiktok-embed { 
+      max-width: 380px !important;
+      min-width: 380px !important;
+      height: 620px !important;
+    }
   </style>
 </head>
 
@@ -317,17 +322,22 @@
 <section class="social-section">
   <h2>Síguenos en redes sociales</h2>
   <p class="subtitle">Mantente al día con nuestros consejos y novedades tributarias</p>
-
   <div class="social-grid">
-
     <!-- TIKTOK -->
-    <div class="social-block">
-      <h3><i class="fa-brands fa-tiktok"></i> TikTok</h3>
-      <blockquote class="tiktok-embed"
-        cite="https://www.tiktok.com/@gygasesorestribuatarios/video/7572641018500123911?is_from_webapp=1&sender_device=pc&web_id=7621924058917701127"
-        data-video-id="7576679536092384524">
-      </blockquote>
-    </div>
+    div class="social-block">  
+    <h3><i class="fa-brands fa-tiktok"></i> TikTok</h3> 
+    <blockquote class="tiktok-embed"   
+      cite="https://www.tiktok.com/@gygasesorestribuatarios/video/7572641018500123911"   
+      data-video-id="7572641018500123911"
+      style="max-width: 100%; min-width: 325px;">       
+      <section> 
+        <a target="_blank"   
+          href="https://www.tiktok.com/@gygasesorestribuatarios/video/7572641018500123911">    
+          Ver video en TikTok   
+        </a>   
+      </section>
+    </blockquote>
+  </div>
 
     <!-- FACEBOOK -->
     <div class="social-block">
@@ -406,6 +416,15 @@
     </div>
 
   </div>
-
   <div class="footer-bottom">
     © 2026 Guijarro & Guijarro Asesores Tributarios
+ 
+  </div>
+
+</footer>
+
+<!-- SCRIPT TIKTOK -->
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+</body>
+</html>
