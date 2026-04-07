@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" type="image/png" href="IMAGENES/logo.png">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -24,7 +24,14 @@ body{font-family:'Montserrat',sans-serif;}
 
 /* CARDS */
 .cards-section{padding:60px 20px;text-align:center;}
-.cards-grid{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;}
+.cards-grid{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  max-width:1100px;
+  margin:auto;
+  flex-wrap:wrap;
+}
 .service-card{
   width:320px;
   background:#f8faff;
@@ -98,6 +105,7 @@ body{font-family:'Montserrat',sans-serif;}
   border-radius:12px;
 }
 
+/* RESPONSIVE */
 @media(max-width:700px){
   .social-grid{grid-template-columns:1fr;}
   .contact-section-horizontal{grid-template-columns:1fr;}
@@ -107,10 +115,46 @@ body{font-family:'Montserrat',sans-serif;}
 
 <body>
 
+<!-- HEADER (tu diseño original) -->
+<header class="header-new">
+  <div class="header-new-container">
+    <div class="logo-new">
+      <img src="IMAGENES/logo.png" alt="Logo G&G">
+      <span>G & G ASESORES TRIBUTARIOS</span>
+    </div>
+    <div class="menu-toggle-new" id="menu-toggle-new">☰</div>
+    <nav class="menu-new" id="menu-new">
+      <a href="index.html">Inicio</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+
 <!-- HERO -->
 <section class="sw-hero">
 <h1>Contáctanos</h1>
 <p>Estamos listos para ayudarte</p>
+</section>
+
+<!-- EQUIPO -->
+<section class="cards-section">
+  <h2>Nuestro equipo está listo para ayudarte</h2>
+
+  <div class="cards-grid">
+
+    <div class="service-card">
+      <h3>Ingeniero</h3>
+      <p>Optimización y automatización de procesos contables.</p>
+      <a href="https://wa.link/7a1xme" class="btn">WhatsApp</a>
+    </div>
+
+    <div class="service-card">
+      <h3>Economista</h3>
+      <p>Análisis financiero y asesoría tributaria.</p>
+      <a href="https://wa.link/7a1xme" class="btn">WhatsApp</a>
+    </div>
+
+  </div>
 </section>
 
 <!-- CONTACTO -->
@@ -151,6 +195,15 @@ body{font-family:'Montserrat',sans-serif;}
 </div>
 </section>
 
+<!-- UBICACIÓN -->
+<section class="location-section">
+  <h2 style="text-align:center;">Nuestra Ubicación</h2>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m14!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149"
+    width="100%" height="300" style="border:0;">
+  </iframe>
+</section>
+
 <!-- FOOTER -->
 <footer style="text-align:center;padding:20px;">
 © 2026 Guijarro & Guijarro
@@ -189,5 +242,6 @@ document.querySelector(".contact-form").addEventListener("submit", function(e){
   });
 });
 </script>
+
 </body>
 </html>
