@@ -17,112 +17,160 @@
   <link rel="icon" type="image/png" href="IMAGENES/logo.png">
 
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Montserrat',sans-serif;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; }
 
     /* HERO */
-    .sw-hero{
-      background:linear-gradient(135deg,#0e3d92,#1b78c1);
-      color:white;
-      text-align:center;
-      padding:70px 20px;
+    .sw-hero {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
     }
-    .hero-icon{font-size:3rem;margin-bottom:15px;}
-    .hero-badge{
-      background:#f8b700;
-      color:#0e3d92;
-      padding:5px 15px;
-      border-radius:20px;
-      display:inline-block;
-      margin-bottom:15px;
-      font-weight:bold;
+    .hero-icon { font-size: 3rem; margin-bottom: 15px; }
+    .hero-badge {
+      background: #f8b700;
+      color: #0e3d92;
+      padding: 5px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 15px;
+      font-weight: bold;
     }
 
     /* CARDS */
-    .cards-section{padding:60px 20px;text-align:center;}
-    .cards-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:25px;
-      max-width:1100px;
-      margin:auto;
+    .cards-section { padding: 60px 20px; text-align: center; }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
     }
-    .service-card{
-      background:#f8faff;
-      padding:25px;
-      border-radius:12px;
-      border:1px solid #e0e8f5;
-      transition:.3s;
+    .service-card {
+      background: #f8faff;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #e0e8f5;
+      transition: 0.3s;
     }
-    .service-card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
-    .card-icon{
-      background:linear-gradient(135deg,#0e3d92,#1b78c1);
-      color:white;
-      width:50px;height:50px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:10px;
-      margin:0 auto 15px;
+    .card-icon {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      color: white;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      margin: 0 auto 15px;
     }
 
     /* TEXTO + FORM */
-    .contact-section-horizontal{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      padding:60px 20px;
-      max-width:1100px;
-      margin:auto;
+    .contact-section-horizontal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .contact-text h2 {
+      font-size: 1.6rem;
+      color: #0e3d92;
+      margin-bottom: 15px;
+    }
+    .contact-text p {
+      color: #444;
+      line-height: 1.7;
     }
     .contact-form input,
-    .contact-form textarea{
-      width:100%;
-      padding:12px;
-      margin-bottom:10px;
-      border:1px solid #ccc;
-      border-radius:8px;
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
     }
-    .contact-form button{
-      background:#0e3d92;
-      color:white;
-      padding:12px;
-      border:none;
-      border-radius:8px;
+    .contact-form textarea {
+      height: 130px;
+      resize: vertical;
+    }
+    .contact-form button {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .contact-form button:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
     }
 
     /* TIKTOK */
-    .tiktok-section{text-align:center;padding:60px 20px;}
-    .tiktok-container{display:flex;justify-content:center;}
+    .tiktok-section { text-align: center; padding: 60px 20px; background: #f0f4fb; }
+    .tiktok-section h2 { margin-bottom: 30px; color: #0e3d92; }
+    .tiktok-container { display: flex; justify-content: center; }
 
     /* CTA */
-    .compromiso-section{
-      background:linear-gradient(135deg,#0e3d92,#1b78c1);
-      color:white;
-      text-align:center;
-      padding:60px 20px;
+    .compromiso-section {
+      background: linear-gradient(135deg, #0e3d92, #1b78c1);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
     }
-    .btn{
-      background:#f8b700;
-      color:#0e3d92;
-      padding:12px 25px;
-      border-radius:30px;
-      display:inline-block;
-      margin-top:20px;
-      text-decoration:none;
-      font-weight:bold;
+    .compromiso-section h2 { font-size: 1.8rem; margin-bottom: 10px; }
+    .compromiso-section p { margin-bottom: 5px; }
+
+    .btn {
+      background: #f8b700;
+      color: #0e3d92;
+      padding: 12px 25px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #e6a800;
+      transform: translateY(-2px);
+    }
+
+    /* Títulos de sección */
+    .cards-section h2,
+    .contact-section-horizontal h2 {
+      font-size: 1.8rem;
+      color: #0e3d92;
+      margin-bottom: 10px;
+    }
+    .cards-section .subtitle {
+      color: #555;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* RESPONSIVE */
-    @media(max-width:900px){
-      .cards-grid{grid-template-columns:repeat(2,1fr);}
-      .contact-section-horizontal{grid-template-columns:1fr;}
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-section-horizontal { grid-template-columns: 1fr; }
     }
-    @media(max-width:500px){
-      .cards-grid{grid-template-columns:1fr;}
+    @media (max-width: 500px) {
+      .cards-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -134,7 +182,7 @@
   <div class="header-new-container">
 
     <div class="logo-new">
-      <img src="IMAGENES/logo.png">
+      <img src="IMAGENES/logo.png" alt="Logo G&G">
       <span>G & G ASESORES TRIBUTARIOS</span>
     </div>
 
@@ -200,27 +248,25 @@
       <div class="card-icon"><i class="fa-solid fa-key"></i></div>
       <h3>Ejecutivo 1</h3>
       <p>Profesional dedicado a ayudarte en la obtención y gestión de tu firma electrónica, de forma rápida y segura.</p>
-      <a href="https://wa.link/7a1xme" class="btn">Contactar por WhatsApp</a>
+      <a href="https://wa.link/7a1xme" class="btn" style="margin-top:15px;">Contactar por WhatsApp</a>
     </div>
 
     <div class="service-card">
       <div class="card-icon"><i class="fa-solid fa-user"></i></div>
       <h3>Ejecutivo 2</h3>
       <p>Profesional que te asesora y apoya en el manejo de tus cuentas como persona natural no obligada a llevar contabilidad.</p>
-      <a href="https://wa.link/7a1xme" class="btn">Contactar por WhatsApp</a>
+      <a href="https://wa.link/7a1xme" class="btn" style="margin-top:15px;">Contactar por WhatsApp</a>
     </div>
-
-    <!-- (continúan todas las cards igual...) -->
 
   </div>
 </section>
 
 <!-- TEXTO + FORM -->
 <div class="contact-section-horizontal">
-  <div>
+  <div class="contact-text">
     <h2>Contáctanos</h2>
     <p>
-      En Guijarro & Guijarro Asesores Tributarios, sabemos lo importante que es contar con el respaldo adecuado...
+      En Guijarro & Guijarro Asesores Tributarios, sabemos lo importante que es contar con el respaldo adecuado para gestionar tus obligaciones contables y tributarias. Nuestro equipo de profesionales está disponible para orientarte, resolver tus dudas y ofrecerte soluciones personalizadas que se adapten a tu situación. No importa si eres persona natural o empresa, estamos aquí para ayudarte.
     </p>
   </div>
 
@@ -234,8 +280,7 @@
 
 <!-- TIKTOK -->
 <section class="tiktok-section">
-  <h2 class="title">Síguenos en TikTok</h2>
-
+  <h2>Síguenos en TikTok</h2>
   <div class="tiktok-container">
     <blockquote class="tiktok-embed"
       cite="https://www.tiktok.com/@gygasesorestribuatarios/video/7576679536092384524"
@@ -250,7 +295,7 @@
 <section class="compromiso-section">
   <h2>Contáctanos</h2>
   <p>Estamos listos para ayudarte. Escríbenos y recibe atención inmediata.</p>
-  <a href="https://wa.link/7a1xme" class="btn">WhatsApp</a>
+  <a href="https://wa.link/7a1xme" target="_blank" class="btn">WhatsApp</a>
 </section>
 
 <!-- UBICACIÓN -->
@@ -258,18 +303,25 @@
   <div class="location-container">
     <div class="location-info">
       <h2>Nuestra Ubicación</h2>
-      <p>Estamos ubicados en Lago Agrio...</p>
-      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" class="btn-location">Ver ubicación</a>
+      <p>
+        Estamos ubicados en Calle Eloy Alfaro S/N y Progreso, en Lago Agrio,
+        un punto de fácil acceso para quienes buscan asesoría contable
+        y tributaria confiable. Visítanos para recibir atención personalizada,
+        resolver tus dudas y obtener el apoyo profesional que tu gestión necesita.
+        ¡Estaremos encantados de ayudarte!
+      </p>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6" target="_blank" class="btn-location">Ver ubicación</a>
     </div>
 
     <div class="location-map">
-      <iframe src="https://www.google.com/maps/embed?..."></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5642.449025909367!2d-76.89165878195168!3d0.08462267538183149!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2823575832dd13%3A0x92ccfe2bc9fd1613!2sGuijarro%20Guijarro%20Asesores%20Tributarios!5e0!3m2!1ses-419!2sec!4v1769028781664!5m2!1ses-419!2sec"
+        loading="lazy"></iframe>
     </div>
   </div>
 </section>
 
 <!-- WHATSAPP -->
-<a href="https://wa.link/7a1xme" class="whatsapp-float">
+<a href="https://wa.link/7a1xme" target="_blank" class="whatsapp-float">
   <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -280,7 +332,7 @@
     <div class="footer-item">
       <i class="fa-brands fa-whatsapp"></i>
       <h4>WhatsApp</h4>
-      <a href="#">Escríbenos</a>
+      <a href="https://wa.link/7a1xme">Escríbenos</a>
     </div>
 
     <div class="footer-item">
@@ -292,7 +344,7 @@
     <div class="footer-item">
       <i class="fa-solid fa-location-dot"></i>
       <h4>Maps</h4>
-      <a href="#">Ver ubicación</a>
+      <a href="https://maps.app.goo.gl/axWHhbYRLcTLKLcE6">Ver ubicación</a>
     </div>
 
   </div>
