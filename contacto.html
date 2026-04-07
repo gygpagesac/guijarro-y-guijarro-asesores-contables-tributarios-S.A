@@ -41,11 +41,15 @@
     /* CARDS */
     .cards-section { padding: 60px 20px; text-align: center; }
     .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      justify-content: center;
       gap: 25px;
       max-width: 1100px;
       margin: auto;
+      flex-wrap: wrap;
+    }
+    .cards-grid .service-card {
+      width: 320px;
     }
     .service-card {
       background: #f8faff;
@@ -338,7 +342,7 @@
     <div class="footer-item">
       <i class="fa-solid fa-envelope"></i>
       <h4>Gmail</h4>
-      <a href="mailto:gygasesores1@gmail.com">gygasesores1@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#60071907011305130f1205135120070d01090c4e030f0d"><span class="__cf_email__" data-cfemail="c3a4baa4a2b0a6b0acb1a6b0f283a4aea2aaafeda0acae">[email&#160;protected]</span></a>
     </div>
 
     <div class="footer-item">
@@ -350,12 +354,4 @@
   </div>
 
   <div class="footer-bottom">
-    © 2026 Guijarro Guijarro & Asesores Tributarios
-  </div>
-</footer>
-
-<script src="script.js"></script>
-<script type="module" src="header.js"></script>
-
-</body>
-</html>
+    © 2026 Guijarro Guijarro Asesores Tributarios
